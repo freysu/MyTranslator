@@ -12345,3 +12345,25 @@ footer.footer {
 	padding-bottom: 4rem;
 }
 
+.fixed_btn {
+	/* 	position: fixed;
+	bottom: 60%;
+	left: 60%;
+
+	margin-left: 500px;
+	width: 40px;
+	height: 40px; */
+	position: fixed;
+	bottom: 20%;
+	right: 3%;
+	z-index: 100;
+	width: 2rem;
+	display: none;
+}
+
+.fixed_btn .bti,
+.contact,
+.btu,
+.btd {
+	margin: 5px;
+}

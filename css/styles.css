@@ -12368,3 +12368,63 @@ footer.footer {
 	margin: 2px;
 	width: 2rem;
 }
+
+.modal {
+	background: black;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.4;
+	display: none;
+}
+
+.info {
+	position: fixed;
+	background-color: white;
+	width: 18rem;
+	height: 10rem;
+	left: 50%;
+	top: 50%;
+	margin-top: -15%;
+	margin-left: -20%;
+	display: none;
+	z-index: 99999;
+	background-color: #07C160;
+}
+
+.wxgzh {
+	width: 70%;
+}
+
+.rscodeDiv {
+	margin: 2%;
+	width: 138%;
+}
+
+#rscode {
+	width: 42%;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	padding: 1.5%;
+	margin-left: 2%;
+	color: #333333;
+}
+
+#okBtn {
+	padding: 1.5%;
+	border-radius: 5px;
+	color: #333333;
+}
+
+#btn_cancel {
+	padding: 1.5%;
+	border-radius: 5px;
+	color: #333333;
+}
+
+.ovfHiden {
+	overflow: hidden;
+	height: 100%;
+}

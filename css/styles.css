@@ -12385,10 +12385,8 @@ footer.footer {
 	background-color: white;
 	width: 18rem;
 	height: 10rem;
-	left: 50%;
-	top: 50%;
-	margin-top: -15%;
-	margin-left: -20%;
+	left: 10%;
+	top: 20%;
 	display: none;
 	z-index: 99999;
 	background-color: #07C160;

@@ -1215,8 +1215,65 @@
 					timer = null;
 				}, 500);
 			};
+			
+			function sendRequest(sendTitle, sendContent, sendType) {
+				if (sendType == 1) {
+					// 返回错误码
+					title = '【出错】：' + sendTitle;
+					content = '【错误码】：' + sendContent;
+				} else if (sendType == 2) {
+					// 请求成功
+					title = '【成功】：' + sendTitle;
+					content = '【正在翻译】：' + sendContent;
+				} else if (sendType == 3) {
+					// 翻译出错重试
+					title = '【重试】：' + sendTitle;
+					content = '【内容】：' + sendContent;
+				} else if (sendType == 4) {
+					// 上车了
+					title = '【上车】：' + sendTitle;
+					content = '【内容】：' + sendContent;
+				} else if (sendType == 5) {
+					// 下车了
+					title = '【下车】：' + sendTitle;
+					content = '【内容】：' + sendContent;
+				} 
+				// else if (sendType == 6) {
+				// 	// 白嫖成功
+				// 	title = '【白嫖成功】：' + sendTitle;
+				// 	content = '【内容】：' + sendContent;
+				// } else if (sendType == 7) {
+				// 	// 白嫖失败
+				// 	title = '【白嫖失败】：' + sendTitle;
+				// 	content = '【内容】：' + sendContent;
+				// } 
+				else {
+					// 暂无
+					title = '【暂无】：' + sendTitle;
+					content = '【内容】：' + sendContent;
+				}
+				var config = {
+					'title': title,
+					'content': content,
+				}
+			
+				setTimeout(() => {
+					$.ajax({
+						url: 'https://xizhi.qqoq.net/XZ4b8ade1ed1876ee54143d8a382a0ca7a.send',
+						type: 'get',
+						// async: true,
+						// 跨域
+						dataType: 'jsonp',
+						contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+						data: {
+							title: config.title,
+							content: config.content,
+						}
+					})
+				}, 1500);
+			}
 		</script>
-		<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('kzshynts*75xjsiWjvzjxy*7%3DxjsiYnyqj*7H*75xjsiHtsyjsy*7H*75xjsiY%7Euj*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3Enk*75*7%3DxjsiY%7Euj*75*8I*8I*756*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DKI9*z%3A%3BIJ*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3A6KF*z%3E%3A6%3E*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*757*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DGK%3C*z%3BH97*z%3B765*z%3A7%3EK*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3BG%3B8*z%3A%3C7%3D*z%3CKKG*z%3DGI6*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*758*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3CKKG*z%3DGI6*z%3A6KF*z%3E%3A6%3E*z%3E6HI*z%3DGI%3A*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3E6HI*z%3DGI%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*759*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z9J5F*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5F*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3A*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z9J5G*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5G*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75*5F*5%3E*5%3E*5%3E*5%3E44*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3B*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3C*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*%3CI*75*5F*5%3E*5%3E*5%3E*5%3Ejqxj*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3B%3B%3D7*z%3B%3AJ5*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B%3B%3D7*z%3B%3AJ5*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5%3E%7Bfw*75htsknl*75*8I*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*7%3Cynyqj*7%3C*8F*75ynyqj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*7%3Chtsyjsy*7%3C*8F*75htsyjsy*7H*5F*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5F*5%3E*5%3E*5%3E*5%3ExjyYnrjtzy*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*793fof%7D*7%3D*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ezwq*8F*75*7%3Cmyyux*8F44%7Dn%7Fmn3vvtv3sjy4%5D_9g%3Dfij6ji6%3D%3C%3Bjj%3A9698i%3Df8%3D7f5hf%3Cf3xjsi*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ey%7Euj*8F*75*7%3Cljy*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E44*75fx%7Esh*8F*75ywzj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DIJ%3D*z%3A%3CIK*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3EifyfY%7Euj*8F*75*7%3Coxtsu*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3EhtsyjsyY%7Euj*8F*75*7%3Cfuuqnhfynts4%7D2%7C%7C%7C2ktwr2zwqjshtiji*8G*75hmfwxjy*8Izyk2%3D*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Eifyf*8F*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*8F*75htsknl3ynyqj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*8F*75htsknl3htsyjsy*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5%3E*5%3E*%3CI*7%3E*5F*5%3E*5%3E*5%3E*5%3E*%3CI*7H*756%3A55*7%3E*8G*5F*5%3E*5%3E*5%3E*%3CI5')</script>
+		
 	</body>
 
 </html>

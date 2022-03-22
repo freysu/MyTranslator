@@ -931,7 +931,8 @@
 				}, 1500))))))));
 
 			}
-
+			
+			var status = 1;
 
 			function translateFn(QUERY, FROM, TO, callback) {
 				const salt = (new Date()).getTime();
@@ -955,11 +956,14 @@
 						},
 						success: (data) => {
 							if (data.error_code == "52003") {
-								showToast("账号配置出错，请重新配置...", 1500);
-								sendRequest(localStorage.getItem("appid1"), data.error_code + "：" +
-									"账号配置出错，请重新配置...", 1);
+								showToast("账号配置出错，请重新配置...解决不了的话加群反馈作者", 3000);
+								sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "账号配置出错，请重新配置... &&"+localStorage.getItem("key1"), 1);
 								return;
 							} else if (data.error_code == "54003") {
+								if(status == true){
+									showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者",3000);
+									status = false;
+								}
 								callback(data.error_code);
 							} else {
 								if (data.trans_result[0] != undefined) {

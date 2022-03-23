@@ -11,6 +11,8 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
 			type="text/css"> <!-- Core theme CSS (includes Bootstrap)-->
 		<link href="css/styles.css" rel="stylesheet">
+		<!--打赏-->
+		<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
 		<script async src="./js/busuanzi.pure.mini.js">
 		</script>
 		<script>
@@ -28,7 +30,7 @@
 		<nav class="navbar navbar-light bg-light static-top">
 			<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a>
 				<a class="btn btn-primary"
-					href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/" id="firstUse">帮助</a>
+					href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ" id="firstUse">公告栏</a>
 			</div>
 		</nav>
 		<header class="masthead">
@@ -308,8 +310,6 @@
 		<script type="text/javascript">
 			var clipboard = new ClipboardJS('.clipboard');
 		</script>
-		<!--打赏-->
-		<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
 		<script>
 			window.tctipConfig = {
 				//最上面的文字
@@ -362,8 +362,57 @@
 			};
 		</script>
 		<script src="./js/tctip.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.12.2/dist/av-min.js"></script>
+		<!-- <script src="./js/av-min_4.12.2.js"></script> -->
 		<script>
-
+			const { Query, User } = AV;
+			AV.init({
+			  appId: "JDyKzX2WjDm03l9R47pT27OW-MdYXbMMI",
+			  appKey: "6ghYuOIAAoNqH1ha8KL8AKns",
+			  serverURL: "https://freysu.xyz"
+			});
+			
+			// 声明 class
+			const MyUser = AV.Object.extend('MyUser');
+			const Notice = AV.Object.extend('Notice');
+			// 构建对象
+			const myuser = new MyUser();
+			const notice = new Notice();
+			const query = new AV.Query('MyUser');
+			const query1 = new AV.Query('Notice');
+			const query2 = new AV.Query('Notice');
+			
+			// // 为属性赋值
+			// notice.set('title', '2022.03.22 23:31');
+			// notice.set('content', "还未更新appid和key的小伙伴请及时更新！");
+			
+			// // 将对象保存到云端
+			// notice.save().then((notice) => {
+			//   // 成功保存之后，执行其他逻辑
+			//   console.log(`保存成功。objectId：${notice.id}`);
+			//   const query = new AV.Query('notice');
+			//   query.get(notice.id).then((notice) => {
+			//   	const title = notice.get('title');
+			//   	const content = notice.get('content');
+			//   });
+			//   console.log("哈哈哈哈哈哈哈哈哈哈哈")
+			// }, (error) => {
+			//   // 异常处理
+			// });
+			// window.onscroll = () => {
+			// 	if (timer !== null) {
+			// 		clearTimeout(timer);
+			// 	}
+			// 	timer = setTimeout(() => {
+			
+			// 		// query.select(['appid', 'key']);
+			// 		// query.first().then((myuser) => {
+			// 		//   showToast(myuser.get('appid')+":"+myuser.get('key'),1500);
+			// 		// });
+			// 		timer = null;
+			// 	}, 500);
+			// }
+		
 			let to = $(".originData");
 			let from = $(".newData");
 			let from1 = $(".newData1");
@@ -385,16 +434,27 @@
 			var key = localStorage.getItem("key1");
 			const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
 			let timer = null;
-			
 
 			$("#yourAppid").val(appid);
 			$("#yourKey").val(key);
 
 			if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null || localStorage.getItem("key1") == null) {
-				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！", 4500);
-				location.href = "#account";
+				query1.select(['content', 'isOld']);
+				query1.equalTo('isOld', false);
+				query1.descending('createdAt');
+				query1.first().then((notice) => {
+						showToast(notice.get('content'),4500);
+						location.href = "#account";
+				});
+				// showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！", 4500);
 			}  else {
-				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，请去查阅一下帮助，我已更新最新教程！', 3500);
+				query2.select(['content', 'isOld']);
+				query2.equalTo('isOld', true);
+				query2.descending('createdAt');
+				query2.first().then((notice) => {
+						showToast(notice.get('content'),4500);
+						location.href = "#start";
+				});
 			}
 
 			$("#saveBtn").click(() => {
@@ -402,12 +462,36 @@
 					let _appid = $("#yourAppid").val();
 					let _key = $("#yourKey").val()
 					if (!_appid || !_key || _appid == "null" || _key == "null" || _appid.match(/,"expire":/) != null || _key.match(/,"expire":/) != null) {
-						showToast("请检查后重新输入！", 1500)
+						showToast("请重新输入！", 1500)
 					} else {
 						localStorage.setItem("appid1", _appid);
 						localStorage.setItem("key1", _key);
+						var objectId = localStorage.getItem("objectId1");
+						if(objectId != null){
+							// 老用户
+							const myuser = AV.Object.createWithoutData('MyUser', objectId);
+							myuser.set('appid1', _appid);
+							myuser.set("key1", _key);
+							myuser.set("exit",false);
+							myuser.save();
+						}else{
+							// 新用户
+							myuser.set('appid1', _appid);
+							myuser.set("key1", _key);
+							myuser.set("times",0);
+							myuser.set("exit",false);
+							myuser.save().then((myuser) => {
+							  // 成功保存之后，执行其他逻辑
+							  console.log(`保存成功。objectId：${myuser.id}`);
+							  localStorage.setItem("objectId1",myuser.id);
+							}, (error) => {
+							  // 异常处理
+							});
+						}
+						
+						
 						showToast("保存成功！", 2000);
-						sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
+						// sendRequest(localStorage.getItem("appid1"), "上车了！", 4);	
 						location.href = "#start";
 					}
 				}
@@ -422,9 +506,16 @@
 
 			$("#deleteBtn").click(() => {
 				const fn = () => {
-					sendRequest(localStorage.getItem("appid1"), "下车了！", 5);
+					// sendRequest(localStorage.getItem("appid1"), "下车了！", 5);
 					localStorage.removeItem("appid1");
 					localStorage.removeItem("key1");
+					var objectId = localStorage.getItem("objectId1");
+					if(objectId !=null){
+						const myuser = AV.Object.createWithoutData('MyUser', objectId);
+						myuser.set("exit",true);
+						myuser.save();
+					}
+					// localStorage.removeItem("objectId1");
 					showToast("已删除...下次使用请重新保存！", 2000);
 					$("#yourAppid").val("");
 					$("#yourKey").val("");
@@ -462,8 +553,28 @@
 					} else {
 						location.href = "#res1";
 						showToast("正在翻译中...请耐心等待", 1500);
-						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
-						translateMain(0);
+						var objectId = localStorage.getItem("objectId1");
+						if(objectId !=null){
+							const myuser = AV.Object.createWithoutData('MyUser', objectId);
+							myuser.increment("times",1);
+							myuser.save().then((myuser)=>{
+								console.log(myuser.times);
+							})
+						}else if(objectId == null){
+							myuser.set('appid1', _appid);
+							myuser.set("key1", _key);
+							myuser.set("times",0);
+							myuser.set("exit",false);
+							myuser.save().then((myuser) => {
+							  // 成功保存之后，执行其他逻辑
+							  console.log(`保存成功。objectId：${myuser.id}`);
+							  localStorage.setItem("objectId1",myuser.id);
+							}, (error) => {
+							  // 异常处理
+							});
+						}
+						// sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
+						// translateMain(0);
 					}
 				}
 				if (timer !== null) {
@@ -484,8 +595,28 @@
 					} else {
 						location.href = "#res1";
 						showToast("正在翻译中...请耐心等待", 1500);
-						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
-						translateMain(1);
+						var objectId = localStorage.getItem("objectId1");
+						if(objectId !=null){
+							const myuser = AV.Object.createWithoutData('MyUser', objectId);
+							myuser.increment("times",1);
+							myuser.save().then((myuser)=>{
+								console.log(myuser.times);
+							})
+						}else if(objectId == null){
+							myuser.set('appid1', _appid);
+							myuser.set("key1", _key);
+							myuser.set("times",0);
+							myuser.set("exit",false);
+							myuser.save().then((myuser) => {
+							  // 成功保存之后，执行其他逻辑
+							  console.log(`保存成功。objectId：${myuser.id}`);
+							  localStorage.setItem("objectId1",myuser.id);
+							}, (error) => {
+							  // 异常处理
+							});
+						}
+						// sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
+						// translateMain(1);
 					}
 				}
 				if (timer !== null) {
@@ -1277,7 +1408,7 @@
 				}, 1500);
 			}
 		</script>
-		
+
 	</body>
 
 </html>

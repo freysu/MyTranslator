@@ -401,14 +401,49 @@
 				const fn = () => {
 					let _appid = $("#yourAppid").val();
 					let _key = $("#yourKey").val()
-					if (!_appid || !_key || _appid == "null" || _key == "null" || _appid.match(/,"expire":/) != null || _key.match(/,"expire":/) != null) {
+					if (!_appid || !_key || _appid == "null" || _key == "null" || _appid.match(/,"expire":/) != null || _key.match(/,"expire":/) != null || _appid == "appid" || _key == "key" || _appid=="123hk" || _key =="123hk") {
 						showToast("请检查后重新输入！", 1500)
 					} else {
 						localStorage.setItem("appid1", _appid);
 						localStorage.setItem("key1", _key);
-						showToast("保存成功！", 2000);
-						sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
-						location.href = "#start";
+						
+						isCanUse(localStorage.getItem("appid1"),localStorage.getItem("key1"),"aa","zh","en");
+						function isCanUse(check_Appid,check_Key,QUERY,TO,FROM){
+							const salt = (new Date()).getTime();
+							const str1 = check_Appid + QUERY + salt + check_Key;
+							const sign = MD5.main(str1);
+							$.ajax({
+								url,
+								type: 'get',
+								// async: true,
+								// 跨域
+								dataType: 'jsonp',
+								contentType: "application/x-www-form-urlencoded; charset=utf-8",
+								data: {
+									q: QUERY,
+									appid: check_Appid,
+									salt: salt,
+									from: FROM,
+									to: TO,
+									sign: sign,
+								},
+								success: (data) => {
+									if (data.error_code == "52003") {
+										showToast("保存失败！请检查后重新输入！", 3000);
+										sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&"+localStorage.getItem("key1"), 1);
+										localStorage.removeItem("appid1");
+										localStorage.removeItem("key1");
+										$("#yourAppid").val("");
+										$("#yourKey").val("");
+										return;
+									}else{
+										showToast("保存成功！", 2000);
+										sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
+										location.href = "#start";
+									}
+								},
+							})
+						}
 					}
 				}
 				if (timer !== null) {

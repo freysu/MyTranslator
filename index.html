@@ -22,13 +22,75 @@
 				s.parentNode.insertBefore(hm, s);
 			})();
 		</script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script> <!-- Bootstrap core JS-->
+		<script src="./js/bootstrap.bundle.min.js"></script><!-- Core theme JS-->
+				<!--打赏-->
+		<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
+		<script>
+			window.tctipConfig = {
+				//最上面的文字
+				headText: "公告 & 打赏",
+				//侧边栏文本
+				siderText: "公告 & 打赏",
+				//侧边栏文本高度调整
+				siderTextTop: "-72px",
+				//侧边栏背景颜色
+				siderBgcolor: "#323d45",
+				//整个侧边栏的高度设置
+				siderTop: "118px",
+				//底部文字
+				buttomText: "使用帮助",
+				//底部文字链接
+				buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
+				//显示列表
+				list: {
+					notice: {
+						name: "公告",
+						className: "myR-on",
+						icon: "./assets/img/tip.png",
+						text: `
+						&emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~</br>
+						&emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~</br>
+						<span style='margin-left:3.5rem;transform: scale(0.85);display: inline-block;'>FreySu</span></br>
+						<span style='margin-left:2.5rem;transform: scale(0.85);display: inline-block;'>2022.03.24</span></br>
+						<a href='https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0' class='btn btn-dark btn-sm' target='_blank' title='点击我自动跳转到QQ加群页面' style='margin-bottom:-1.5rem;margin-left:0.75rem;color: #fff;padding: 0.25rem 0.5rem;font-size:12px;'>QQ交流群</a> </br> `,
+					},
+					qqgroup: {
+						name: "QQ群",
+						desc: "欢迎进群(238223706)反馈交流！",
+						icon: "./assets/img/tree-round-QQ群.png",
+						qrimg: "./assets/img/QQ群二维码.png"
+					},
+					alipay: {
+						name: "支付宝",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/支付宝.png",
+						qrimg: "./assets/img/支付宝收款码.png"
+					},
+					weixin: {
+						name: "微信",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/微信.png",
+						qrimg: "./assets/img/微信收款码.png"
+					},
+					qq: {
+						name: "QQ",
+						desc: "感谢你的支持，我会继续努力！",
+						icon: "./assets/img/qq.png",
+						qrimg: "./assets/img/QQ收款码.png"
+					}
+				}
+			};
+		</script>
+		<script src="./js/tctip.min.js"></script>
 	</head>
 
 	<body>
 		<nav class="navbar navbar-light bg-light static-top">
 			<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a>
 				<a class="btn btn-primary"
-					href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/" id="firstUse">帮助</a>
+					href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank" id="firstUse">帮助</a>
 			</div>
 		</nav>
 		<header class="masthead">
@@ -247,7 +309,7 @@
 							</li>
 							<li class="list-inline-item">
 								<a
-									href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0"><b>QQ交流群</b></a>
+									href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0" target="_blank"><b>QQ交流群</b></a>
 							</li>
 						</ul>
 						<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.</p>
@@ -299,69 +361,11 @@
 				<img class="btd" src="./assets/img/返回底部.png" alt="" title="跳转到账号配置区域">
 			</a>
 		</div>
-		<script src="./js/jquery.min.js"></script>
-		<script src="./js/bootstrap.min.js"></script> <!-- Bootstrap core JS-->
-		<script src="./js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
 		<script src="./js/clipboard.min.js"></script>
-		<script src="./js/md5.js"></script>
 		<script type="text/javascript">
 			var clipboard = new ClipboardJS('.clipboard');
 		</script>
-		<!--打赏-->
-		<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
-		<script>
-			window.tctipConfig = {
-				//最上面的文字
-				headText: "公告 & 打赏",
-				//侧边栏文本
-				siderText: "公告 & 打赏",
-				//侧边栏文本高度调整
-				siderTextTop: "-72px",
-				//侧边栏背景颜色
-				siderBgcolor: "#323d45",
-				//整个侧边栏的高度设置
-				siderTop: "118px",
-				//底部文字
-				buttomText: "使用帮助",
-				//底部文字链接
-				buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
-				//显示列表
-				list: {
-					notice: {
-						name: "公告",
-						className: "myR-on",
-						icon: "./assets/img/tip.png",
-						text: `抱歉！麻烦之前填写过appid和key的小伙伴们<b>重新填写</b>！</br> &emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~维护不易，如果能请作者喝杯冰阔落，那最好不过啦~ 非常感谢！</br> `,
-					},
-					qqgroup: {
-						name: "QQ群",
-						desc: "欢迎进群反馈交流！",
-						icon: "./assets/img/tree-round-QQ群.png",
-						qrimg: "./assets/img/QQ群二维码.png"
-					},
-					alipay: {
-						name: "支付宝",
-						desc: "感谢你的支持，我会继续努力！",
-						icon: "./assets/img/支付宝.png",
-						qrimg: "./assets/img/支付宝收款码.png"
-					},
-					weixin: {
-						name: "微信",
-						desc: "感谢你的支持，我会继续努力！",
-						icon: "./assets/img/微信.png",
-						qrimg: "./assets/img/微信收款码.png"
-					},
-					qq: {
-						name: "QQ",
-						desc: "感谢你的支持，我会继续努力！",
-						icon: "./assets/img/qq.png",
-						qrimg: "./assets/img/QQ收款码.png"
-					}
-				}
-			};
-		</script>
-		<script src="./js/tctip.min.js"></script>
+		<script src="./js/md5.js"></script>
 		<script>
 
 			let to = $(".originData");
@@ -391,10 +395,10 @@
 			$("#yourKey").val(key);
 
 			if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null || localStorage.getItem("key1") == null) {
-				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！", 4500);
+				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！解决不了的话加群反馈作者(QQ群:238223706)", 4500);
 				// location.href = "#account";
 			}  else {
-				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，请去查阅一下帮助，我已更新最新教程！', 3500);
+				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，请去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)', 3500);
 			}
 
 			$("#saveBtn").click(() => {
@@ -429,7 +433,7 @@
 								},
 								success: (data) => {
 									if (data.error_code == "52003") {
-										showToast("保存失败！请检查后重新输入！", 3000);
+										showToast("保存失败！请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 										sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&"+localStorage.getItem("key1"), 1);
 										localStorage.removeItem("appid1");
 										localStorage.removeItem("key1");
@@ -491,7 +495,7 @@
 			$(".translateBtn").click(() => {
 				const fn = () => {
 					if (!localStorage.getItem("appid1") || !localStorage.getItem("key1")) {
-						showToast("您未配置账号，请配置完账号再开始使用...", 3000);
+						showToast("您未配置账号，请配置完账号再开始使用...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容...", 1500);
 					} else {
@@ -513,7 +517,7 @@
 			$(".translateAndCompareBtn").click(() => {
 				const fn = () => {
 					if (!localStorage.getItem("appid1") || !localStorage.getItem("key1")) {
-						showToast("您未配置账号，请配置完账号再开始使用...", 3000);
+						showToast("您未配置账号，请配置完账号再开始使用...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容所以无法对比...", 1500);
 					} else {
@@ -991,12 +995,12 @@
 						},
 						success: (data) => {
 							if (data.error_code == "52003") {
-								showToast("账号配置出错，请重新配置...解决不了的话加群反馈作者", 3000);
+								showToast("账号配置出错，请重新配置...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 								sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "账号配置出错，请重新配置... &&"+localStorage.getItem("key1"), 1);
 								return;
 							} else if (data.error_code == "54003") {
 								// if(status == true){
-									showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者",1500);
+									showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)",1000);
 									// status = false;
 								// }
 								callback(data.error_code);
@@ -1312,7 +1316,6 @@
 				}, 1500);
 			}
 		</script>
-		
 	</body>
 
 </html>

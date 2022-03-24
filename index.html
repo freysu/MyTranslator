@@ -392,7 +392,7 @@
 
 			if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null || localStorage.getItem("key1") == null) {
 				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！", 4500);
-				location.href = "#account";
+				// location.href = "#account";
 			}  else {
 				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，请去查阅一下帮助，我已更新最新教程！', 3500);
 			}
@@ -439,7 +439,7 @@
 									}else{
 										showToast("保存成功！", 2000);
 										sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
-										location.href = "#start";
+										// location.href = "#start";
 									}
 								},
 							})
@@ -495,7 +495,7 @@
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容...", 1500);
 					} else {
-						location.href = "#res1";
+						// location.href = "#res1";
 						showToast("正在翻译中...请耐心等待", 1500);
 						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
 						translateMain(0);
@@ -517,7 +517,7 @@
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容所以无法对比...", 1500);
 					} else {
-						location.href = "#res1";
+						// location.href = "#res1";
 						showToast("正在翻译中...请耐心等待", 1500);
 						sendRequest(localStorage.getItem("appid1"),localStorage.getItem("key1") +  "：" + to.val(), 2);
 						translateMain(1);
@@ -537,7 +537,7 @@
 					if (to.val() == "") {
 						showToast("你未输入要翻译的内容所以无法对比...", 1500);
 					} else {
-						location.href = "#res1";
+						// location.href = "#res1";
 						showToast("正在对比...", 1500);
 						compareMain();
 					}
@@ -967,7 +967,7 @@
 
 			}
 			
-			var status = 1;
+			// var status = 1;
 
 			function translateFn(QUERY, FROM, TO, callback) {
 				const salt = (new Date()).getTime();
@@ -995,10 +995,10 @@
 								sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "账号配置出错，请重新配置... &&"+localStorage.getItem("key1"), 1);
 								return;
 							} else if (data.error_code == "54003") {
-								if(status == true){
-									showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者",3000);
-									status = false;
-								}
+								// if(status == true){
+									showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者",1500);
+									// status = false;
+								// }
 								callback(data.error_code);
 							} else {
 								if (data.trans_result[0] != undefined) {

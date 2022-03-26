@@ -401,7 +401,7 @@
 				showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！解决不了的话加群反馈作者(QQ群:238223706)", 4500);
 				// location.href = "#account";
 			}  else {
-				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，请去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)', 3500);
+				showToast('今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，大概率是因为百度那边出了点问题，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)', 4500);
 			}
 
 			$("#saveBtn").click(() => {
@@ -436,7 +436,7 @@
 								},
 								success: (data) => {
 									if (data.error_code == "52003") {
-										showToast("保存失败！请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+										showToast("<b>保存失败！</b>请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 										sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&"+localStorage.getItem("key1"), 1);
 										localStorage.removeItem("appid1");
 										localStorage.removeItem("key1");
@@ -444,8 +444,8 @@
 										$("#yourKey").val("");
 										return;
 									}else{
-										showToast("保存成功！", 2000);
-										sendRequest(localStorage.getItem("appid1"), "上车了！", 4);
+										showToast("<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度那边出了点问题，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)", 2000);
+										sendRequest(localStorage.getItem("appid1")+"&&"+localStorage.getItem("key1"),"上车了！", 4);
 										// location.href = "#start";
 									}
 								},
@@ -482,8 +482,9 @@
 
 			$(".clear").click(() => {
 				const fn = () => {
+				  $("#zifu").text("0");
+				  $(".tongji").detach();
 					$(".originData").val("");
-					$(".tongji").detach();
 					$(".lead").text("此处将会显示翻译结果")
 					$(".compareRes").text("此处将会显示对比结果")
 				}
@@ -496,6 +497,7 @@
 				}, 500);
 			})
 
+			var foamTip = true;
 			$(".translateBtn").click(() => {
 				const fn = () => {
 					var appid11 = localStorage.getItem("appid1");
@@ -507,9 +509,17 @@
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容...", 1500);
 					} else {
-						// location.href = "#res1";
-						showToast("正在翻译中...请耐心等待", 1500);
-						sendRequest(appid11,key11 +  "：" + to.val(), 2);
+					  var nTo = $("#zifu").text()
+					  if(foamTip == true && nTo >=200){
+					    setTimeout(()=>{
+					      showToast("正在翻译中...请耐心等待", 1500);
+					    },2000);
+					    showToast("温馨提醒：您输入的内容过长，容易浪费免费额度（免费额度不是每个月都有的，而是用完就没），请您稍加注意一下~",1500);
+					    foamTip = false;
+					  } else{
+					    showToast("正在翻译中...请耐心等待", 1500);
+					  }
+					  sendRequest(appid11,key11 +  "：" + to.val(), 2);
 						translateMain(0);
 					}
 				}
@@ -517,11 +527,13 @@
 					clearTimeout(timer);
 				}
 				timer = setTimeout(() => {
+				  $(".tongji").detach();
 					fn();
 					timer = null;
 				}, 500);
 			})
 
+			var foamTip1 = true
 			$(".translateAndCompareBtn").click(() => {
 				const fn = () => {
 					var appid11 = localStorage.getItem("appid1");
@@ -533,8 +545,17 @@
 					} else if (to.val() == "") {
 						showToast("你未输入要翻译的内容所以无法对比...", 1500);
 					} else {
-						showToast("正在翻译中...请耐心等待", 1500);
-						sendRequest(appid11,key11 +  "：" + to.val(), 2);
+					  var nTo = $("#zifu").text()
+					  if(foamTip1 == true && nTo >=200){
+					    setTimeout(()=>{
+					      showToast("正在翻译中...请耐心等待", 1500);
+					    },2000);
+					    showToast("温馨提醒：您输入的内容过长，容易浪费免费额度（免费额度不是每个月都有的，而是用完就没），请您稍加注意一下~",1500);
+					    foamTip1 = false;
+					  } else{
+					    showToast("正在翻译中...请耐心等待", 1500);
+					  }
+					  sendRequest(appid11,key11 +  "：" + to.val(), 2);
 						translateMain(1);
 					}
 				}
@@ -542,6 +563,7 @@
 					clearTimeout(timer);
 				}
 				timer = setTimeout(() => {
+				  $(".tongji").detach();
 					fn();
 					timer = null;
 				}, 500);

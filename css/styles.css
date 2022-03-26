@@ -803,7 +803,6 @@ progress {
 .col-auto {
 	flex: 0 0 auto;
 	width: auto;
-	margin-top: -5%;
 }
 
 .col-1 {
@@ -12430,4 +12429,8 @@ footer.footer {
 
 .tongji{
 	margin-top:0.5625rem;
+}
+
+.other{
+	margin-top: -5%;
 }

@@ -803,6 +803,7 @@ progress {
 .col-auto {
 	flex: 0 0 auto;
 	width: auto;
+	margin-top: -5%;
 }
 
 .col-1 {
@@ -12259,8 +12260,8 @@ header.masthead {
 	/* background-color: #343a40; */
 	/* background: url("../assets/img/bg-masthead.jpg") no-repeat center center; */
 	background-size: cover;
-	padding-top: 8rem;
-	padding-bottom: 8rem;
+	padding-top: 6rem;
+	padding-bottom: 5rem;
 }
 
 header.masthead:before {
@@ -12425,4 +12426,8 @@ footer.footer {
 .ovfHiden {
 	overflow: hidden;
 	height: 100%;
+}
+
+.tongji{
+	margin-top:0.5625rem;
 }

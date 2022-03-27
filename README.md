@@ -38,7 +38,7 @@
    _[https://freysu.github.io/MyTranslator](https://freysu.github.io/MyTranslator)_
 
 - 项目演示动图：  
-   ![演示动图](.\docs\演示动图.gif)
+   ![演示动图](docs/演示动图.gif)
 
 - 项目仓库文件介绍
 
@@ -133,19 +133,19 @@
 ## 预览截图
 
 - PC 端页面
-  <img  src=".\docs\homepage_web.PNG" alt="PC端页面" title="" />
-  <img  src=".\docs\homepage_web_1.PNG" alt="PC端页面1" title="" />
-  <img  src=".\docs\homepage_web_2.PNG" alt="PC端页面2" title="" />
+  <img  src="docs/homepage_web.PNG" alt="PC端页面" title="" />
+  <img  src="docs/homepage_web_1.PNG" alt="PC端页面1" title="" />
+  <img  src="docs/homepage_web_2.PNG" alt="PC端页面2" title="" />
 - 移动端页面
-  <img style="width: 50%;" src=".\docs\homepage_android.jpg" alt="移动端页面" title="" />
-  <img style="width: 50%;" src=".\docs\homepage_android_1.jpg" alt="移动端页面1" title="" />
-  <img style="width: 50%;" src=".\docs\homepage_android_2.jpg" alt="移动端页面2" title="" />
+  <img style="width: 50%;" src="docs/homepage_android.jpg" alt="移动端页面" title="" />
+  <img style="width: 50%;" src="docs/homepage_android_1.jpg" alt="移动端页面1" title="" />
+  <img style="width: 50%;" src="docs/homepage_android_2.jpg" alt="移动端页面2" title="" />
 - 仿 toast 提示功能
-  <img src=".\docs\toast.png" alt="仿toast提示功能" title="" />
+  <img src="docs/toast.png" alt="仿toast提示功能" title="" />
 - 错误报警通知功能
-  <img style="width: 50%;" src=".\docs\错误报警通知.gif">
+  <img style="width: 50%;" src="docs/错误报警通知.gif">
 - 公告与打赏功能
-  <img style="width: 50%;" src=".\docs\notionAndDonate.PNG"/>
+  <img style="width: 50%;" src="docs/notionAndDonate.PNG"/>
 
 ## 常见问题 QA：
 

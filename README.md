@@ -133,17 +133,22 @@
 ## 预览截图
 
 - PC 端页面
+
   <img  src="https://s2.loli.net/2022/03/28/aks7Sn6HrZdjgeD.png" alt="PC端页面" title="" />
   <img  src="https://s2.loli.net/2022/03/28/Hh7vbUdBWtPNK4f.png" alt="PC端页面1" title="" />
   <img  src="https://s2.loli.net/2022/03/28/8EaB3WrmhnC2zcK.png" alt="PC端页面2" title="" />
-- 移动端页面
+
+- 移动端页面<br/>
   <img style="width: 50%;" src="https://s2.loli.net/2022/03/28/YjkXvFNnW6DGO48.jpg" alt="移动端页面" title="" />
   <img style="width: 50%;" src="https://s2.loli.net/2022/03/28/lHiZdTRLXbSpI3P.jpg" alt="移动端页面1" title="" />
   <img style="width: 50%;" src="https://s2.loli.net/2022/03/28/ZXn5pxyV361UFsg.jpg" alt="移动端页面2" title="" />
+
 - 仿 toast 提示功能
   <img src="https://s2.loli.net/2022/03/28/fZKiw739PGFxM1o.png" alt="仿toast提示功能" title="" />
+
 - 错误报警通知功能
   <img style="width: 50%;" src="https://s2.loli.net/2022/03/28/D8GXchbrtRolgnf.gif">
+
 - 公告与打赏功能
   <img style="width: 50%;" src="https://s2.loli.net/2022/03/28/F68mAzYNy4rw3HO.png"/>
 

@@ -88,9 +88,16 @@
 
 <body>
 	<nav class="navbar navbar-light bg-light static-top">
-		<div class="container"> <a class="navbar-brand" href="#signup">论文翻译降重助手</a>
-			<a class="btn btn-primary" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank"
-				id="firstUse">帮助</a>
+		<div class="container"> 
+			<a class="navbar-brand" href="#signup">论文翻译降重助手</a>
+			<div>
+				<a class="btn btn-warning btn-sm" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank"
+					id="firstUse"><i class="bi bi-info-square"></i> 使用帮助
+				</a>
+				<a class="btn btn-dark btn-sm" href="https://freysu.github.io/ReadFile" target="_blank"
+					id="readFileBtn"><i class="bi bi-check-square"></i> 一键提取查重报告
+				</a>
+			</div>
 		</div>
 	</nav>
 	<header class="masthead">
@@ -122,18 +129,7 @@
 			</div>
 		</div>
 	</header>
-	<!--遮罩层-->
-	<div class="modal">1</div>
-
-	<!--信息层-->
-	<div class="info">
-		<div class="rscodeDiv">
-			<img class="wxgzh" src="./assets/img/扫码_搜索联合传播样式-标准色版.png">
-			<input type="text" class="form-control-sm" id="rscode" placeholder="请在此输入密钥" name="rscode">
-			<input type="button" id="okBtn" class="btn-light btn-sm" value="提交" />
-			<input type="button" value="取消" id="btn_cancel" class="btn-light btn-sm" />
-		</div>
-	</div>
+	
 	<section class="showcase ">
 		<div class="container-fluid p-0 ">
 			<div class="row g-0 ">
@@ -395,12 +391,12 @@
 
 		if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
 			localStorage.getItem("key1") == null) {
-			showToast("欢迎新来的小伙伴来访！请先到页面底下配置账号！解决不了的话加群反馈作者(QQ群:238223706)", 4500);
+			showToast("&emsp;&emsp;欢迎新来的小伙伴来访！<br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【使用帮助】查阅教程再到页面底下配置账号！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 4500);
 			// location.href = "#account";
 		} else {
 			showToast(
-				'今天又是美好的一天，论文人加油啊！如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)',
-				4500);
+				'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
+				5000);
 		}
 
 		$("#saveBtn").click(() => {
@@ -410,7 +406,7 @@
 				if (!_appid || !_key || _appid == "null" || _key == "null" || _appid.match(/,"expire":/) !=
 					null || _key.match(/,"expire":/) != null || _appid == "appid" || _key == "key" || _appid ==
 					"123hk" || _key == "123hk") {
-					showToast("请检查后重新输入！", 1500)
+					showToast("请检查后重新输入！", 3500)
 				} else {
 					localStorage.setItem("appid1", _appid);
 					localStorage.setItem("key1", _key);
@@ -439,9 +435,8 @@
 							success: (data) => {
 								if (data.error_code == "52003") {
 									showToast("<b>保存失败！</b>请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)",
-										3000);
-									sendRequest(localStorage.getItem("appid1"), data.error_code +
-										"：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
+										4500);
+									// sendRequest(localStorage.getItem("appid1"), data.error_code +"：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
 									localStorage.removeItem("appid1");
 									localStorage.removeItem("key1");
 									$("#yourAppid").val("");
@@ -450,9 +445,8 @@
 								} else {
 									showToast(
 										"<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
-										2000);
-									sendRequest(localStorage.getItem("appid1") + "&&" + localStorage
-										.getItem("key1"), "上车了！", 4);
+										4500);
+									// sendRequest(localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
 									// location.href = "#start";
 								}
 							},
@@ -474,7 +468,7 @@
 				sendRequest(localStorage.getItem("appid1"), "下车了！", 5);
 				localStorage.removeItem("appid1");
 				localStorage.removeItem("key1");
-				showToast("已删除...下次使用请重新保存！", 2000);
+				showToast("已删除...下次使用请重新保存！", 4000);
 				$("#yourAppid").val("");
 				$("#yourKey").val("");
 			}
@@ -514,19 +508,19 @@
 				} else if (appid11 == "null" || key11 == "null" || appid11.match(/,"expire":/) != null || key11
 					.match(/,"expire":/) != null || appid11 == "appid" || key11 == "key" || appid11 == "123hk" ||
 					key11 == "123hk") {
-					showToast("账号有误，请重新检查配置...解决不了的话加群反馈作者(QQ群:238223706)", 1500);
+					showToast("账号有误，请重新检查配置...解决不了的话加群反馈作者(QQ群:238223706)", 2500);
 				} else if (to.val() == "") {
-					showToast("你未输入要翻译的内容...", 1500);
+					showToast("你未输入要翻译的内容...", 2500);
 				} else {
 					var nTo = $("#zifu").text()
 					if (foamTip == true && nTo >= 200) {
 						setTimeout(() => {
-							showToast("正在翻译中...请耐心等待", 1500);
+							showToast("正在翻译中...请耐心等待", 2500);
 						}, 2000);
-						showToast("温馨提醒：您输入的内容过长，容易浪费免费额度（免费额度不是每个月都有的，而是用完就没），请您稍加注意一下~", 1500);
+						showToast("温馨提醒：您输入的内容过长，不过也没啥，就是想提醒一下，哈哈哈~", 2500);
 						foamTip = false;
 					} else {
-						showToast("正在翻译中...请耐心等待", 1500);
+						showToast("正在翻译中...请耐心等待", 2500);
 					}
 					sendRequest(appid11, key11 + "：" + to.val(), 2);
 					translateMain(0);
@@ -552,19 +546,19 @@
 				} else if (appid11 == "null" || key11 == "null" || appid11.match(/,"expire":/) != null || key11
 					.match(/,"expire":/) != null || appid11 == "appid" || key11 == "key" || appid11 == "123hk" ||
 					key11 == "123hk") {
-					showToast("账号有误，请重新检查配置...解决不了的话加群反馈作者(QQ群:238223706)", 1500);
+					showToast("账号有误，请重新检查配置...解决不了的话加群反馈作者(QQ群:238223706)", 2500);
 				} else if (to.val() == "") {
-					showToast("你未输入要翻译的内容所以无法对比...", 1500);
+					showToast("你未输入要翻译的内容所以无法对比...", 2500);
 				} else {
 					var nTo = $("#zifu").text()
 					if (foamTip1 == true && nTo >= 200) {
 						setTimeout(() => {
-							showToast("正在翻译中...请耐心等待", 1500);
+							showToast("正在翻译中...请耐心等待", 2500);
 						}, 2000);
-						showToast("温馨提醒：您输入的内容过长，容易浪费免费额度（免费额度不是每个月都有的，而是用完就没），请您稍加注意一下~", 1500);
+						showToast("温馨提醒：您输入的内容过长，不过也没啥，就是想提醒一下，哈哈哈~", 2500);
 						foamTip1 = false;
 					} else {
-						showToast("正在翻译中...请耐心等待", 1500);
+						showToast("正在翻译中...请耐心等待", 2500);
 					}
 					sendRequest(appid11, key11 + "：" + to.val(), 2);
 					translateMain(1);
@@ -583,10 +577,10 @@
 		$(".compare").click(() => {
 			const fn = () => {
 				if (to.val() == "") {
-					showToast("你未输入要翻译的内容所以无法对比...", 1500);
+					showToast("你未输入要翻译的内容所以无法对比...", 2500);
 				} else {
 					// location.href = "#res1";
-					showToast("正在对比...", 1500);
+					showToast("正在对比...", 2500);
 					compareMain();
 				}
 			}
@@ -600,55 +594,55 @@
 		})
 
 		$(".restart").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3);
 			translateZeroFn();
 		});
 
 		// $(".restart1").on("click", function() {
-		// 	showToast("正在重试...", 1500);
+		// 	showToast("正在重试...", 2500);
 		// 	from1.html("正在重试...");
 		// sendRequest(localStorage.getItem("appid1"),"正在重试...",3)
 		// 	translateOneFn();
 		// });
 
 		$(".restart2").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from2.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
 			translateTwoFn();
 		});
 
 		$(".restart3").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from3.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
 			translateThreeFn();
 		});
 
 		$(".restart4").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from4.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
 			translateFourFn();
 		});
 
 		$(".restart5").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from5.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
 			translateFiveFn();
 		});
 
 		$(".restart6").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from6.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3)
 			translateFiveFn();
 		});
 		$(".restart7").on("click", function () {
-			showToast("正在重试...", 1500);
+			showToast("正在重试...", 2500);
 			from7.html("正在重试...");
 			sendRequest(localStorage.getItem("appid1"), "正在重试...", 3);
 			translateFiveFn();
@@ -1064,7 +1058,7 @@
 							return;
 						} else if (data.error_code == "54003") {
 							// if(status == true){
-							showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 1000);
+							showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 							// status = false;
 							// }
 							callback(data.error_code);
@@ -1082,22 +1076,52 @@
 				})
 			}, 1500);
 		}
-
-
-		function showToast(msg, duration) {
-			duration = isNaN(duration) ? 3000 : duration;
+		
+		function showToast(msg,duration){
+			duration = isNaN(duration) ? 5000 : duration;
+			var d = (new Date);
+			//获取年份
+			var years = d.getFullYear();
+			//获取月份
+			var months = d.getMonth() + 1;
+			//获取日期
+			var dates = d.getDate();
+			//获取小时
+			var hours = d.getHours();
+			//获取分钟
+			var minutes = d.getMinutes();
+			//获取秒钟 
+			var seconds = d.getSeconds();
+			var nowTime = years + "/" + months + "/" + dates + " " + hours + ":" + minutes + ":" + seconds
 			var m = document.createElement('div');
-			m.innerHTML = msg;
-			m.style.cssText =
-				"width:60%; min-width:180px; background:#000; opacity:0.6; height:auto;min-height: 30px; color:#fff; line-height:30px; text-align:center; border-radius:4px; position:fixed; top:60%; left:20%; z-index:999999;";
+			var time = nowTime;
+			var content = `<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+			  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+			    <div class="toast-header">
+			      <i style="margin-right:0.15625rem;"class="bi bi-app-indicator"></i>
+			      <strong class="me-auto">论文翻译降重助手</strong>
+			      <small>`+time+`</small>
+			      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			    </div>
+			    <div class="toast-body">
+					`+msg+`
+			    </div>
+			  </div>
+			</div>`
 			document.body.appendChild(m);
+			m.innerHTML = content;
+			var toastLiveExample = document.getElementById('liveToast')
+			var toast = new bootstrap.Toast(toastLiveExample)
+			toast.show();
 			setTimeout(function () {
 				var d = 0.5;
 				m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d +
 					's ease-in';
 				m.style.opacity = '0';
+				console.log(m.style.dataBsDelay)
 				setTimeout(function () {
-					document.body.removeChild(m)
+					toast.hide();
+					document.body.removeChild(m);
 				}, d * 1000);
 			}, duration);
 		}
@@ -1344,17 +1368,7 @@
 				// 下车了
 				title = '【下车】：' + sendTitle;
 				content = '【内容】：' + sendContent;
-			}
-			// else if (sendType == 6) {
-			// 	// 白嫖成功
-			// 	title = '【白嫖成功】：' + sendTitle;
-			// 	content = '【内容】：' + sendContent;
-			// } else if (sendType == 7) {
-			// 	// 白嫖失败
-			// 	title = '【白嫖失败】：' + sendTitle;
-			// 	content = '【内容】：' + sendContent;
-			// } 
-			else {
+			} else {
 				// 暂无
 				title = '【暂无】：' + sendTitle;
 				content = '【内容】：' + sendContent;

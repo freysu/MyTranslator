@@ -43,6 +43,7 @@ loginBtn.click(() => {
 $('.close').click(()=>{
 	$('#exampleModal').modal('hide')
 	$('.modal-backdrop').css("z-index","-10");
+	$('body').css("padding-right","");
 });
 
 $("#saveBtn").click(() => {
@@ -93,6 +94,7 @@ $("#saveBtn").click(() => {
 								4500);
 							$('#exampleModal').modal('hide');
 							$('.modal-backdrop').css("z-index","-10");
+							$('body').css("padding-right","");
 							sendRequest(localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
 
 						}
@@ -1100,3 +1102,7 @@ function tongji(Words, type) {
 			break;
 	}
 }
+
+$('#exampleModal').on('hidden.bs.modal', function (event) {
+	$('body').css("padding-right","");
+})

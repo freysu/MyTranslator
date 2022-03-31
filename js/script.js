@@ -25,26 +25,12 @@ $("#yourKey").val(key);
 
 if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
 	localStorage.getItem("key1") == null) {
-	showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 4500);
+	showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出<b>【免申请 API 体验 3 分钟】功能</b>和<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 4500);
 } else {
 	showToast(
-		'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
+		'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
 		5000);
 }
-
-
-
-var loginBtn = $('#loginBtn');
-loginBtn.click(() => {
-	showToast('请在弹出的窗口配置账号”', 1500);
-	$('#exampleModal').modal('show')
-});
-
-$('.close').click(()=>{
-	$('#exampleModal').modal('hide')
-	$('.modal-backdrop').css("z-index","-10");
-	$('body').css("padding-right","");
-});
 
 $("#saveBtn").click(() => {
 	const fn = () => {
@@ -83,7 +69,7 @@ $("#saveBtn").click(() => {
 						if (data.error_code == "52003") {
 							showToast("<b>保存失败！</b>请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)",
 								4500);
-							sendRequest(localStorage.getItem("appid1"), data.error_code +"：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
+							sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
 							localStorage.removeItem("appid1");
 							localStorage.removeItem("key1");
 							$("#yourAppid").val("");
@@ -93,8 +79,8 @@ $("#saveBtn").click(() => {
 							showToast("<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
 								4500);
 							$('#exampleModal').modal('hide');
-							$('.modal-backdrop').css("z-index","-10");
-							$('body').css("padding-right","");
+							$('.modal-backdrop').css("z-index", "-10");
+							$('body').css("padding-right", "");
 							sendRequest(localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
 
 						}
@@ -121,7 +107,7 @@ $("#deleteBtn").click(() => {
 		$("#yourAppid").val("");
 		$("#yourKey").val("");
 		$('#exampleModal').modal('hide')
-		$('.modal-backdrop').css("z-index","-10");
+		$('.modal-backdrop').css("z-index", "-10");
 	}
 	if (timer !== null) {
 		clearTimeout(timer);
@@ -492,7 +478,7 @@ function translateFiveFn(fn = 0) {
 										from5.css("color", "black");
 										from5.after(
 											"<p class='tongji'>共计：<span id='zifu5'>0</span>字符</p>"
-											);
+										);
 										tongji(rs, "r4");
 										if (fn) {
 											setTimeout(() => {
@@ -593,7 +579,7 @@ function translateSevenFn(fn = 0) {
 												from7.css("color", "black");
 												from7.after(
 													"<p class='tongji'>共计：<span id='zifu7'>0</span>字符</p>"
-													);
+												);
 												tongji(rs, "r6");
 												if (fn) {
 													setTimeout(() => {
@@ -672,16 +658,17 @@ function translateMain(fn = 0) {
 		// translateOneFn(fn);
 	}, 1500, setTimeout(() => {
 		translateZeroFn(fn);
-	}, 1500))))))));	
+	}, 1500))))))));
 
 }
 
 var showTip = 0;
+
 function translateFn(QUERY, FROM, TO, callback) {
 	const salt = (new Date()).getTime();
 	const str1 = appid + QUERY + salt + key;
 	const sign = MD5.main(str1);
-	if(showTip <4){
+	if (showTip < 4) {
 		setTimeout(() => {
 			$.ajax({
 				url,
@@ -703,7 +690,7 @@ function translateFn(QUERY, FROM, TO, callback) {
 						showToast(
 							"账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试...解决不了的话加群反馈作者(QQ群:238223706)",
 							3000);
-						sendRequest(localStorage.getItem("appid1"), data.error_code + "：" +"账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
+						sendRequest(localStorage.getItem("appid1"), data.error_code + "：" + "账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
 						showTip++;
 						return;
 					} else if (data.error_code == "54003") {
@@ -722,12 +709,12 @@ function translateFn(QUERY, FROM, TO, callback) {
 				},
 			})
 		}, 1500);
-	}else{
-		showToast("不要太着急，请先休息几分钟，再刷新页面吧~",5000);
+	} else {
+		showToast("不要太着急，请先休息几分钟，再刷新页面吧~", 5000);
 	}
 }
 
-function showToast(msg,duration){
+function showToast(msg, duration) {
 	duration = isNaN(duration) ? 5000 : duration;
 	var d = (new Date);
 	//获取年份
@@ -750,11 +737,11 @@ function showToast(msg,duration){
 	    <div class="toast-header">
 	      <i style="margin-right:0.15625rem;"class="bi bi-app-indicator"></i>
 	      <strong class="me-auto">论文翻译降重助手</strong>
-	      <small>`+time+`</small>
+	      <small>` + time + `</small>
 	      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
 	    </div>
 	    <div class="toast-body">
-			`+msg+`
+			` + msg + `
 	    </div>
 	  </div>
 	</div>`
@@ -1017,6 +1004,14 @@ function sendRequest(sendTitle, sendContent, sendType) {
 		// 下车了
 		title = '【下车】：' + sendTitle;
 		content = '【内容】：' + sendContent;
+	} else if (sendType == 6) {
+		// 白嫖成功
+		title = "【白嫖成功】：" + sendTitle;
+		content = "【内容】：" + sendContent;
+	} else if (sendType == 7) {
+		// 白嫖失败
+		title = "【白嫖失败】：" + sendTitle;
+		content = "【内容】：" + sendContent;
 	} else {
 		// 暂无
 		title = '【暂无】：' + sendTitle;
@@ -1104,5 +1099,104 @@ function tongji(Words, type) {
 }
 
 $('#exampleModal').on('hidden.bs.modal', function (event) {
-	$('body').css("padding-right","");
+	$('body').css("padding-right", "");
 })
+
+var loginBtn = $('#loginBtn');
+loginBtn.click(() => {
+	if (timer !== null) {
+		clearTimeout(timer);
+	}
+	timer = setTimeout(() => {
+		showToast('请在弹出的窗口配置账号”', 1500);
+		$('#exampleModal').modal('show')
+		timer = null;
+	}, 500);
+});
+
+$('.close').click(() => {
+	if (timer !== null) {
+		clearTimeout(timer);
+	}
+	timer = setTimeout(() => {
+		$('#exampleModal').modal('hide')
+		$('#exampleModal1').modal('hide')
+		$('.modal-backdrop').css("z-index", "-10");
+		$('body').css("padding-right", "");
+		timer = null;
+	}, 500);
+});
+
+var sckey1 = "";
+
+var relaxBtn = $('#relaxBtn');
+relaxBtn.click(() => {
+	if (timer !== null) {
+		clearTimeout(timer);
+	}
+	timer = setTimeout(() => {
+		showToast("请先关注微信公众号【FreySu】回复“密钥”", 5000);
+		$('#exampleModal1').modal('show');
+		timer = null;
+	}, 500);
+});
+
+var okBtn = $("#okBtn");
+okBtn.click(() => {
+	var rscode = $("#rscode").val();
+	var cursTimes = localStorage.getItem("sTimes");
+	sckey1 = aMewlv1;
+	if (rscode == sckey1) {
+		sendRequest(localStorage.getItem("appid1"), "白嫖成功了！", 6);
+		localStorage.setItem("appid1", WtdKltf2);
+		localStorage.setItem("key1", zDQA3);
+		if (!cursTimes) {
+			localStorage.setItem("sTimes", 60000);
+			showToast("3 分钟体验开始~", 4000);
+			countTime();
+		} else if (cursTimes > 0) {
+			showToast(`你还剩余${cursTimes/1000}秒，现在继续体验！`, 4000);
+			countTime();
+		} else if (cursTimes == 0) {
+			showToast(`<b>你还剩余${cursTimes/1000}秒~ 你的体验时长已结束！</b>如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~`, 4000);
+		}
+
+		function countTime() {
+			var sTimes = localStorage.getItem("sTimes");
+			var timer1 = setInterval(() => {
+				sTimes -= 1000;
+				localStorage.setItem("sTimes", sTimes);
+				if (sTimes == 0) {
+					clearInterval(timer1);
+					localStorage.removeItem("appid1");
+					localStorage.removeItem("key1");
+					localStorage.setItem("sTimes", sTimes);
+					showToast("你的体验时长已结束！如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~", 4500);
+				}
+			}, 1000);
+			$('#exampleModal1').modal('hide')
+			$('.modal-backdrop').css("z-index", "-10");
+			$('body').css("padding-right", "");
+			showToast("请在输入框填写要翻译的内容，然后点击【翻译并对比】按钮", 4500);
+		}
+	} else if (rscode == "") {
+		showToast("未输入，提交失败！", 4000);
+	} else {
+		showToast("密钥不正确，请重新获取", 3000);
+		sendRequest(localStorage.getItem("appid1"), "白嫖失败！", 7);
+	}
+
+});
+
+var cancelBtn = $("#btn_cancel");
+cancelBtn.click(() => {
+	if (timer !== null) {
+		clearTimeout(timer);
+	}
+	timer = setTimeout(() => {
+		$('#exampleModal1').modal('hide')
+		$('.modal-backdrop').css("z-index", "-10");
+		$('body').css("padding-right", "");
+		timer = null;
+	}, 500);
+});

@@ -12369,10 +12369,38 @@ footer.footer {
 	width: 2rem;
 }
 
-.tongji{
-	margin-top:0.5625rem;
+.tongji {
+	margin-top: 0.5625rem;
 }
 
-.other{
+.other {
 	margin-top: -5%;
+}
+
+/* 免 */
+
+.wxgzh {
+	width: 70%;
+}
+
+
+#rscode {
+	width: 42%;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	padding: 1.5%;
+	margin-top: 2%;
+	color: #333333;
+}
+
+#okBtn {
+	/* padding: 1.5%; */
+	border-radius: 5px;
+	color: #333333;
+}
+
+#btn_cancel {
+	/* padding: 1.5%; */
+	border-radius: 5px;
+	color: #333333;
 }

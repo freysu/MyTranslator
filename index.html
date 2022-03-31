@@ -89,14 +89,19 @@
 <body>
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container"> 
-			<a class="navbar-brand" href="https://freysu.github.io/MyTranslator">论文翻译降重助手</a>
 			<div>
-				<a class="btn btn-warning btn-sm" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank"
-					id="firstUse"><i class="bi bi-info-square"></i> 使用帮助
-				</a>
+				<a class="navbar-brand" href="https://freysu.github.io/MyTranslator">论文翻译降重助手</a>
+			</div>
+			<div>
 				<a class="btn btn-dark btn-sm" href="https://freysu.github.io/ReadFile" target="_blank"
 					id="readFileBtn"><i class="bi bi-check-square"></i> 一键提取查重报告
 				</a>
+				<a class="btn btn-warning btn-sm" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank"
+					id="firstUse"><i class="bi bi-info-square"></i> 使用帮助
+				</a>
+				<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"
+					id="loginBtn"><i class="bi bi-person-check-fill"></i> 配置账号
+				</button>
 			</div>
 		</div>
 	</nav>
@@ -129,6 +134,43 @@
 			</div>
 		</div>
 	</header>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">请在这配置账号</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <i class="bi bi-x"></i>
+			</button>
+		  </div>
+		  <div class="modal-body">
+					<form class="form-subscribe" id="contactFormFooter">
+						<div class="row">
+							<div class="col">
+								<label for="yourAppid">你的百度翻译 API 的 APPID</label>
+								<input class="form-control form-control-xs" id="yourAppid" type="text"
+									placeholder="APPID"  title="在这输入你的百度翻译 API 的 APPID">
+							</div>
+							<div class="col">
+								<label for="yourKey">你的百度翻译 API 的密钥</label>
+								<input class="form-control form-control-xs" id="yourKey" type="text"
+									placeholder="密钥" title="在这输入你的百度翻译 API 的密钥">
+							</div>
+						</div>
+					</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary btn-sm" id="deleteBtn" data-dismiss="modal" title="点击后将会删除">删除</button>
+			<button type="button" class="btn btn-primary btn-sm" title="点击后将会保存" id="saveBtn">保存</button>
+			<a class="btn btn-warning btn-md helpTip btn-sm" id="helpTip" title="如果遇到不懂可以查阅使用说明" target="_blank" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
+				帮助
+			</a>
+		  </div>
+		</div>
+	  </div>
+	</div>
 	
 	<section class="showcase ">
 		<div class="container-fluid p-0 ">
@@ -253,33 +295,6 @@
 				</div>
 			</div>
 	</section> <!-- Call to Action-->
-	<section class="call-to-action text-white text-center" id="signup">
-		<div class="container position-relative">
-			<div class="row justify-content-center">
-				<div class="col-xl-6">
-					<h2 class="mb-4" id="account">请在这配置账号</h2>
-					<form class="form-subscribe" id="contactFormFooter">
-						<div class="row">
-							<div class="col">
-								<input class="form-control form-control-lg" id="yourAppid" type="text"
-									placeholder="appid" title="在这输入你的百度翻译API的appid">
-							</div>
-							<div class="col">
-								<input class="form-control form-control-lg" id="yourKey" type="password"
-									placeholder="key" title="在这输入你的百度翻译API的key">
-							</div>
-						</div>
-						<div class="col-auto"> <button style="margin:27px" class="btn btn-primary btn-md " id="saveBtn"
-								type="button">保存</button> <button style="margin:27px" class="btn btn-danger btn-md "
-								id="deleteBtn" type="button">删除</button> <a style="margin:27px"
-								class="btn btn-warning btn-md helpTip" id="helpTip" title="如果遇到不懂可以查阅使用说明"
-								href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">帮助</a>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- Footer-->
 	<footer class="footer bg-light">
 		<div class="container">
@@ -287,26 +302,29 @@
 				<div class="col-lg-6 h-100 text-center text-lg-start my-auto">
 					<ul class="list-inline mb-2">
 						<li class="list-inline-item">
-							<a href="https://www.coolapk.com/u/3128087">酷安主页</a>
+							<a target="_blank" href="https://www.coolapk.com/u/3128087">酷安主页</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://freysu.github.io/">博客主页</a>
+							<a target="_blank" href="https://freysu.github.io/">博客主页</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://github.com/freysu">Github主页</a>
+							<a target="_blank" href="https://github.com/freysu">Github 主页</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://gitee.com/freysu">Gitee主页</a>
+							<a target="_blank" href="https://gitee.com/freysu">Gitee 主页</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://github.com/freysu/MyTranslator">Github仓库地址</a>
+							<a target="_blank" href="https://space.bilibili.com/14642614">B 站主页</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ">公告栏</a>
+							<a target="_blank" href="https://github.com/freysu/MyTranslator">Github 仓库地址</a>
+						</li>
+						<li class="list-inline-item">
+							<a target="_blank" href="https://docs.qq.com/sheet/DWXFSamxhSENYWGlZ">公告栏</a>
 						</li>
 						<li class="list-inline-item">
 							<a href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0"
-								target="_blank"><b>QQ交流群</b></a>
+								target="_blank"><b>QQ 交流群</b></a>
 						</li>
 					</ul>
 					<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.</p>
@@ -317,28 +335,39 @@
 						本站总访问量<span id="busuanzi_value_site_pv"></span>次<br />
 						本页总阅读量<span id="busuanzi_value_page_pv"></span>次
 					</span>
-					<ul class="list-inline mb-0">
+					<div>
+				<ul class="list-inline mb-0">
 						<li class="list-inline-item me-4">
-							<a href="https://gitee.com/freysu" onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
-								<img class="contact" src="https://gitee.com/static/images/logo-black.svg?t=158106664"
-									alt="" title="Gitee" style="width: 2rem;margin-top:-0.625rem ;">
+							<a href="https://freysu.github.io/" target="_blank" onclick="showToast('即将跳转到作者的博客主页...',1500)">
+								<img class="contact" src="./assets/img/hexo.png"
+									alt="" title="作者的博客主页" style="width: 2rem;margin-top:-0.625rem ;">
 							</a>
 						</li>
 						<li class="list-inline-item me-4">
-							<a href="https://freysu.github.io/" onclick="showToast('即将跳转到作者的博客...',1500)"><i
-									class="bi-github fs-3"></i></a>
+							<a href="https://github.com/freysu" target="_blank" onclick="showToast('即将跳转到作者的Github主页...',1500)">
+								<i class="bi-github fs-3" title="作者的Github主页"></i>
+							</a>
 						</li>
 						<li class="list-inline-item me-4">
-							<a href="https://github.com/freysu" onclick="showToast('即将跳转到作者的Github主页...',1500)"><i
-									class="bi-github fs-3"></i></a>
+							<a href="https://gitee.com/freysu" target="_blank" onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
+								<img class="contact" src="./assets/img/gitee.png"
+									alt="" title="作者的Gitee主页" style="width: 2rem;margin-top:-0.625rem ;">
+							</a>
 						</li>
 						<li class="list-inline-item me-4">
-							<a href="https://www.coolapk.com/u/3128087">
-								<img class="contact" src="./assets/img/coolapk.png" alt="" title="联系我"
+							<a href="https://www.coolapk.com/u/3128087" target="_blank" onclick="showToast('即将跳转到作者的酷安主页...',1500)">
+								<img class="contact" src="./assets/img/coolapk.png" alt="" title="作者的酷安主页"
 									style="width: 1.66875rem;margin-top:-0.625rem ;">
 							</a>
 						</li>
-					</ul>
+						<li class="list-inline-item me-4">
+							<a href="https://space.bilibili.com/14642614" target="_blank" onclick="showToast('即将跳转到作者的 B站 主页...',1500)">
+								<img class="contact" src="./assets/img/icon_bilibili-circle.png"
+									alt="" title="作者的B站主页" style="width: 2rem;margin-top:-0.625rem ;">
+							</a>
+						</li>
+				</ul>
+			</div>
 				</div>
 			</div>
 		</div>
@@ -347,13 +376,13 @@
 		<a>
 			<img class="btu" src="./assets/img/返回顶部.png" alt="" title="返回顶部" onclick="window.scrollTo(0, 0);">
 		</a>
-		<a href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
-			<img class="contact img-rounded" src="./assets/img/联系人.png" alt="" title="使用帮助">
+		<a target="_blank" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/">
+			<img class="contact img-rounded" src="./assets/img/帮助.png" alt="" title="使用帮助">
 		</a>
-		<a href="#start">
-			<img class="bti img-rounded" src="./assets/img/返回输入框.png" alt="" title="返回到翻译内容输入框">
+		<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0">
+			<img class="bti img-rounded" src="./assets/img/联系人.png" alt="" title="QQ交流群">
 		</a>
-		<a href="#account">
+		<a href="#signup">
 			<img class="btd" src="./assets/img/返回底部.png" alt="" title="跳转到账号配置区域">
 		</a>
 	</div>

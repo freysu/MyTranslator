@@ -1,4 +1,3 @@
-
 let to = $(".originData");
 let from = $(".newData");
 let from1 = $(".newData1");
@@ -21,19 +20,30 @@ var key = localStorage.getItem("key1");
 const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
 let timer = null;
 
-
 $("#yourAppid").val(appid);
 $("#yourKey").val(key);
 
 if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
 	localStorage.getItem("key1") == null) {
-	showToast("&emsp;&emsp;欢迎新来的小伙伴来访！<br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【使用帮助】查阅教程再到页面底下配置账号！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 4500);
-	// location.href = "#account";
+	showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 4500);
 } else {
 	showToast(
 		'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出【一键提取查重报告标红内容】功能欢迎点击右上角试用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
 		5000);
 }
+
+
+
+var loginBtn = $('#loginBtn');
+loginBtn.click(() => {
+	showToast('请在弹出的窗口配置账号”', 1500);
+	$('#exampleModal').modal('show')
+});
+
+$('.close').click(()=>{
+	$('#exampleModal').modal('hide')
+	$('.modal-backdrop').css("z-index","-10");
+});
 
 $("#saveBtn").click(() => {
 	const fn = () => {
@@ -72,18 +82,19 @@ $("#saveBtn").click(() => {
 						if (data.error_code == "52003") {
 							showToast("<b>保存失败！</b>请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)",
 								4500);
-							// sendRequest(localStorage.getItem("appid1"), data.error_code +"：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
+							sendRequest(localStorage.getItem("appid1"), data.error_code +"：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
 							localStorage.removeItem("appid1");
 							localStorage.removeItem("key1");
 							$("#yourAppid").val("");
 							$("#yourKey").val("");
 							return;
 						} else {
-							showToast(
-								"<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
+							showToast("<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
 								4500);
-							// sendRequest(localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
-							// location.href = "#start";
+							$('#exampleModal').modal('hide');
+							$('.modal-backdrop').css("z-index","-10");
+							sendRequest(localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
+
 						}
 					},
 				})
@@ -107,6 +118,8 @@ $("#deleteBtn").click(() => {
 		showToast("已删除...下次使用请重新保存！", 4000);
 		$("#yourAppid").val("");
 		$("#yourKey").val("");
+		$('#exampleModal').modal('hide')
+		$('.modal-backdrop').css("z-index","-10");
 	}
 	if (timer !== null) {
 		clearTimeout(timer);
@@ -158,7 +171,7 @@ $(".translateBtn").click(() => {
 			} else {
 				showToast("正在翻译中...请耐心等待", 2500);
 			}
-			//sendRequest(appid11, key11 + "：" + to.val(), 2);
+			sendRequest(appid11, key11 + "：" + to.val(), 2);
 			translateMain(0);
 		}
 	}
@@ -196,7 +209,7 @@ $(".translateAndCompareBtn").click(() => {
 			} else {
 				showToast("正在翻译中...请耐心等待", 2500);
 			}
-			//sendRequest(appid11, key11 + "：" + to.val(), 2);
+			sendRequest(appid11, key11 + "：" + to.val(), 2);
 			translateMain(1);
 		}
 	}
@@ -215,7 +228,6 @@ $(".compare").click(() => {
 		if (to.val() == "") {
 			showToast("你未输入要翻译的内容所以无法对比...", 2500);
 		} else {
-			// location.href = "#res1";
 			showToast("正在对比...", 2500);
 			compareMain();
 		}
@@ -658,7 +670,7 @@ function translateMain(fn = 0) {
 		// translateOneFn(fn);
 	}, 1500, setTimeout(() => {
 		translateZeroFn(fn);
-	}, 1500))))))));
+	}, 1500))))))));	
 
 }
 
@@ -689,7 +701,7 @@ function translateFn(QUERY, FROM, TO, callback) {
 						showToast(
 							"账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试...解决不了的话加群反馈作者(QQ群:238223706)",
 							3000);
-						//sendRequest(localStorage.getItem("appid1"), data.error_code + "：" +"账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
+						sendRequest(localStorage.getItem("appid1"), data.error_code + "：" +"账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
 						showTip++;
 						return;
 					} else if (data.error_code == "54003") {
@@ -731,7 +743,7 @@ function showToast(msg,duration){
 	var nowTime = years + "/" + months + "/" + dates + " " + hours + ":" + minutes + ":" + seconds
 	var m = document.createElement('div');
 	var time = nowTime;
-	var content = `<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+	var content = `<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">
 	  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 	    <div class="toast-header">
 	      <i style="margin-right:0.15625rem;"class="bi bi-app-indicator"></i>
@@ -754,7 +766,6 @@ function showToast(msg,duration){
 		m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d +
 			's ease-in';
 		m.style.opacity = '0';
-		console.log(m.style.dataBsDelay)
 		setTimeout(function () {
 			toast.hide();
 			document.body.removeChild(m);

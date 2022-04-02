@@ -97,12 +97,12 @@
 				<a class="btn btn-dark btn-sm" href="https://freysu.github.io/ReadFile" target="_blank"
 					id="readFileBtn"><i class="bi bi-check-square"></i> 一键提取查重报告
 				</a>
-				<button class="btn btn-danger btn-sm" id="relaxBtn"><i class="bi bi-heart-fill"></i> 免申请 API 体验 3
-					分钟
-				</button>
 				<a class="btn btn-warning btn-sm" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档"
 					target="_blank" id="firstUse"><i class="bi bi-info-square"></i> 使用帮助
 				</a>
+				<button class="btn btn-danger btn-sm" id="relaxBtn"><i class="bi bi-heart-fill"></i> 免申请 API 体验 3
+					分钟
+				</button>
 				<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="loginBtn"><i
 						class="bi bi-person-check-fill"></i> 配置账号
 				</button>
@@ -202,124 +202,151 @@
 
 	<section class="showcase ">
 		<div class="container-fluid p-0 ">
-			<div class="row g-0 ">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果1
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData">复制</a>
-						<span class="btn btn-default btn-sm restart" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData " id="newData"></p>
-					<h4 style="margin-top: 9px;"> 对比结果1
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
-				</div>
-			</div>
-			<!-- <div class="row g-0">
-					<div class="col-lg-6 my-auto showcase-text">
-						<h2>降重结果2
-							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-								data-clipboard-target="#newData1">复制</a>
-							<span class="btn btn-default btn-sm restart1" style="display: none;">重试</span>
-						</h2>
-						<p class="lead mb-0 form-control newData1" id="newData1"></p>
-						<h4 style="margin-top: 9px;"> 对比结果2
-							<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-								data-clipboard-target="#compareData1">复制</a>
-						</h4>
-						<p class="compareRes mb-0 form-control compareData1 " id="compareData1"></p>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row g-0 ">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果1<a class="btn btn-default btn-sm">(中→英→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData">复制</a>
+								<span class="btn btn-default btn-sm restart" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData " id="newData"></p>
+							<h4 style="margin-top: 9px;"> 对比结果1
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
+						</div>
 					</div>
-				</div> -->
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果2
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData2">复制</a>
-						<span class="btn btn-default btn-sm restart2" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData2" id="newData2"></p>
-					<h4 style="margin-top: 9px;"> 对比结果2
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData2">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+				</div>
+
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果2<a class="btn btn-default btn-sm">(中→法→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData2">复制</a>
+								<span class="btn btn-default btn-sm restart2" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData2" id="newData2"></p>
+							<h4 style="margin-top: 9px;"> 对比结果2
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData2">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果3
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData3">复制</a>
-						<span class="btn btn-default btn-sm restart3" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData3" id="newData3"></p>
-					<h4 style="margin-top: 9px;"> 对比结果3
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData3">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果3<a class="btn btn-default btn-sm">(中→俄→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData3">复制</a>
+								<span class="btn btn-default btn-sm restart3" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData3" id="newData3"></p>
+							<h4 style="margin-top: 9px;"> 对比结果3
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData3">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果4<a class="btn btn-default btn-sm">(中→西→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData4">复制</a>
+								<span class="btn btn-default btn-sm restart4" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData4" id="newData4"></p>
+							<h4 style="margin-top: 9px;"> 对比结果4
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData4">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果4
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData4">复制</a>
-						<span class="btn btn-default btn-sm restart4" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData4" id="newData4"></p>
-					<h4 style="margin-top: 9px;"> 对比结果4
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData4">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果5<a class="btn btn-default btn-sm">(中→英→中→俄→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData5">复制</a>
+								<span class="btn btn-default btn-sm restart5" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData5" id="newData5"></p>
+							<h4 style="margin-top: 9px;"> 对比结果5
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData5">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果6<a class="btn btn-default btn-sm">(中→意→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData6">复制</a>
+								<span class="btn btn-default btn-sm restart6" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData6" id="newData6"></p>
+							<h4 style="margin-top: 9px;"> 对比结果6
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData6">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData6 " id="compareData6"></p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果5
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData5">复制</a>
-						<span class="btn btn-default btn-sm restart5" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData5" id="newData5"></p>
-					<h4 style="margin-top: 9px;"> 对比结果5
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData5">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+							<h2>降重结果7<a class="btn btn-default btn-sm">(中→法→英→葡→日→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData7">复制</a>
+								<span class="btn btn-default btn-sm restart7" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData7" id="newData7"></p>
+							<h4 style="margin-top: 9px;"> 对比结果7
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData7">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData7 " id="compareData7"></p>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果6
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData6">复制</a>
-						<span class="btn btn-default btn-sm restart6" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData6" id="newData6"></p>
-					<h4 style="margin-top: 9px;"> 对比结果6
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData6">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData6 " id="compareData6"></p>
-				</div>
-			</div>
-			<div class="row g-0">
-				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-					<h2>降重结果7
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#newData7">复制</a>
-						<span class="btn btn-default btn-sm restart7" style="display: none;">重试</span>
-					</h2>
-					<p class="lead mb-0 form-control newData7" id="newData7"></p>
-					<h4 style="margin-top: 9px;"> 对比结果7
-						<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-							data-clipboard-target="#compareData7">复制</a>
-					</h4>
-					<p class="compareRes mb-0 form-control compareData7 " id="compareData7"></p>
+				<div class="col-md-6">
+					<!-- <div class="row g-0">
+						<div class="col-lg-6 my-auto showcase-text">
+							<h2>降重结果2<a class="btn btn-default btn-sm">(中→日→中)</a>
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#newData1">复制</a>
+								<span class="btn btn-default btn-sm restart1" style="display: none;">重试</span>
+							</h2>
+							<p class="lead mb-0 form-control newData1" id="newData1"></p>
+							<h4 style="margin-top: 9px;"> 对比结果2
+								<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+									data-clipboard-target="#compareData1">复制</a>
+							</h4>
+							<p class="compareRes mb-0 form-control compareData1 " id="compareData1"></p>
+						</div>
+					</div> -->
 				</div>
 			</div>
 	</section> <!-- Call to Action-->

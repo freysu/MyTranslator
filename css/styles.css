@@ -12292,7 +12292,7 @@ header.masthead .h1 {
 }
 
 .showcase .showcase-text {
-	padding: 3rem;
+	padding: 2rem;
 }
 
 .showcase .showcase-img {
@@ -12302,7 +12302,7 @@ header.masthead .h1 {
 
 @media (min-width: 768px) {
 	.showcase .showcase-text {
-		padding: 5rem;
+		padding: 2rem;
 	}
 }
 
@@ -12341,8 +12341,8 @@ header.masthead .h1 {
 }
 
 footer.footer {
-	padding-top: 4rem;
-	padding-bottom: 4rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 }
 
 .fixed_btn {

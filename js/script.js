@@ -27,12 +27,12 @@ if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localSto
 	localStorage.getItem("key1") == null) {
 	showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出<b>【免申请 API 体验 3 分钟】功能</b>和<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 5000);
 } else {
-  setTimeout(()=>{
-    if (localStorage.getItem('sTimes') > 0) {
+	setTimeout(() => {
+		if (localStorage.getItem('sTimes') > 0) {
 			showToast(`你还剩余${localStorage.getItem('sTimes')/1000}秒，现在继续体验！`, 3500);
 			countTime1();
 		}
-  },5000)
+	}, 5000)
 	showToast(
 		'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
 		4000);
@@ -1209,16 +1209,16 @@ cancelBtn.click(() => {
 });
 
 function countTime1() {
-			var sTimes = localStorage.getItem("sTimes");
-			var timer1 = setInterval(() => {
-				sTimes -= 1000;
-				localStorage.setItem("sTimes", sTimes);
-				if (sTimes == 0) {
-					clearInterval(timer1);
-					localStorage.removeItem("appid1");
-					localStorage.removeItem("key1");
-					localStorage.setItem("sTimes", sTimes);
-					showToast("你的体验时长已结束！如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~", 4500);
-				}
-			}, 1000);
+	var sTimes = localStorage.getItem("sTimes");
+	var timer1 = setInterval(() => {
+		sTimes -= 1000;
+		localStorage.setItem("sTimes", sTimes);
+		if (sTimes == 0) {
+			clearInterval(timer1);
+			localStorage.removeItem("appid1");
+			localStorage.removeItem("key1");
+			localStorage.setItem("sTimes", sTimes);
+			showToast("你的体验时长已结束！如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~", 4500);
 		}
+	}, 1000);
+}

@@ -12404,3 +12404,9 @@ footer.footer {
 	border-radius: 5px;
 	color: #333333;
 }
+
+body,
+html {
+	width: 100%;
+	overflow-x: hidden;
+}

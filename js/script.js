@@ -36,6 +36,8 @@ if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localSto
 		showToast(
 			'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
 			4000);
+	} else if(localStorage.getItem('sTimes') == 0){
+	  showToast('&emsp;&emsp;抱歉！你已结束体验，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',4000)
 	}
 }
 
@@ -156,6 +158,11 @@ $(".translateBtn").click(() => {
 		} else if (to.val() == "") {
 			showToast("你未输入要翻译的内容...", 2500);
 		} else {
+		  if(localStorage.getItem('sTimes') == 0 && appid11 == WtdKltf2 && key11 == zDQA3 ){
+		    localStorage.removeItem('appid1')
+		    localStorage.removeItem('key1')
+		    showToast('由于你还未配置账号，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',4000)
+		  } else{
 			var nTo = $("#zifu").text()
 			if (foamTip == true && nTo >= 200) {
 				setTimeout(() => {
@@ -166,8 +173,9 @@ $(".translateBtn").click(() => {
 			} else {
 				showToast("正在翻译中...请耐心等待", 2500);
 			}
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + '\\' + restartTimes + "：" + to.val(), 2);
-			translateMain(0);
+			  		sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + '\\' + restartTimes + "：" + to.val(), 2);
+			  		translateMain(0);
+		  }
 		}
 	}
 	if (timer !== null) {
@@ -194,6 +202,11 @@ $(".translateAndCompareBtn").click(() => {
 		} else if (to.val() == "") {
 			showToast("你未输入要翻译的内容所以无法对比...", 2500);
 		} else {
+		  if(localStorage.getItem('sTimes') == 0 && appid11 == WtdKltf2 && key11 == zDQA3){
+		    localStorage.removeItem('appid1')
+		    localStorage.removeItem('key1')
+		   showToast('由于你还未配置账号，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',4000)
+		  } else{
 			var nTo = $("#zifu").text()
 			if (foamTip1 == true && nTo >= 200) {
 				setTimeout(() => {
@@ -206,6 +219,7 @@ $(".translateAndCompareBtn").click(() => {
 			}
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + '\\' + restartTimes + "：" + to.val(), 2);
 			translateMain(1);
+		  }
 		}
 	}
 	if (timer !== null) {

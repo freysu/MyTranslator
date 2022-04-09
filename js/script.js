@@ -322,8 +322,8 @@ $(".restart").on("click", function () {
 	from.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3);
-		restartTimes++;
 	}
+	restartTimes++;
 	translateZeroFn();
 });
 
@@ -332,8 +332,8 @@ $(".restart1").on("click", function () {
 	from1.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3)
-		restartTimes++;
 	}
+	restartTimes++;
 	translateOneFn();
 });
 
@@ -342,8 +342,8 @@ $(".restart2").on("click", function () {
 	from2.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3)
-		restartTimes++;
 	}
+	restartTimes++;
 	translateTwoFn();
 });
 
@@ -352,8 +352,8 @@ $(".restart3").on("click", function () {
 	from3.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3)
-		restartTimes++;
 	}
+	restartTimes++;
 	translateThreeFn();
 });
 
@@ -362,8 +362,8 @@ $(".restart4").on("click", function () {
 	from4.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3)
-		restartTimes++;
 	}
+	restartTimes++;
 	translateFourFn();
 });
 
@@ -372,8 +372,8 @@ $(".restart5").on("click", function () {
 	from5.html("正在重试...");
 	if (restartTimes <= 5) {
 		sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "正在重试...", 3)
-		restartTimes++;
 	}
+	restartTimes++;
 	translateFiveFn();
 });
 
@@ -396,16 +396,20 @@ function translateZeroFn(fn = 0) {
 					from.html('修改失败，请稍后重试......');
 					from.css("color", "red");
 					$(".restart").css("display", "inline-block");
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error-1:" + rs, 1);
+					}
+					errorTimes++;
 				}
 			});
 		} else {
 			from.html('修改失败，请稍后重试......');
 			from.css("color", "red");
 			$(".restart").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }
@@ -428,16 +432,20 @@ function translateOneFn(fn = 0) {
 					from1.html('修改失败，请稍后重试......');
 					from1.css("color", "red");
 					$(".restart1").css("display", "inline-block");
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1-1:" + rs, 1);
+					}
+					errorTimes++;
 				}
 			});
 		} else {
 			from1.html('修改失败，请稍后重试......');
 			from1.css("color", "red");
 			$(".restart1").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }
@@ -460,16 +468,19 @@ function translateTwoFn(fn = 0) {
 					from2.html('修改失败，请稍后重试......');
 					from2.css("color", "red");
 					$(".restart2").css("display", "inline-block")
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2-1:" + rs, 1)
+					}
 				}
 			});
 		} else {
 			from2.html('修改失败，请稍后重试......');
 			from2.css("color", "red");
 			$(".restart2").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }
@@ -501,40 +512,52 @@ function translateThreeFn(fn = 0) {
 												from3.html("修改失败，请稍后重试......");
 												from3.css("color", "red");
 												$(".restart3").css("display", "inline-block")
-												errorTimes++;
+												
+												if(errorTimes<=5){
 												sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-4:" + rs, 1)
+											}
+											errorTimes++;
 											}
 										});
 									} else {
 										from3.html("修改失败，请稍后重试......");
 										from3.css("color", "red");
 										$(".restart3").css("display", "inline-block")
-										errorTimes++;
+										
+										if(errorTimes<=5){
 										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-3:" + rs, 1)
+									}
+									errorTimes++;
 									}
 								});
 						} else {
 							from3.html("修改失败，请稍后重试......");
 							from3.css("color", "red");
 							$(".restart3").css("display", "inline-block")
-							errorTimes++;
+							if(errorTimes<=5){
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-2:" + rs, 1)
+						}
+						errorTimes++;
 						}
 					});
 				} else {
 					from3.html("修改失败，请稍后重试......");
 					from3.css("color", "red");
 					$(".restart3").css("display", "inline-block")
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-1:" + rs, 1)
+					}
+					errorTimes++;
 				}
 			});
 		} else {
 			from3.html("修改失败，请稍后重试......");
 			from3.css("color", "red");
 			$(".restart3").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }
@@ -559,24 +582,30 @@ function translateFourFn(fn = 0) {
 							from4.html("修改失败，请稍后重试......");
 							from4.css("color", "red");
 							$(".restart4").css("display", "inline-block")
-							errorTimes++;
+							if(errorTimes<=5){
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-2:" + rs, 1)
+							}
+							errorTimes++;
 						}
 					})
 				} else {
 					from4.html("修改失败，请稍后重试......");
 					from4.css("color", "red");
 					$(".restart4").css("display", "inline-block")
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-1:" + rs, 1)
+					}
+					errorTimes++;
 				}
 			})
 		} else {
 			from4.html("修改失败，请稍后重试......");
 			from4.css("color", "red");
 			$(".restart4").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }
@@ -607,32 +636,40 @@ function translateFiveFn(fn = 0) {
 										from5.html("修改失败，请稍后重试......");
 										from5.css("color", "red");
 										$(".restart5").css("display", "inline-block")
-										errorTimes++;
+										if(errorTimes<=5){
 										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-3:" + rs, 1)
+										}
+										errorTimes++;
 									}
 								});
 						} else {
 							from5.html("修改失败，请稍后重试......");
 							from5.css("color", "red");
 							$(".restart5").css("display", "inline-block")
-							errorTimes++;
+							if(errorTimes<=5){
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-2:" + rs, 1)
+							}
+							errorTimes++;
 						}
 					});
 				} else {
 					from5.html("修改失败，请稍后重试......");
 					from5.css("color", "red");
 					$(".restart5").css("display", "inline-block")
-					errorTimes++;
+					if(errorTimes<=5){
 					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-1:" + rs, 1)
+					}
+					errorTimes++;
 				}
 			});
 		} else {
 			from5.html("修改失败，请稍后重试......");
 			from5.css("color", "red");
 			$(".restart5").css("display", "inline-block")
-			errorTimes++;
+			if(errorTimes<=5){
 			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5:" + rs, 1)
+			}
+			errorTimes++;
 		}
 	});
 }

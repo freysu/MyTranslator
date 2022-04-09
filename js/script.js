@@ -389,43 +389,41 @@ function translateFn(QUERY, FROM, TO) {
 		const salt = (new Date()).getTime();
 		const str1 = appid + QUERY + salt + key;
 		const sign = MD5.main(str1);
-		if (showTip < 4) {
-			setTimeout(() => {
-				$.ajax({
-					url,
-					type: 'get',
-					// async: true,
-					// 跨域
-					dataType: 'jsonp',
-					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-					data: {
-						q: QUERY,
-						appid: appid,
-						salt: salt,
-						from: FROM,
-						to: TO,
-						sign: sign,
-					}
-				}).done(data => {
-					if (data.error_code == "52003") {
-						showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+		setTimeout(() => {
+			$.ajax({
+				url,
+				type: 'get',
+				// async: true,
+				// 跨域
+				dataType: 'jsonp',
+				contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				data: {
+					q: QUERY,
+					appid: appid,
+					salt: salt,
+					from: FROM,
+					to: TO,
+					sign: sign,
+				}
+			}).done(data => {
+				if (data.error_code == "52003") {
+					showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+					if (showTip <= 4) {
 						sendRequest('showTip: ' + showTip + ' \\ ' + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1"), data.error_code + "：" + "封装的翻译API && 账号配置出错，请重新配置... &&" + localStorage.getItem("key1"), 1);
-						showTip++;
-					} else if (data.error_code == "54003") {
-						showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
-						reject(data.error_code);
-					} else {
-						if (data.trans_result[0] != undefined) {
-							resolve(data.trans_result[0].dst)
-						} else {
-							return;
-						}
 					}
-				})
-			}, 1500);
-		} else {
-			showToast("不要太着急，请先休息几分钟，再刷新页面吧~", 5000);
-		}
+					showTip++;
+				} else if (data.error_code == "54003") {
+					showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+					reject(data.error_code);
+				} else {
+					if (data.trans_result[0] != undefined) {
+						resolve(data.trans_result[0].dst)
+					} else {
+						return;
+					}
+				}
+			})
+		}, 1500);
 	})
 }
 

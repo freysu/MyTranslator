@@ -152,6 +152,11 @@ $(".clear").click(() => {
 		$(".lead").text("")
 		// $(".compareRes").text("此处将会显示对比结果")
 		$(".compareRes").text("")
+		for (let i = 0; i < $(".card").length; i++) {
+			if ($(".isLow-" + i).hasClass("alert-success")) {
+				$(".isLow-" + i).removeClass("alert-success")
+			}
+		}
 	}
 	if (timer !== null) {
 		clearTimeout(timer);
@@ -165,6 +170,16 @@ $(".clear").click(() => {
 var foamTip = true;
 $(".translateBtn").click(() => {
 	const fn = () => {
+		for (let i = 0; i < $(".lead").length; i++) {
+			$(".newData" + i).html('');
+		}
+		$('.newData').html('');
+		$('.compareRes').html('');
+		for (let i = 0; i < $(".card").length; i++) {
+			if ($(".isLow-" + i).hasClass("alert-success")) {
+				$(".isLow-" + i).removeClass("alert-success")
+			}
+		}
 		var appid11 = localStorage.getItem("appid1");
 		var key11 = localStorage.getItem("key1");
 		if (!appid11 || !key11) {
@@ -212,6 +227,8 @@ $(".translateBtn").click(() => {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
 						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
+						//! Don't forget it!
+						window.similarityArr = [];
 						translateMain(0);
 					}
 				} else {
@@ -233,6 +250,16 @@ $(".translateBtn").click(() => {
 var foamTip1 = true
 $(".translateAndCompareBtn").click(() => {
 	const fn = () => {
+		for (let i = 0; i < $(".lead").length; i++) {
+			$(".newData" + i).html('');
+		}
+		$('.newData').html('');
+		$('.compareRes').html('');
+		for (let i = 0; i < $(".card").length; i++) {
+			if ($(".isLow-" + i).hasClass("alert-success")) {
+				$(".isLow-" + i).removeClass("alert-success")
+			}
+		}
 		var appid11 = localStorage.getItem("appid1");
 		var key11 = localStorage.getItem("key1");
 		if (!appid11 || !key11) {
@@ -280,6 +307,8 @@ $(".translateAndCompareBtn").click(() => {
 							showToast("正在翻译中...请耐心等待", 2500);
 						}
 						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
+						//! Don't forget it!
+						window.similarityArr = [];
 						translateMain(1);
 					}
 				} else {
@@ -317,7 +346,7 @@ $(".compare").click(() => {
 })
 
 var restartTimes = 0;
-$(".restart").on("click", function() {
+$(".restart").on("click", function () {
 	showToast("正在重试...", 2500);
 	from.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -327,7 +356,7 @@ $(".restart").on("click", function() {
 	translateZeroFn();
 });
 
-$(".restart1").on("click", function() {
+$(".restart1").on("click", function () {
 	showToast("正在重试...", 2500);
 	from1.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -337,7 +366,7 @@ $(".restart1").on("click", function() {
 	translateOneFn();
 });
 
-$(".restart2").on("click", function() {
+$(".restart2").on("click", function () {
 	showToast("正在重试...", 2500);
 	from2.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -347,7 +376,7 @@ $(".restart2").on("click", function() {
 	translateTwoFn();
 });
 
-$(".restart3").on("click", function() {
+$(".restart3").on("click", function () {
 	showToast("正在重试...", 2500);
 	from3.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -357,7 +386,7 @@ $(".restart3").on("click", function() {
 	translateThreeFn();
 });
 
-$(".restart4").on("click", function() {
+$(".restart4").on("click", function () {
 	showToast("正在重试...", 2500);
 	from4.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -367,7 +396,7 @@ $(".restart4").on("click", function() {
 	translateFourFn();
 });
 
-$(".restart5").on("click", function() {
+$(".restart5").on("click", function () {
 	showToast("正在重试...", 2500);
 	from5.html("正在重试...");
 	if (restartTimes <= 5) {
@@ -428,14 +457,22 @@ function translateFn(QUERY, FROM, TO) {
 }
 
 var errorTimes = 0;
+// 存放相似度结果
+function Res(index, similarity) {
+	this.index = index;
+	this.similarity = similarity;
+}
 // zh-en-zh
-
 function translateZeroFn(fn) {
 	translateFn(to.val(), "zh", "en").then((rs) => {
 		translateFn(queryFormatFn(rs), "en", "zh").then((rs) => {
 			from.html(rs);
 			from.css("color", "black");
-			from.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			//! Don't forget it!
+			var similarityRes = allSimilarity(to.val(), rs);
+			var res = new Res(0, similarityRes);
+			similarityArr.push(res);
+			from.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 			if (fn) {
 				setTimeout(() => {
 					compareMain("from");
@@ -473,7 +510,11 @@ function translateOneFn(fn) {
 		translateFn(queryFormatFn(rs), "jp", "zh").then((rs) => {
 			from1.html(rs);
 			from1.css("color", "black");
-			from1.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			//! Don't forget it!
+			var similarityRes = allSimilarity(to.val(), rs);
+			var res = new Res(1, similarityRes);
+			similarityArr.push(res);
+			from1.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 			if (fn) {
 				setTimeout(() => {
 					compareMain("from1");
@@ -511,7 +552,11 @@ function translateTwoFn(fn) {
 		translateFn(queryFormatFn(rs), "it", "zh").then((rs) => {
 			from2.html(rs);
 			from2.css("color", "black");
-			from2.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+			//! Don't forget it!
+			var similarityRes = allSimilarity(to.val(), rs);
+			var res = new Res(2, similarityRes);
+			similarityArr.push(res);
+			from2.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 			if (fn) {
 				setTimeout(() => {
 					compareMain("from2")
@@ -551,13 +596,50 @@ function translateThreeFn(fn) {
 					translateFn(queryFormatFn(rs), "jp", "zh").then((rs) => {
 						from3.html(rs);
 						from3.css("color", "black");
-						from3.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+						//! Don't forget it!
+						var similarityRes = allSimilarity(to.val(), rs);
+						var res = new Res(3, similarityRes);
+						similarityArr.push(res);
+						from3.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 						if (fn) {
 							setTimeout(() => {
 								compareMain(
 									"from3")
 							}, 1000);
 						}
+						var sArr = GFG_Fun(similarityArr);
+						for (var i = 0; i < sArr.length; i++) {
+							$(".isLow-" + sArr[i]).toggleClass("alert-success");
+							showToast('系统检测到最低的预估的相似度为' + similarityArr[0].similarity + '的翻译结果，请注意查看', 3000);
+						}
+
+						function GFG_Fun(arr) {
+							arr.sort(function (a, b) {
+								var o1 = parseFloat(a.similarity.replace("%", ""));
+								var o2 = parseFloat(b.similarity.replace("%", ""));
+								var p1 = a.index;
+								var p2 = b.index;
+								if (o1 < o2) return -1;
+								if (o1 > o2) return 1;
+								if (p1 < p2) return -1;
+								if (p1 > p2) return 1;
+								return 0;
+							});
+							similarityArr = arr;
+							var nArr = [];
+							for (let i = 0; i < arr.length - 1; i++) {
+								if (arr[0].similarity == arr[i].similarity) {
+									if (nArr.length == 0) {
+										nArr.push(arr[0].index);
+									}
+									if (arr[i].similarity == arr[i + 1].similarity) {
+										nArr.push(arr[i + 1].index);
+									}
+								}
+							}
+							return nArr;
+						}
+
 					}, (err) => {
 						if (err == "54003" || err == "") {
 							from3.html("修改失败，请稍后重试......");
@@ -622,7 +704,11 @@ function translateFourFn(fn) {
 			translateFn(queryFormatFn(rs), "fra", "zh").then((rs) => {
 				from4.html(rs);
 				from4.css("color", "black");
-				from4.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+				//! Don't forget it!
+				var similarityRes = allSimilarity(to.val(), rs);
+				var res = new Res(4, similarityRes);
+				similarityArr.push(res);
+				from4.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 				if (fn) {
 					setTimeout(() => {
 						compareMain("from4")
@@ -671,7 +757,11 @@ function translateFiveFn(fn) {
 				translateFn(queryFormatFn(rs), "kor", "zh").then((rs) => {
 					from5.html(rs);
 					from5.css("color", "black");
-					from5.after("<p class='tongji'>共计：<span>" + tongji(rs) + " </span>字符&emsp;<span class='similarity'>预计相似度：<span>" + allSimilarity(to.val(), rs) + "</span></span></p>");
+					//! Don't forget it!
+					var similarityRes = allSimilarity(to.val(), rs);
+					var res = new Res(5, similarityRes);
+					similarityArr.push(res);
+					from5.after("<p class='tongji text-muted'>共计：<b>" + tongji(rs) + " </b>字符&emsp;<span class='similarity'>预计相似度：<b>" + similarityRes + "</b></span></p>");
 					if (fn) {
 						setTimeout(() => {
 							compareMain("from5")
@@ -804,11 +894,11 @@ function showToast(msg, duration) {
 	var toastLiveExample = document.getElementById('liveToast')
 	var toast = new bootstrap.Toast(toastLiveExample)
 	toast.show();
-	setTimeout(function() {
+	setTimeout(function () {
 		var d = 0.5;
 		m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
 		m.style.opacity = '0';
-		setTimeout(function() {
+		setTimeout(function () {
 			toast.hide();
 			document.body.removeChild(m);
 		}, d * 1000);
@@ -963,7 +1053,7 @@ function eq(op) {
 	var deleteRule = /<span style='color:green'>((?!<span).)+<\/span>/g;
 	var allRule =
 		/(<span style='color:green'>((?!<span).)+<\/span><del style='color:red'>((?!<del).)+<\/del>){2,}/g;
-	op.value2 = op.value2.replace(allRule, function(str) {
+	op.value2 = op.value2.replace(allRule, function (str) {
 		var beforText = "",
 			afterText = "";
 		var beforeMatch = str.match(deleteRule);
@@ -1055,7 +1145,7 @@ function sendRequest(sendTitle, sendContent, sendType) {
 	}, 1500);
 }
 
-$(".originData").on("input", function() {
+$(".originData").on("input", function () {
 	$('#zifu').html(tongji($(this).val()));
 });
 
@@ -1090,7 +1180,7 @@ function tongji(Words) {
 	return iTotal * 2 + (sTotal - iTotal) * 2 + eTotal;
 }
 
-$('#exampleModal').on('shown.bs.modal', function(event) {
+$('#exampleModal').on('shown.bs.modal', function (event) {
 	if (localStorage.getItem('sTimes') != -2 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
 		localStorage.removeItem('appid1')
 		localStorage.removeItem('key1')
@@ -1098,10 +1188,10 @@ $('#exampleModal').on('shown.bs.modal', function(event) {
 		$("#yourKey").val('');
 	}
 })
-$('#exampleModal').on('hidden.bs.modal', function(event) {
+$('#exampleModal').on('hidden.bs.modal', function (event) {
 	$('body').css("padding-right", "");
 })
-$('#exampleModal1').on('hidden.bs.modal', function(event) {
+$('#exampleModal1').on('hidden.bs.modal', function (event) {
 	$('body').css("padding-right", "");
 })
 
@@ -1292,7 +1382,8 @@ function allSimilarity(str, str1) {
 				b = y.shift();
 			}
 		}
-		return Number((z / s * 200).toFixed(2));
+		// return Number((z / s * 200).toFixed(2));
+		return Number(Math.round((z / s * 200) * 10000) / 10000);
 	}
 	// similarity fn2 strDistance(str1,str2)
 	function strDistance(a, c) {
@@ -1322,6 +1413,7 @@ function allSimilarity(str, str1) {
 				d / c.length + (d - ~~(k / 2)) / d) / 3;
 			a += 0.1 * Math.min(e, 4) * (1 - a)
 		} else a = 0;
-		return Number((a * 100).toFixed(2));
+		// return Number((a * 100).toFixed(2));
+		return Number(Math.round(a * 10000) / 100);
 	};
 }

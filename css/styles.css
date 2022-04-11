@@ -2499,7 +2499,7 @@ progress {
 }
 
 textarea.form-control {
-	min-height: calc(1.5em + 1.5rem + 2px);
+	/* min-height: calc(1.5em + 1.5rem + 2px); */
 }
 
 textarea.form-control-sm {
@@ -2507,7 +2507,7 @@ textarea.form-control-sm {
 }
 
 textarea.form-control-lg {
-	min-height: calc(1.5em + 2rem + 2px);
+	/* min-height: calc(1.5em + 2rem + 2px); */
 }
 
 .form-control-color {
@@ -12292,7 +12292,7 @@ header.masthead .h1 {
 }
 
 .showcase .showcase-text {
-	padding: 2rem;
+	/* padding: 5rem; */
 }
 
 .showcase .showcase-img {

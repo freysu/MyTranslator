@@ -2,7 +2,6 @@
 node_modules
 deploy.sh
 docs
-script-copy.js
 
 # local env files
 .env.local

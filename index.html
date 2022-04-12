@@ -88,6 +88,7 @@
 </head>
 
 <body>
+	<!-- old -->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
 			<div>
@@ -206,7 +207,7 @@
 				<div class="col-md-6">
 					<div class="row g-0 ">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-0">
+							<div class="card isLow-0" id="isLow-0">
 								<div class="card-header">
 									<b>翻译路线 1（中 ➡ 英 ➡ 中）</b>
 								</div>
@@ -241,7 +242,7 @@
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-1">
+							<div class="card isLow-1" id="isLow-1">
 								<div class="card-header">
 									<b>翻译路线 2（中 ➡ 日 ➡ 中）</b>
 								</div>
@@ -278,7 +279,7 @@
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-2">
+							<div class="card isLow-2" id="isLow-2">
 								<div class="card-header ">
 									<b>翻译路线 3（中 ➡ 意 ➡ 中）</b>
 								</div>
@@ -312,7 +313,7 @@
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-3">
+							<div class="card isLow-3" id="isLow-3">
 								<div class="card-header ">
 									<b>翻译路线 4（中 ➡ 法 ➡ 英 ➡ 葡 ➡ 日 ➡ 中）</b>
 								</div>
@@ -349,7 +350,7 @@
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-4">
+							<div class="card isLow-4" id="isLow-4">
 								<div class="card-header ">
 									<b>翻译路线 5（中 ➡ 德 ➡ 法 ➡ 中）</b>
 								</div>
@@ -383,7 +384,7 @@
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
-							<div class="card isLow-5">
+							<div class="card isLow-5" id="isLow-5">
 								<div class="card-header ">
 									<b>翻译路线 6（中 ➡ 英 ➡ 日 ➡ 韩 ➡ 中）</b>
 								</div>
@@ -519,7 +520,12 @@
 	</script>
 	<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
 	<script type="text/javascript">
-		var kehu_ip = returnCitySN["cip"]; //获取的客户端的ip
+		try {
+			var kehu_ip = returnCitySN["cip"];
+		} catch (e) {
+			// console.log(e.message); //sojson is undefined
+			var kehu_ip = "未知";
+		}
 	</script>
 	<script src="./js/md5.js"></script>
 	<script src="./js/script.js"></script>

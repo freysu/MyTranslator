@@ -1239,14 +1239,8 @@ $('#exampleModal1').on('hidden.bs.modal', function (event) {
 
 var loginBtn = $('#loginBtn');
 loginBtn.click(() => {
-	if (timer !== null) {
-		clearTimeout(timer);
-	}
-	timer = setTimeout(() => {
-		showToast('请在弹出的窗口配置账号，如果不会可以查阅帮助！', 1500);
-		$('#exampleModal').modal('show')
-		timer = null;
-	}, 500);
+	showToast('请在弹出的窗口配置账号，如果不会可以查阅帮助！', 1500);
+	$('#exampleModal').modal('show')
 });
 
 $('.close').click(() => {
@@ -1266,14 +1260,8 @@ var sckey1 = "";
 
 var relaxBtn = $('#relaxBtn');
 relaxBtn.click(() => {
-	if (timer !== null) {
-		clearTimeout(timer);
-	}
-	timer = setTimeout(() => {
-		showToast("请先关注微信公众号【FreySu】回复“密钥”", 3500);
-		$('#exampleModal1').modal('show');
-		timer = null;
-	}, 500);
+	showToast("请先关注微信公众号【FreySu】回复“密钥”", 3500);
+	$('#exampleModal1').modal('show');
 });
 
 var okBtn = $("#okBtn");

@@ -12257,7 +12257,7 @@ fieldset:disabled .btn {
 header.masthead {
 	position: relative;
 	/* background-color: #343a40; */
-	background: url("https://tuapi.eees.cc/api.php?category=biying&type=302") no-repeat center center;
+
 	background-size: cover;
 	padding-top: 8rem;
 	padding-bottom: 6rem;
@@ -12424,5 +12424,24 @@ html {
 	position: absolute;
 	top: 0;
 	right: 0;
-	transform: scale(0.75, 0.75);
+	/* border-radius: calc(0.25rem - 1px); */
+}
+
+.reloadPic:hover {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #6c757d;
+	/* border-radius: calc(0.25rem - 1px); */
+}
+
+#reloadBtn {
+	max-height: 25px;
+	max-width: 25px;
+	/* border: solid 1px #eee; */
+}
+
+.close {
+	border: solid 1px black;
+	transform: scale(0.5);
 }

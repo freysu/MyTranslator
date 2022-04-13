@@ -7,13 +7,9 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>论文翻译降重助手</title> <!-- Favicon-->
-	<link rel="icon" type="image/x-icon" href="assets/favicon.ico"> <!-- Bootstrap icons -->
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
-		type="text/css"> Core theme CSS (includes Bootstrap) -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet"
-		crossorigin="anonymous">
-	<link href="css/styles.css" rel="stylesheet">
-	<script async src="./js/busuanzi.pure.mini.js">
+	<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+	<link href="./css/styles.css" rel="stylesheet">
+	<script defer src="./js/busuanzi.pure.mini.js">
 	</script>
 	<script>
 		var _hmt = _hmt || [];
@@ -29,64 +25,6 @@
 	<script src="./js/bootstrap.bundle.min.js"></script><!-- Core theme JS-->
 	<!--打赏-->
 	<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
-	<script>
-		window.tctipConfig = {
-			//最上面的文字
-			headText: "公告 & 打赏",
-			//侧边栏文本
-			siderText: "公告 & 打赏",
-			//侧边栏文本高度调整
-			siderTextTop: "-72px",
-			//侧边栏背景颜色
-			siderBgcolor: "#323d45",
-			//整个侧边栏的高度设置
-			siderTop: "118px",
-			//底部文字
-			buttomText: "使用帮助",
-			//底部文字链接
-			buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
-			//显示列表
-			list: {
-				notice: {
-					name: "公告",
-					className: "myR-on",
-					icon: "./assets/img/tip.png",
-					text: `
-						&emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~</br>
-						&emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~</br>
-						<span style='margin-left:3.5rem;transform: scale(0.85);display: inline-block;'>FreySu</span></br>
-						<span style='margin-left:2.5rem;transform: scale(0.85);display: inline-block;'>2022.03.24</span></br>
-						<a href='https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0' class='btn btn-dark btn-sm' target='_blank' title='点击我自动跳转到QQ加群页面' style='margin-bottom:-1.5rem;margin-left:0.75rem;color: #fff;padding: 0.25rem 0.5rem;font-size:12px;'>QQ交流群</a> </br> `,
-				},
-				qqgroup: {
-					name: "QQ群",
-					desc: "欢迎进群(238223706)反馈交流！",
-					icon: "./assets/img/tree-round-QQ群.png",
-					qrimg: "./assets/img/QQ群二维码.png"
-				},
-				alipay: {
-					name: "支付宝",
-					desc: "感谢你的支持，我会继续努力！",
-					icon: "./assets/img/支付宝.png",
-					qrimg: "./assets/img/支付宝收款码.png"
-				},
-				weixin: {
-					name: "微信",
-					desc: "感谢你的支持，我会继续努力！",
-					icon: "./assets/img/微信.png",
-					qrimg: "./assets/img/微信收款码.png"
-				},
-				qq: {
-					name: "QQ",
-					desc: "感谢你的支持，我会继续努力！",
-					icon: "./assets/img/qq.png",
-					qrimg: "./assets/img/QQ收款码.png"
-				}
-			}
-		};
-	</script>
-	<script src="./js/tctip.min.js"></script>
-	<script src="./js/key.js"></script>
 </head>
 
 <body>
@@ -99,7 +37,7 @@
 			<div>
 				<ul class="list-inline mb-0">
 					<li class="list-inline-item me-4">
-						<a href="https://freysu.github.io/" target="_blank" onclick="showToast('即将跳转到作者的博客主页...',1500)">
+						<a href="https://freysu.github.io" target="_blank" onclick="showToast('即将跳转到作者的博客主页...',1500)">
 							<img class="contact" src="./assets/img/hexo.png" alt="" title="作者的博客主页"
 								style="width: 2rem;max-height:26.7px;max-width:26.7px">
 						</a>
@@ -151,8 +89,8 @@
 		</div>
 	</nav>
 	<header class="masthead mybg">
-		<button type="button" class="btn btn-secondary reloadPic" title="刷新背景">
-			<i class="bi bi-arrow-repeat"></i>
+		<button type="button" class="btn reloadPic" title="刷新背景">
+			<img id="reloadBtn" src="./assets/img/刷新.png" alt="">
 		</button>
 		<div class="container position-relative">
 			<div class="row justify-content-center">
@@ -189,8 +127,8 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">请在这配置账号</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<i class="bi bi-x"></i>
+					<button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+						<b>X</b>
 					</button>
 				</div>
 				<div class="modal-body">
@@ -228,13 +166,13 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">关注微信公众号【FreySu】回复“密钥”</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<i class="bi bi-x"></i>
+					<button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+						<b>X</b>
 					</button>
 				</div>
 				<div class="modal-body">
 					<img class="wxgzh" src="./assets/img/扫码_搜索联合传播样式-标准色版.png">
-					<input type="text" class="form-control-sm" id="rscode" placeholder="请在此输入密钥" name="rscode>
+					<input type="text" class="form-control-sm" id="rscode" placeholder="请在此输入密钥" name="rscode">
 				</div>
 				<div class=" modal-footer">
 					<input type="button" id="okBtn" class="btn-light btn-sm" value="提交" />
@@ -519,49 +457,9 @@
 							本页总访客量：<span id="busuanzi_value_site_uv"></span>次 |
 							本站总访问量：<span id="busuanzi_value_site_pv"></span>次 |
 							本页总阅读量：<span id="busuanzi_value_page_pv"></span>次
-						</span></p>
-
+						</span>
+					</p>
 				</div>
-				<!-- <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-					<div>
-						<ul class="list-inline mb-0">
-							<li class="list-inline-item me-4">
-								<a href="https://freysu.github.io/" target="_blank"
-									onclick="showToast('即将跳转到作者的博客主页...',1500)">
-									<img class="contact" src="./assets/img/hexo.png" alt="" title="作者的博客主页"
-										style="width: 2rem;margin-top:-0.625rem ;">
-								</a>
-							</li>
-							<li class="list-inline-item me-4">
-								<a href="https://github.com/freysu" target="_blank"
-									onclick="showToast('即将跳转到作者的Github主页...',1500)">
-									<i class="bi-github fs-3" title="作者的Github主页"></i>
-								</a>
-							</li>
-							<li class="list-inline-item me-4">
-								<a href="https://gitee.com/freysu" target="_blank"
-									onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
-									<img class="contact" src="./assets/img/gitee.png" alt="" title="作者的Gitee主页"
-										style="width: 2rem;margin-top:-0.625rem ;">
-								</a>
-							</li>
-							<li class="list-inline-item me-4">
-								<a href="https://www.coolapk.com/u/3128087" target="_blank"
-									onclick="showToast('即将跳转到作者的酷安主页...',1500)">
-									<img class="contact" src="./assets/img/coolapk.png" alt="" title="作者的酷安主页"
-										style="width: 1.66875rem;margin-top:-0.625rem ;">
-								</a>
-							</li>
-							<li class="list-inline-item me-4">
-								<a href="https://space.bilibili.com/14642614" target="_blank"
-									onclick="showToast('即将跳转到作者的 B站 主页...',1500)">
-									<img class="contact" src="./assets/img/icon_bilibili-circle.png" alt=""
-										title="作者的B站主页" style="width: 2rem;margin-top:-0.625rem ;">
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</footer>
@@ -594,7 +492,66 @@
 		}
 	</script>
 	<script src="./js/md5.js"></script>
+	<script src="./js/key.js"></script>
 	<script src="./js/script.js"></script>
+
+	<script>
+		window.tctipConfig = {
+			//最上面的文字
+			headText: "公告 & 打赏",
+			//侧边栏文本
+			siderText: "公告 & 打赏",
+			//侧边栏文本高度调整
+			siderTextTop: "-72px",
+			//侧边栏背景颜色
+			siderBgcolor: "#323d45",
+			//整个侧边栏的高度设置
+			siderTop: "118px",
+			//底部文字
+			buttomText: "使用帮助",
+			//底部文字链接
+			buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
+			//显示列表
+			list: {
+				notice: {
+					name: "公告",
+					className: "myR-on",
+					icon: "./assets/img/tip.png",
+					text: `
+						&emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~</br>
+						&emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~</br>
+						<span style='margin-left:3.5rem;transform: scale(0.85);display: inline-block;'>FreySu</span></br>
+						<span style='margin-left:2.5rem;transform: scale(0.85);display: inline-block;'>2022.03.24</span></br>
+						<a href='https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0' class='btn btn-dark btn-sm' target='_blank' title='点击我自动跳转到QQ加群页面' style='margin-bottom:-1.5rem;margin-left:0.75rem;color: #fff;padding: 0.25rem 0.5rem;font-size:12px;'>QQ交流群</a> </br> `,
+				},
+				qqgroup: {
+					name: "QQ群",
+					desc: "欢迎进群(238223706)反馈交流！",
+					icon: "./assets/img/tree-round-QQ群.png",
+					qrimg: "./assets/img/QQ群二维码.png"
+				},
+				alipay: {
+					name: "支付宝",
+					desc: "感谢你的支持，我会继续努力！",
+					icon: "./assets/img/支付宝.png",
+					qrimg: "./assets/img/支付宝收款码.png"
+				},
+				weixin: {
+					name: "微信",
+					desc: "感谢你的支持，我会继续努力！",
+					icon: "./assets/img/微信.png",
+					qrimg: "./assets/img/微信收款码.png"
+				},
+				qq: {
+					name: "QQ",
+					desc: "感谢你的支持，我会继续努力！",
+					icon: "./assets/img/qq.png",
+					qrimg: "./assets/img/QQ收款码.png"
+				}
+			}
+		};
+	</script>
+	<script src="./js/tctip.min.js"></script>
 </body>
 
 </html>

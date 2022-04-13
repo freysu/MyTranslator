@@ -21,6 +21,7 @@ let timer = null;
 
 $("#yourAppid").val(appid);
 $("#yourKey").val(key);
+
 if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 0 && localStorage.getItem("appid1") == secret().WtdKltf2 && localStorage.getItem("key1") == secret().zDQA3) {
 	countTime1();
 } else {
@@ -40,7 +41,7 @@ if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 
 			$("#yourAppid").val("");
 			$("#yourKey").val("");
 		} else if (localStorage.getItem("sTimes") < 0) {
-			if (location.host == "") {
+			if (location.host == "freysu.github.io") {
 				showToast("&emsp;&emsp;欢迎老朋友" + appid + "，今天又是美好的一天，论文人加油啊！<br/>&emsp;&emsp;现已推出<b>【一键提取查重报告标红内容】功能</b>，欢迎点击右上角使用。<br/>&emsp;&emsp;如果你遇到了账号配置出错，大概率是因为百度那边服务器抽风了，所以你可以休息一会再尝试~也可以去查阅一下帮助，我已更新最新教程！<br/>&emsp;&emsp;解决不了的话加群反馈作者(QQ群:238223706)</br>&emsp;&emsp;如果本网站加载得很慢，可以访问备用网站，地址是</br>&emsp;&emsp;<a href='https://my-translator-freysu.vercel.app'>https://my-translator-freysu.vercel.app</a>", 4000);
 			} else {
 				showToast(
@@ -50,6 +51,8 @@ if (localStorage.getItem('sTimes') != null && localStorage.getItem('sTimes') >= 
 		}
 	}
 }
+
+$(".mybg").css('background', 'url("https://tuapi.eees.cc/api.php?category=biying&type=302") no-repeat center center')
 
 $("#saveBtn").click(() => {
 	const fn = () => {
@@ -503,7 +506,7 @@ function translateZeroFn(fn) {
 			}
 		}, (err) => {
 			if (err == "54003" || err == "") {
-				console.log(err);
+
 				from.html('修改失败，请稍后重试......');
 				from.css("color", "red");
 				$(".restart").css("display", "inline-block");
@@ -515,7 +518,7 @@ function translateZeroFn(fn) {
 		});
 	}, (err) => {
 		if (err == "54003" || err == "") {
-			console.log(err);
+
 			from.html('修改失败，请稍后重试......');
 			from.css("color", "red");
 			$(".restart").css("display", "inline-block")
@@ -545,7 +548,7 @@ function translateOneFn(fn) {
 			}
 		}, (err) => {
 			if (err == "54003" || err == "") {
-				console.log(err);
+
 				from1.html('修改失败，请稍后重试......');
 				from1.css("color", "red");
 				$(".restart1").css("display", "inline-block");
@@ -557,7 +560,7 @@ function translateOneFn(fn) {
 		});
 	}, (err) => {
 		if (err == "54003" || err == "") {
-			console.log(err);
+
 			from1.html('修改失败，请稍后重试......');
 			from1.css("color", "red");
 			$(".restart1").css("display", "inline-block")
@@ -587,7 +590,7 @@ function translateTwoFn(fn) {
 			}
 		}, (err) => {
 			if (err == "54003" || err == "") {
-				console.log(err);
+
 				from2.html('修改失败，请稍后重试......');
 				from2.css("color", "red");
 				$(".restart2").css("display", "inline-block")
@@ -598,7 +601,7 @@ function translateTwoFn(fn) {
 		})
 	}, (err) => {
 		if (err == "54003" || err == "") {
-			console.log(err);
+
 			from2.html('修改失败，请稍后重试......');
 			from2.css("color", "red");
 			$(".restart2").css("display", "inline-block")
@@ -837,7 +840,6 @@ function translateFiveFn(fn) {
 }
 
 function translateMain(fn, str) {
-	console.log(str);
 	setTimeout(() => {
 		translateFiveFn(fn);
 	}, 1000, setTimeout(() => {
@@ -1461,56 +1463,6 @@ function allSimilarity(str, str1) {
 function similarTarget(index) {
 	document.getElementById(`isLow-${index}`).scrollIntoView(); // 页面不刷新跳转
 }
-
-// //函数memoize()需要传一个函数作为输入参数，返回相同的函数但增加了存储功能
-// function memoize(fn) {
-// 	return function () {
-// 		var propertyName;
-// 		//如果这个函数还没有用作记忆的对象属性（该属性为一个对象直接量）,则为其添加一个
-// 		fn.storage = fn.storage || {};
-// 		//在“storage”对象直接量中建立属性名称，用于保存和重新获取函数的执行结果。属性名称应该基于传给函数的所有参数而设定，
-// 		//以确保属性名称是唯一的，基于所有可能性输入参数组合的
-// 		//我们借用Array类型的“join”方法，因为“arguments”本身不是数组类型，它并不包含此方法
-// 		// propertyName = Array.prototype.join.call(arguments, "|");
-// 		// //该键（属性名称）是否存在用于记忆的对象中？
-// 		// if (propertyName in fn.storage) {
-
-// 		// 	//如果存在，则返回相关的值以避免再次执行整个函数
-// 		// 	return fn.storage[propertyName];
-// 		// } else {
-// 		// 	//如果不存在，执行相关函数并将结果保存在用作记忆的对象中
-// 		// 	fn.storage[propertyName] = fn.apply(this, arguments);
-// 		// 	//返回保存新保存的值,即函数的执行结果
-// 		// 	return fn.storage[propertyName];
-// 		// }
-// 		propertyName = Array.prototype.join.call(arguments, "|");
-// 		if (propertyName.charAt(0) != '0') {
-// 			propertyName = propertyName.replace(/1\|/i, "0|");
-// 			//该键（属性名称）是否存在用于记忆的对象中？
-// 			// console.log(propertyName);
-// 		}
-// 		if (propertyName in fn.storage) {
-// 			//如果存在，则返回相关的值以避免再次执行整个函数
-// 			showToast("检测到与上一条翻译内容重复！", 3000);
-// 			return fn.storage[propertyName];
-// 		} else {
-// 			for (let i = 0; i < $(".lead").length; i++) {
-// 				$(".newData" + i).html('');
-// 			}
-// 			$('.newData').html('');
-// 			$('.compareRes').html('');
-// 			for (let i = 0; i < $(".card").length; i++) {
-// 				if ($(".isLow-" + i).hasClass("alert-success")) {
-// 					$(".isLow-" + i).removeClass("alert-success")
-// 				}
-// 			}
-// 			//如果不存在，执行相关函数并将结果保存在用作记忆的对象中
-// 			fn.storage[propertyName] = fn.apply(this, arguments);
-// 			//返回保存新保存的值,即函数的执行结果
-// 			return fn.storage[propertyName];
-// 		}
-// 	}
-// }
 
 $('.reloadPic').click(function () {
 	$(this).parent().css("background-image", `url(https://picsum.photos/1920/1080.jpg?random=${Math.random().toFixed(3)})`);

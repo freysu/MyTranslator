@@ -8,8 +8,10 @@
 	<meta name="author" content="">
 	<title>论文翻译降重助手</title> <!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico"> <!-- Bootstrap icons -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
-		type="text/css"> <!-- Core theme CSS (includes Bootstrap)-->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
+		type="text/css"> Core theme CSS (includes Bootstrap) -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet"
+		crossorigin="anonymous">
 	<link href="css/styles.css" rel="stylesheet">
 	<script async src="./js/busuanzi.pure.mini.js">
 	</script>
@@ -92,7 +94,45 @@
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
 			<div>
-				<a class="navbar-brand" href="https://freysu.github.io/MyTranslator">论文翻译降重助手</a>
+				<a class="navbar-brand" href="https://freysu.github.io/MyTranslator"><b>论文翻译降重助手</b></a>
+			</div>
+			<div>
+				<ul class="list-inline mb-0">
+					<li class="list-inline-item me-4">
+						<a href="https://freysu.github.io/" target="_blank" onclick="showToast('即将跳转到作者的博客主页...',1500)">
+							<img class="contact" src="./assets/img/hexo.png" alt="" title="作者的博客主页"
+								style="width: 2rem;max-height:26.7px;max-width:26.7px">
+						</a>
+					</li>
+					<li class="list-inline-item me-4">
+						<a href="https://github.com/freysu" target="_blank"
+							onclick="showToast('即将跳转到作者的Github主页...',1500)">
+							<img class="contact" src="./assets/img/github-fill.png" alt="" title="作者的Github主页"
+								style="width: 2rem;max-height:26.7px;max-width:26.7px">
+						</a>
+					</li>
+					<li class="list-inline-item me-4">
+						<a href="https://gitee.com/freysu" target="_blank"
+							onclick="showToast('即将跳转到作者的Gitee主页...',1500)">
+							<img class="contact" src="./assets/img/gitee.png" alt="" title="作者的Gitee主页"
+								style="width: 2rem;max-height:26.7px;max-width:26.7px">
+						</a>
+					</li>
+					<li class="list-inline-item me-4">
+						<a href="https://www.coolapk.com/u/3128087" target="_blank"
+							onclick="showToast('即将跳转到作者的酷安主页...',1500)">
+							<img class="contact" src="./assets/img/coolapk.png" alt="" title="作者的酷安主页"
+								style="width: 2rem;max-height:26.7px;max-width:26.7px">
+						</a>
+					</li>
+					<li class="list-inline-item me-4">
+						<a href="https://space.bilibili.com/14642614" target="_blank"
+							onclick="showToast('即将跳转到作者的 B站 主页...',1500)">
+							<img class="contact" src="./assets/img/bilibili-line.png" alt="" title="作者的B站主页"
+								style="width: 2rem;max-height:26.7px;max-width:26.7px">
+						</a>
+					</li>
+				</ul>
 			</div>
 			<div>
 				<a class="btn btn-dark btn-sm" href="https://freysu.github.io/ReadFile" target="_blank"
@@ -110,7 +150,10 @@
 			</div>
 		</div>
 	</nav>
-	<header class="masthead">
+	<header class="masthead mybg">
+		<button type="button" class="btn btn-secondary reloadPic" title="刷新背景">
+			<i class="bi bi-arrow-repeat"></i>
+		</button>
 		<div class="container position-relative">
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
@@ -212,33 +255,36 @@
 									<b>翻译路线 1（中 ➡ 英 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData " id="newData"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData " id="newData"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData " id="compareData"></p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-6">
 					<div class="row g-0">
 						<div class="col-lg-6 order-lg-1 my-auto showcase-text">
@@ -247,34 +293,37 @@
 									<b>翻译路线 2（中 ➡ 日 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData1">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart1" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData1" id="newData1"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData1">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData1 " id="compareData1"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData1">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart1" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData1" id="newData1"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData1">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData1 " id="compareData1"></p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-6">
 					<div class="row g-0">
@@ -284,27 +333,31 @@
 									<b>翻译路线 3（中 ➡ 意 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData2">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart2" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData2" id="newData2"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData2">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData2">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart2" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData2" id="newData2"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData2">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData2 " id="compareData2"></p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -318,30 +371,33 @@
 									<b>翻译路线 4（中 ➡ 法 ➡ 英 ➡ 葡 ➡ 日 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData3">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart3" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData3" id="newData3"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData3">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData3">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart3" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData3" id="newData3"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData3">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData3 " id="compareData3"></p>
+									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -355,27 +411,31 @@
 									<b>翻译路线 5（中 ➡ 德 ➡ 法 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData4">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart4" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData4" id="newData4"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData4">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData4">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart4" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData4" id="newData4"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData4">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData4 " id="compareData4"></p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -389,33 +449,38 @@
 									<b>翻译路线 6（中 ➡ 英 ➡ 日 ➡ 韩 ➡ 中）</b>
 								</div>
 								<div class="card-body">
-									<h3 class="card-title">
-										降重结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#newData5">
-											复制
-										</a>
-										<span class="btn btn-default btn-sm restart5" style="display: none;">
-											重试
-										</span>
-									</h3>
-									<p class="card-text">
-										<p class="lead mb-0 form-control newData5" id="newData5"></p>
-									</p>
-									<h5 style="margin-top: 9px;">
-										对比结果
-										<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
-											data-clipboard-target="#compareData5">
-											复制
-										</a>
-									</h5>
-									<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+									<div class="transalteResDiv">
+										<h3 class="card-title">
+											降重结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#newData5">
+												复制
+											</a>
+											<span class="btn btn-default btn-sm restart5" style="display: none;">
+												重试
+											</span>
+										</h3>
+										<p class="card-text">
+											<p class="lead mb-0 form-control newData5" id="newData5"></p>
+										</p>
+									</div>
+									<div class="compareResDiv">
+										<h5 style="margin-top: 9px;">
+											对比结果
+											<a class="btn btn-default btn-sm clipboard clipboard" href="javascript:"
+												data-clipboard-target="#compareData5">
+												复制
+											</a>
+										</h5>
+										<p class="compareRes mb-0 form-control compareData5 " id="compareData5"></p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section> <!-- Call to Action-->
 	<!-- Footer-->
 	<footer class="footer bg-light" id="footer">
@@ -449,14 +514,15 @@
 								target="_blank"><b>QQ 交流群</b></a>
 						</li>
 					</ul>
-					<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.</p>
+					<p class="text-muted small mb-4 mb-lg-0">© Frey 2021. All Rights Reserved.
+						<span id="busuanzi_container_page_pv" style="transform: scale(0.75);display: inline-block;">
+							本页总访客量：<span id="busuanzi_value_site_uv"></span>次 |
+							本站总访问量：<span id="busuanzi_value_site_pv"></span>次 |
+							本页总阅读量：<span id="busuanzi_value_page_pv"></span>次
+						</span></p>
+
 				</div>
-				<div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-					<span id="busuanzi_container_page_pv">
-						我的第<span id="busuanzi_value_site_uv"></span>个小伙伴<br />
-						本站总访问量<span id="busuanzi_value_site_pv"></span>次<br />
-						本页总阅读量<span id="busuanzi_value_page_pv"></span>次
-					</span>
+				<!-- <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
 					<div>
 						<ul class="list-inline mb-0">
 							<li class="list-inline-item me-4">
@@ -495,7 +561,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</footer>

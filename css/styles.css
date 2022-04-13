@@ -12257,10 +12257,10 @@ fieldset:disabled .btn {
 header.masthead {
 	position: relative;
 	/* background-color: #343a40; */
-	/* background: url("../assets/img/bg-masthead.jpg") no-repeat center center; */
+	background: url("https://tuapi.eees.cc/api.php?category=biying&type=302") no-repeat center center;
 	background-size: cover;
-	padding-top: 6rem;
-	padding-bottom: 5rem;
+	padding-top: 8rem;
+	padding-bottom: 6rem;
 }
 
 header.masthead:before {
@@ -12341,8 +12341,8 @@ header.masthead .h1 {
 }
 
 footer.footer {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 
 .fixed_btn {
@@ -12408,5 +12408,21 @@ footer.footer {
 body,
 html {
 	width: 100%;
+	height: 100%;
 	overflow-x: hidden;
+}
+
+.compareResDiv {
+	display: none;
+}
+
+.mybg {
+	position: relative;
+}
+
+.reloadPic {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: scale(0.75, 0.75);
 }

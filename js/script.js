@@ -16,6 +16,8 @@ let compare5 = $(".compareData5");
 
 var appid = localStorage.getItem("appid1");
 var key = localStorage.getItem("key1");
+var ydAppKey = localStorage.getItem("ydAppKey");
+var ydKey = localStorage.getItem("ydKey");
 const url = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
 let timer = null;
 
@@ -470,17 +472,59 @@ function translateFn(QUERY, FROM, TO) {
 				} else if (data.error_code == "54003") {
 					showToast("由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
 					reject(data.error_code);
-				} else {
-					if (data.trans_result[0] != undefined) {
-						resolve(data.trans_result[0].dst)
-					} else {
-						return;
-					}
+				} else if (data.trans_result[0] != undefined) {
+					resolve(data.trans_result[0].dst)
 				}
 			})
 		}, 1500);
 	})
 }
+// var showTip1 = 0;
+
+// function youdaoTranslateFn(query, from, to) {
+// 	return new Promise((resolve, reject) => {
+// 		var salt = (new Date).getTime();
+// 		var curtime = Math.round(new Date().getTime() / 1000);
+// 		var str1 = ydAppKey + truncate(query) + salt + curtime + ydKey;
+// 		var sign = CryptoJS.SHA256(str1).toString(CryptoJS.enc.Hex);
+// 		setTimeout(() => {
+// 			$.ajax({
+// 				url: 'https://openapi.youdao.com/api',
+// 				type: 'post',
+// 				dataType: 'jsonp',
+// 				data: {
+// 					q: query,
+// 					appKey: ydAppKey,
+// 					salt: salt,
+// 					from: from,
+// 					to: to,
+// 					sign: sign,
+// 					signType: "v3",
+// 					curtime,
+// 				}
+// 			}).done(data => {
+// 				if (data.errorCode == "108") {
+// 					showToast("账号配置出错，请重新配置...如果你保存成功了还显示这条提示，大概率是因为百度服务器那边抽风了，你可以先休息一会，等会再刷新重试...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+// 					if (showTip1 <= 4) {
+// 						sendRequest('showTip1: ' + showTip1 + ' \\ ' + localStorage.getItem("sTimes") + " \\ " + localStorage.getItem("ydAppid"), data.error_code + "：" + "封装的yd翻译API && 账号配置出错，请重新配置... &&" + localStorage.getItem("ydAppid"), 1);
+// 					}
+// 					showTip1++;
+// 				} else if (data.errorCode == "5411") {
+// 					showToast("yd:由于你的API还未升级成高级版，所以出现了修改失败...解决不了的话加群反馈作者(QQ群:238223706)", 3000);
+// 					reject(data.errorCode);
+// 				} else if (data.translation[0] != undefined) {
+// 					resolve(data.translation[0])
+// 				}
+// 			})
+// 		}, 1500);
+
+// 		function truncate(q) {
+// 			var len = q.length;
+// 			if (len <= 20) return q;
+// 			return q.substring(0, 10) + len + q.substring(len - 10, len);
+// 		}
+// 	})
+// }
 
 var errorTimes = 0;
 // 存放相似度结果
@@ -1106,19 +1150,19 @@ function eq(op) {
 }
 
 let fixedBtn = $(".fixed_btn");
-window.onscroll = () => {
+$("body").scroll(function () {
 	if (timer !== null) {
 		clearTimeout(timer);
 	}
 	timer = setTimeout(() => {
-		if (document.documentElement.scrollTop >= 400) {
+		if ($("body").scrollTop() >= 500) {
 			fixedBtn.css("display", 'block');
 		} else {
 			fixedBtn.css("display", 'none');
 		}
 		timer = null;
 	}, 500);
-};
+});
 
 function _0x3df7(_0x2287e0, _0x5956d1) {
 	var _0x4340a8 = _0x4340();
@@ -1455,3 +1499,14 @@ function similarTarget(index) {
 $('.reloadPic').click(function () {
 	$(this).parent().css("background-image", `url(https://picsum.photos/1920/1080.jpg?random=${Math.random().toFixed(3)})`);
 })
+
+function getCheckBoxVal() {
+	var chk_value = [];
+	$(".transMethods").find('input:checkbox').each(function () { //遍历所有复选框
+		if ($(this).prop('checked') == true) {
+			chk_value.push($(this).prop('name'));
+		}
+	});
+	return chk_value.length == 0 ? '你还没有选择任何内容！' : chk_value
+}
+//console.log(getCheckBoxVal())

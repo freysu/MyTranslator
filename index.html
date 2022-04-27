@@ -4,11 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>论文翻译降重助手</title> <!-- Favicon-->
+	<meta name="description" content="一个用于帮助毕业生写论文时提高降重效率的网站">
+	<meta name="author" content="freysu@GitHub">
+	<meta name="keywords" content="论文, 论文降重, 百度翻译API, 论文降重工具, 翻译降重">
+	<meta http-equiv="Content-Language" contect="zh-CN">
+	<meta http-equiv="windows-Target" contect="_top">
+	<title>论文翻译降重助手</title>
 	<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 	<link href="./css/styles.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
 	<script defer src="./js/busuanzi.pure.mini.js">
 	</script>
 	<script>
@@ -23,13 +27,13 @@
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script> <!-- Bootstrap core JS-->
 	<script src="./js/bootstrap.bundle.min.js"></script><!-- Core theme JS-->
-	<!--打赏-->
 	<link type="text/css" rel="stylesheet" href="./css/myRewards.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<!-- <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"> -->
 	<!-- <script src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script> -->
 </head>
 
 <body>
-	<!-- old -->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
 			<div>
@@ -73,18 +77,21 @@
 					</li>
 				</ul>
 			</div>
-			<div>
-				<a class="btn btn-dark btn-sm" href="https://freysu.github.io/ReadFile" target="_blank"
-					id="readFileBtn"><i class="bi bi-check-square"></i> 一键提取查重报告
+			<div class="user-select-none">
+				<a class="btn btn-outline-dark rounded-pill p-2" href="https://freysu.github.io/ReadFile"
+					target="_blank" id="readFileBtn"> <i class="bi bi-check-square"></i> <b>一键提取查重报告</b>
 				</a>
-				<a class="btn btn-warning btn-sm" href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档"
-					target="_blank" id="firstUse"><i class="bi bi-info-square"></i> 使用帮助
+				<a class="btn btn-outline-dark rounded-pill p-2"
+					href="https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档" target="_blank" id="firstUse"><i
+						class="bi bi-info-square"></i> <b>使用帮助</b>
 				</a>
-				<button class="btn btn-danger btn-sm" id="relaxBtn"><i class="bi bi-heart-fill"></i> 免申请 API 体验 3
-					分钟
+				<button class="btn btn-outline-dark rounded-pill p-2  " id="relaxBtn"><i class="bi bi-heart-fill"></i>
+					<b>免申请 API 体验 3
+						分钟</b>
 				</button>
-				<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="loginBtn"><i
-						class="bi bi-person-check-fill"></i> 配置账号
+				<button class="btn btn-outline-dark rounded-pill p-2" data-toggle="modal" data-target="#exampleModal"
+					id="loginBtn"><i class="bi bi-person-check-fill"></i>
+					<b>配置账号</b>
 				</button>
 			</div>
 		</div>
@@ -102,7 +109,7 @@
 							<div class="col ">
 								<textarea style="height:30%"
 									class="input-lg form-control form-control-lg originData shadow-lg" type="text"
-									placeholder="请在这里输入要降重的文本" title="偷偷祝你查重稳过！"></textarea>
+									placeholder="请在此输入你要降重的文本" title="偷偷祝你查重稳过！"></textarea>
 								<div>
 									<p style="margin-top:2.5%">共计：<span id="zifu">0</span>字符</p>
 								</div>
@@ -117,12 +124,13 @@
 							</div>
 						</div>
 						<div class="col-auto other">
-							<button style="margin: 15px;" class="btn btn-dark btn-md translateAndCompareBtn"
+							<button style="margin: 15px;" class="btn btn-dark rounded-3 btn-md translateAndCompareBtn"
 								type="button">翻译并对比</button>
-							<button style="margin: 15px;" class="btn btn-danger btn-md clear" type="button">清空</button>
-							<button style="margin: 15px;" class="btn btn-primary btn-md translateBtn"
+							<button style="margin: 15px;" class="btn btn-danger rounded-3 btn-md clear"
+								type="button">清空</button>
+							<button style="margin: 15px;" class="btn btn-primary rounded-3 btn-md translateBtn"
 								type="button">翻译</button>
-							<button style="margin: 15px;" class="btn btn-primary btn-md compare"
+							<button style="margin: 15px;" class="btn btn-primary rounded-3 btn-md compare"
 								type="button">对比</button>
 						</div>
 					</div>
@@ -155,9 +163,14 @@
 													placeholder="APPID" title="在这输入你的百度翻译 API 的 APPID">
 											</div>
 											<div class="col">
-												<label for="yourKey">密钥</label>
-												<input class="form-control form-control-sm" id="yourKey" type="password"
-													placeholder="密钥" title="在这输入你的百度翻译 API 的密钥">
+												<div>
+													<label for="yourKey">密钥</label>
+													<i class="bi bi-eye user-select-none" title="显示密码"
+														id="see_oldpwd"></i>
+													<input class="form-control form-control-sm" id="yourKey"
+														type="password" placeholder="密钥"
+														title="在这输入你的百度翻译 API 的密钥，可点击眼睛图标显示密码">
+												</div>
 											</div>
 										</div>
 									</form>
@@ -213,7 +226,7 @@
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -230,8 +243,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</div> -->
 	<section class="showcase ">
 		<div class="container-fluid p-0 ">
 			<div class="card shadow-lg">
@@ -244,12 +256,71 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-0 shadow" id="isLow-0">
 										<div class="card-header">
-											<b>翻译路线 1（中 ➡ 英 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="0"
+												id="isWantToTranslate-0">
+											<label class="form-check-label" for="isWantToTranslate-0">
+												<small>翻译路线 1
+													(<span id="selectWay-0">中文</span>
+													➡
+													<span id="selectWay-1">英语</span>
+													➡
+													<span id="selectWay-2">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-0">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-1">
+														<option value="zh">中文</option>
+														<option value="en" selected>英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-2">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-0">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-0">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData">
 														复制
@@ -263,7 +334,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -285,12 +356,71 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-1 shadow" id="isLow-1">
 										<div class="card-header">
-											<b>翻译路线 2（中 ➡ 日 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="1"
+												id="isWantToTranslate-1">
+											<label class="form-check-label" for="isWantToTranslate-1">
+												<small>翻译路线 2
+													(<span id="selectWay-3">中文</span>
+													➡
+													<span id="selectWay-4">日语</span>
+													➡
+													<span id="selectWay-5">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample1">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-3">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-4">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp" selected>日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-5">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-1">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-1">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData1">
 														复制
@@ -305,7 +435,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -329,12 +459,71 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-2 shadow" id="isLow-2">
 										<div class="card-header ">
-											<b>翻译路线 3（中 ➡ 意 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="2"
+												id="isWantToTranslate-2">
+											<label class="form-check-label" for="isWantToTranslate-2">
+												<small>翻译路线 3
+													(<span id="selectWay-6">中文</span>
+													➡
+													<span id="selectWay-7">意大利语</span>
+													➡
+													<span id="selectWay-8">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample2">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-6">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-7">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it" selected>意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-8">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-2">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-2">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData2">
 														复制
@@ -349,7 +538,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -371,12 +560,158 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-3 shadow" id="isLow-3">
 										<div class="card-header ">
-											<b>翻译路线 4（中 ➡ 法 ➡ 英 ➡ 葡 ➡ 日 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="3"
+												id="isWantToTranslate-3">
+											<label class="form-check-label" for="isWantToTranslate-3">
+												<small>翻译路线 4
+													(<span id="selectWay-9">中文</span>
+													➡
+													<span id="selectWay-10">法语</span>
+													➡
+													<span id="selectWay-11">英语</span>
+													➡
+													<span id="selectWay-12">葡萄牙语</span>
+													➡
+													<span id="selectWay-13">日语</span>
+													➡
+													<span id="selectWay-14">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample3">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-9">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-10">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra" selected>法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-11">
+														<option value="zh">中文</option>
+														<option value="en" selected>英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-12">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt" selected>葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-13">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp" selected>日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-14">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-3">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-3">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData3">
 														复制
@@ -391,7 +726,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -415,12 +750,100 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-4 shadow" id="isLow-4">
 										<div class="card-header ">
-											<b>翻译路线 5（中 ➡ 德 ➡ 法 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="4"
+												id="isWantToTranslate-4">
+											<label class="form-check-label" for="isWantToTranslate-4">
+												<small>翻译路线 5
+													(<span id="selectWay-15">中文</span>
+													➡
+													<span id="selectWay-16">德语</span>
+													➡
+													<span id="selectWay-17">法语</span>
+													➡
+													<span id="selectWay-18">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample4">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-15">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-16">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de" selected>德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-17">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra" selected>法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-18">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-4">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-4">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData4">
 														复制
@@ -435,7 +858,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -457,12 +880,129 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-5 shadow" id="isLow-5">
 										<div class="card-header ">
-											<b>翻译路线 6（中 ➡ 英 ➡ 日 ➡ 韩 ➡ 中）</b>
+											<input class="form-check-input" type="checkbox" checked value="5"
+												id="isWantToTranslate-5">
+											<label class="form-check-label" for="isWantToTranslate-5">
+												<small>翻译路线 6
+													(<span id="selectWay-19">中文</span>
+													➡
+													<span id="selectWay-20">英语</span>
+													➡
+													<span id="selectWay-21">日语</span>
+													➡
+													<span id="selectWay-22">韩语</span>
+													➡
+													<span id="selectWay-23">中文</span>)
+												</small>
+											</label>
+											<small class="btn btn-outline-secondary btn-sm"
+												onclick="updateContentFn(this)">
+												修改
+											</small>
+											<div class="collapseDiv scale-in-ver-top" id="collapseExample5">
+												<div class="input-group input-group-sm">
+													<select class="form-select w-auto" id="inputGroupSelect-19">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-20">
+														<option value="zh">中文</option>
+														<option value="en" selected>英语</option>
+														<option value="jp">日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-21">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp" selected>日语</option>
+														<option value="kor">韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-22">
+														<option value="zh">中文</option>
+														<option value="en">英语</option>
+														<option value="jp">日语</option>
+														<option value="kor" selected>韩语</option>
+														<option value="fra">法语</option>
+														<option value="spa">西班牙语</option>
+														<option value="th">泰语</option>
+														<option value="ara">阿拉伯语</option>
+														<option value="ru">俄语</option>
+														<option value="pt">葡萄牙语</option>
+														<option value="de">德语</option>
+														<option value="it">意大利语</option>
+														<option value="el">希腊语</option>
+														<option value="nl">荷兰语</option>
+														<option value="pl">波兰语</option>
+														<option value="bul">保加利亚语</option>
+														<option value="est">爱沙尼亚语</option>
+														<option value="dan">丹麦语</option>
+														<option value="fin">芬兰语</option>
+														<option value="cs">捷克语</option>
+														<option value="rom">罗马尼亚语</option>
+														<option value="slo">斯洛文尼亚语</option>
+														<option value="swe">瑞典语</option>
+														<option value="hu">匈牙利语</option>
+														<option value="vie">越南语</option>
+													</select>
+													<select class="form-select w-auto" id="inputGroupSelect-23">
+														<option value="zh" selected>中文</option>
+														<option value="en">英语</option>
+													</select>
+													<div class="input-group-append">
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="saveSelect-5">保存</button>
+														<button class="btn btn-outline-secondary btn-sm" type="button"
+															id="resetSelect-5">重置</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
 												<h3 class="card-title">
-													降重结果
+													翻译结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
 														href="javascript:" data-clipboard-target="#newData5">
 														复制
@@ -477,7 +1017,7 @@
 													</p>
 												</p>
 											</div>
-											<div class="compareResDiv">
+											<div class="compareResDiv scale-in-ver-top">
 												<h5 style="margin-top: 9px;">
 													对比结果
 													<a class="btn btn-default btn-sm clipboard clipboard"
@@ -508,7 +1048,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-0 shadow" id="isLow-0">
 										<div class="card-header">
-											<b>翻译路线 1（中 ➡ 英 ➡ 中）</b>
+											<b>翻译路线 1(中➡英➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -549,7 +1089,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-1 shadow" id="isLow-1">
 										<div class="card-header">
-											<b>翻译路线 2（中 ➡ 日 ➡ 中）</b>
+											<b>翻译路线 2(中➡日➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -593,7 +1133,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-2 shadow" id="isLow-2">
 										<div class="card-header ">
-											<b>翻译路线 3（中 ➡ 意 ➡ 中）</b>
+											<b>翻译路线 3(中➡意➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -635,7 +1175,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-3 shadow" id="isLow-3">
 										<div class="card-header ">
-											<b>翻译路线 4（中 ➡ 法 ➡ 英 ➡ 葡 ➡ 日 ➡ 中）</b>
+											<b>翻译路线 4(中➡法➡英➡葡➡日➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -679,7 +1219,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-4 shadow" id="isLow-4">
 										<div class="card-header ">
-											<b>翻译路线 5（中 ➡ 德 ➡ 法 ➡ 中）</b>
+											<b>翻译路线 5(中➡德➡法➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -721,7 +1261,7 @@
 								<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 									<div class="card isLow-5 shadow" id="isLow-5">
 										<div class="card-header ">
-											<b>翻译路线 6（中 ➡ 英 ➡ 日 ➡ 韩 ➡ 中）</b>
+											<b>翻译路线 6(中➡英➡日➡韩➡中)</b>
 										</div>
 										<div class="card-body">
 											<div class="transalteResDiv">
@@ -838,7 +1378,6 @@
 	<script src="./js/md5.js"></script>
 	<script src="./js/key.js"></script>
 	<script src="./js/script.js"></script>
-
 	<script>
 		window.tctipConfig = {
 			//最上面的文字

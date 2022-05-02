@@ -12600,3 +12600,10 @@ html {
 .collapseDiv {
 	display: none;
 }
+
+.originData {
+	overflow: hidden;
+	resize: none;
+	outline: 0 none;
+	transition: all 200ms linear;
+}

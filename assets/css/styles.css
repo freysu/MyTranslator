@@ -2,12 +2,14 @@
 
 @font-face {
 	font-family: alibaba;
-	src: url("../fonts/Alibaba-PuHuiTi-Regular.otf");
+	/* src: url("../fonts/Alibaba-PuHuiTi-Regular.otf"); */
+	src: url("https://fastly.jsdelivr.net/gh/freysu/MyTranslator@main/assets/fonts/Alibaba-PuHuiTi-Regular.otf");
 }
 
 @font-face {
 	font-family: menlo;
-	src: url("../fonts/Menlo-Regular-1.otf");
+	/* src: url("../fonts/Menlo-Regular-1.otf"); */
+	src: url("https://fastly.jsdelivr.net/gh/freysu/MyTranslator@main/assets/fonts/Menlo-Regular-1.otf");
 }
 
 /*!

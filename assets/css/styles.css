@@ -2,12 +2,12 @@
 
 @font-face {
 	font-family: alibaba;
-	src: url("../assets/fonts/Alibaba-PuHuiTi-Light.otf");
+	src: url("../fonts/Alibaba-PuHuiTi-Regular.otf");
 }
 
 @font-face {
 	font-family: menlo;
-	src: url("../assets/fonts/Menlo-Regular-1.otf");
+	src: url("../fonts/Menlo-Regular-1.otf");
 }
 
 /*!

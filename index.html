@@ -103,16 +103,20 @@
 		<div class="container position-relative">
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
-					<div class="text-center text-white">
-						<h1 class="mb-5" id="start"></h1>
+					<div class="text-center text-white" id="start">
 						<div class="row">
 							<div class="col ">
 								<textarea style="height:30%;word-wrap:normal"
 									class="input-lg form-control form-control-lg originData shadow-lg"
 									id="originDataInput" rows="1" placeholder="请在此输入你要降重的文本（不支持换行）"
 									title="偷偷祝你查重稳过！"></textarea>
-								<div>
-									<p style="margin-top:2.5%">共计：<span id="zifu">0</span>字符</p>
+								<div style="margin: 1.5%;">
+									<p><span style="margin:5%">共计：<span id="zifu"> 0</span>字符</span>
+										<!-- <span class="text-muted"> </span> -->
+										<span class="text-muted" style="margin:5%" title="显示的是你今日在本网站输入的字符">今日已输入<span
+												id="spendZifu">
+												0</span>字符</span>
+									</p>
 								</div>
 								<!-- <div class="btn-group btn-group-sm transMethods" data-toggle="buttons">
 									<label class="btn btn-secondary active" title="勾选了将会用你配置的百度翻译API来翻译">
@@ -124,14 +128,15 @@
 								</div> -->
 							</div>
 						</div>
-						<div class="col-auto other">
-							<button style="margin: 15px;" class="btn btn-dark rounded-3 btn-md translateAndCompareBtn"
-								type="button">翻译并对比</button>
-							<button style="margin: 15px;" class="btn btn-danger rounded-3 btn-md clear"
+						<div class="col-auto other" style="margin-top:-1.0625rem;">
+							<button style="margin: .9375rem;"
+								class="btn btn-dark rounded-3 btn-md translateAndCompareBtn"
+								type="button">翻译&对比</button>
+							<button style="margin: .9375rem;" class="btn btn-danger rounded-3 btn-md clear"
 								type="button">清空</button>
-							<button style="margin: 15px;" class="btn btn-primary rounded-3 btn-md translateBtn"
+							<button style="margin: .9375rem;" class="btn btn-primary rounded-3 btn-md translateBtn"
 								type="button">翻译</button>
-							<button style="margin: 15px;" class="btn btn-primary rounded-3 btn-md compare"
+							<button style="margin: .9375rem;" class="btn btn-primary rounded-3 btn-md compare"
 								type="button">对比</button>
 						</div>
 					</div>
@@ -1414,6 +1419,12 @@
 					icon: "./assets/img/tree-round-QQ群.png",
 					qrimg: "./assets/img/QQ群二维码.png"
 				},
+				wxgroup: {
+					name: "微信群",
+					desc: "欢迎扫码进群反馈交流！",
+					icon: "./assets/img/tree-round-QQ群.png",
+					qrimg: "./assets/img/微信群二维码.jpg"
+				},
 				alipay: {
 					name: "支付宝",
 					desc: "感谢你的支持，我会继续努力！",
@@ -1426,12 +1437,12 @@
 					icon: "./assets/img/微信.png",
 					qrimg: "./assets/img/微信收款码.png"
 				},
-				qq: {
-					name: "QQ",
-					desc: "感谢你的支持，我会继续努力！",
-					icon: "./assets/img/qq.png",
-					qrimg: "./assets/img/QQ收款码.png"
-				}
+				// qq: {
+				// 	name: "QQ",
+				// 	desc: "感谢你的支持，我会继续努力！",
+				// 	icon: "./assets/img/qq.png",
+				// 	qrimg: "./assets/img/QQ收款码.png"
+				// },
 			}
 		};
 	</script>

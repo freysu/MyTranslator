@@ -12622,3 +12622,7 @@ html {
 	outline: 0 none;
 	transition: all 200ms linear;
 }
+
+.columnStyle {
+	display: none;
+}

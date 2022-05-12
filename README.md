@@ -68,22 +68,8 @@
 
 ## 快速开始
 
-1. 克隆本项目到本地
-   ```
-   git clone https://github.com/freysu/MyTranslator
-   ```
-1. 预览页面
-
-   - 可以选择安装搭建静态服务器的插件 live-server
-
-   ```
-   npm install live-server -g
-   ```
-
-   然后在浏览器中输入地址访问即可
-
-   - 也可以选择直接打开`index.html`文件
-
+1. 访问本项目的演示地址  
+   [https://freysu.github.io/MyTranslator](https://freysu.github.io/MyTranslator)
 1. 注册百度翻译 API
    关于这一步，就不占篇幅细说了，详情可见[论文翻译降重助手使用说明文档](https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档)
 1. 在论文翻译降重助手中填写百度翻译 API 的 APP ID 和密钥，然后输入要降重的内容点击翻译按钮即可

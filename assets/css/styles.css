@@ -12626,3 +12626,19 @@ html {
 .columnStyle {
 	display: none;
 }
+
+.searchIcon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.noscroll,
+.noscroll body {
+	overflow: hidden;
+}
+
+.noscroll body {
+	position: relative;
+}

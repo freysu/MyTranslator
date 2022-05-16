@@ -12,7 +12,7 @@
 	<title>论文翻译降重助手</title>
 	<link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
 	<link href="./assets/css/styles.css" rel="stylesheet">
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 	<script>
 		var _hmt = _hmt || [];
 		(function () {
@@ -22,16 +22,18 @@
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
+	<script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
+	<script src="https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js"
+		type="application/javascript"></script>
 	<link href="https://cdn.staticfile.org/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css" type="text/css"
 		rel="stylesheet" />
-	<script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js" type="application/javascript">
 	</script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"
 		type="application/javascript"></script>
-	<script src="https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js"
-		type="application/javascript"></script>
+	<script src="https://cdn.staticfile.org/crypto-js/4.1.1/crypto-js.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="./assets/css/myRewards.css">
+	<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
 </head>
 
 <body>
@@ -1825,90 +1827,111 @@
 	<script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" type="application/javascript">
 	</script>
 	<script type="text/javascript">
-		var clipboard = new ClipboardJS('.clipboard');
-	</script>
-	<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-	<script type="text/javascript">
 		try {
+			var clipboard = new ClipboardJS('.clipboard');
 			var kehu_ip = returnCitySN["cip"];
 		} catch (e) {
 			var kehu_ip = "未知";
 		}
 
 		function switchCDN() {
-			var body = $("body");
-			if ($(
-					"script[src='https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js']"
-				)
-				.length > 0) {} else {
-				var script = $("<script>");
-				$(script).attr('type', 'text/javascript');
-				$(script).attr('src', 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js');
-				$(body).append(script);
+			var head = document.head
+
+			if (typeof jQuery == 'undefined') {
+				alert("你当前的网络不允许这么操作！")
+			} else {
+				if (
+					$(
+						"script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js']"
+					).length > 0
+				) {} else {
+					var script = $('<script>')
+					$(script).attr('type', 'text/javascript')
+					$(script).attr(
+						'src',
+						'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.min.js'
+					)
+					$(head).append(script)
+				}
+
+				if (
+					$(
+						"link[href='https://cdn.staticfile.org/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css']"
+					).length > 0
+				) {} else {
+					var style = $('<link>')
+					$(style).attr('type', 'text/css')
+					$(style).attr('rel', 'stylesheet')
+					$(style).attr(
+						'href',
+						'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css'
+					)
+					$(head).append(style)
+				}
+
+				if (
+					$(
+						"script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js']"
+					).length > 0
+				) {} else {
+					var script = $('<script>')
+					$(script).attr('type', 'text/javascript')
+					$(script).attr(
+						'src',
+						'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js'
+					)
+					$(head).append(script)
+				}
+
+				if (
+					$(
+						"script[src='https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js']"
+					).length > 0
+				) {} else {
+					var script = $('<script>')
+					$(script).attr('type', 'text/javascript')
+					$(script).attr(
+						'src',
+						'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js'
+					)
+					$(head).append(script)
+				}
+
+				if (
+					$(
+						"script[src='https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js']"
+					).length > 0
+				) {} else {
+					var script = $('<script>')
+					$(script).attr('type', 'text/javascript')
+					$(script).attr(
+						'src',
+						'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.10/clipboard.min.js'
+					)
+					$(head).append(script)
+				}
+
+				if (
+					$(
+						"script[src='https://cdn.staticfile.org/crypto-js/4.1.1/crypto-js.min.js']"
+					).length > 0
+				) {} else {
+					var script = $('<script>')
+					$(script).attr('type', 'text/javascript')
+					$(script).attr(
+						'src',
+						'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js'
+					)
+					$(head).append(script)
+				}
 			}
 
-			if ($(
-					"script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js']"
-				)
-				.length > 0) {} else {
-				var script = $("<script>");
-				$(script).attr('type', 'text/javascript');
-				$(script).attr('src',
-					'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.min.js');
-				$(body).append(script);
-			}
-
-			if ($(
-					"link[href='https://cdn.staticfile.org/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css']"
-				)
-				.length > 0) {} else {
-				var style = $("<link>");
-				$(style).attr('type', 'text/css');
-				$(style).attr('rel', 'stylesheet');
-				$(style).attr('href',
-					'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css');
-				$(body).append(style);
-			}
-
-			if ($(
-					"script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js']"
-				)
-				.length > 0) {} else {
-				var script = $("<script>");
-				$(script).attr('type', 'text/javascript');
-				$(script).attr('src',
-					'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js');
-				$(body).append(script);
-			}
-
-			if ($(
-					"script[src='https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js']"
-				)
-				.length > 0) {} else {
-				var script = $("<script>");
-				$(script).attr('type', 'text/javascript');
-				$(script).attr('src',
-					'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js');
-				$(body).append(script);
-			}
-
-			if ($(
-					"script[src='https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js']"
-				)
-				.length > 0) {} else {
-				var script = $("<script>");
-				$(script).attr('type', 'text/javascript');
-				$(script).attr('src',
-					'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.10/clipboard.min.js');
-				$(body).append(script);
-			}
 		}
 		switchCDN()
 	</script>
 	<script src="./assets/js/md5.js"></script>
 	<script src="./assets/js/key.js"></script>
 	<script src="./assets/js/script.js"></script>
-	<!-- <script src="./assets/js/script-copy_220514.js"></script> -->
 	<script>
 		window.tctipConfig = {
 			//最上面的文字

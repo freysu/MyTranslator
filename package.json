@@ -1,25 +1,25 @@
 {
-  "name": "mytranslator",
-  "version": "1.0.0",
-  "description": "<div align=\"center\">\r     <h1>论文翻译降重助手(MyTranslator)</h1>\r     <div>\r         <a href=\"https://getbootstrap.com\">\r             <img src=\"https://raster.shields.io/badge/Bootstrap-4.6.1-red.svg\" />\r         </a>\r         <a href=\"https://jquery.com/\">\r             <img src=\"https://raster.shields.io/badge/jQuery-3.6.0-brightgreen.svg\" />\r         </a>\r                 <a href=\"https://api.fanyi.baidu.com/\">\r             <img src=\"https://raster.shields.io/badge/百度翻译API-通用翻译服务-success.svg\" />\r         </a>\r     </div>\r     <div>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub forks\" src=\"https://img.shields.io/github/forks/freysu/MyTranslator.svg?style=social\" />\r         </a>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub stars\" src=\"https://img.shields.io/github/stars/freysu/MyTranslator.svg?style=social\" />\r         </a>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub watchers\"\r                 src=\"https://img.shields.io/github/watchers/freysu/MyTranslator.svg?style=social\" />\r         </a>\r     </div>\r </div>",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freysu/MyTranslator.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/freysu/MyTranslator/issues"
-  },
-  "homepage": "https://github.com/freysu/MyTranslator#readme",
-  "devDependencies": {
-    "eslint": "^8.13.0"
-  }
+    "name": "mytranslator",
+    "version": "1.0.0",
+    "description": "<div align=\"center\">\r     <h1>论文翻译降重助手(MyTranslator)</h1>\r     <div>\r         <a href=\"https://getbootstrap.com\">\r             <img src=\"https://raster.shields.io/badge/Bootstrap-4.6.1-red.svg\" />\r         </a>\r         <a href=\"https://jquery.com/\">\r             <img src=\"https://raster.shields.io/badge/jQuery-3.6.0-brightgreen.svg\" />\r         </a>\r                 <a href=\"https://api.fanyi.baidu.com/\">\r             <img src=\"https://raster.shields.io/badge/百度翻译API-通用翻译服务-success.svg\" />\r         </a>\r     </div>\r     <div>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub forks\" src=\"https://img.shields.io/github/forks/freysu/MyTranslator.svg?style=social\" />\r         </a>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub stars\" src=\"https://img.shields.io/github/stars/freysu/MyTranslator.svg?style=social\" />\r         </a>\r         <a href=\"https://github.com/freysu/MyTranslator\">\r             <img title=\"GitHub watchers\"\r                 src=\"https://img.shields.io/github/watchers/freysu/MyTranslator.svg?style=social\" />\r         </a>\r     </div>\r </div>",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/freysu/MyTranslator.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/freysu/MyTranslator/issues"
+    },
+    "homepage": "https://github.com/freysu/MyTranslator#readme",
+    "devDependencies": {
+        "eslint": "^8.13.0"
+    }
 }

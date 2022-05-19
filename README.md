@@ -91,3 +91,7 @@
    A：请检查是否填写了**服务器地址**。
 
 ![Screenshot_20220316162534](https://s2.loli.net/2022/03/20/M6EUflobKXG8TpB.png)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=freysu/MyTranslator&type=Date)](https://star-history.com/#freysu/MyTranslator&Date)

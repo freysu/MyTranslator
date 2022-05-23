@@ -119,10 +119,22 @@
 									id="originDataInput" rows="1" placeholder="请在此输入你要降重的文本（不支持换行）"
 									title="偷偷祝你查重稳过！"></textarea>
 								<div style="margin: 1.5%;">
-									<p><span style="margin:5%">共计：<span id="zifu"> 0</span>字符</span>
-										<!-- <span class="text-muted"> </span> -->
-										<span style="margin:5%" title="显示的是你今日在本网站输入的字符">今日已输入<span id="spendZifu">
-												0</span>字符</span>
+									<p>
+										<span style="margin:5%">
+											共计
+											<span id="zifu">0</span>
+											字符
+										</span>
+										<span style="margin:5%" title="显示的是你今日在本网站输入的字符">
+											今日已输入
+											<span id="spendZifu">0</span>
+											字符
+										</span>
+										<span style="margin:5%" title="显示的是今天访问的人数">
+											今日
+											<span id="todayPersonCount">0</span>
+											访客数
+										</span>
 									</p>
 								</div>
 								<!-- <div class="btn-group btn-group-sm transMethods" data-toggle="buttons">
@@ -1828,13 +1840,112 @@
 	<script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" type="application/javascript">
 	</script>
 	<script type="text/javascript">
-		try{var clipboard=new ClipboardJS(".clipboard"),kehu_ip=returnCitySN.cip;const t=new Browser;"IE"==t.browser&&"PC"==t.device&&alert("当前平台系统安全升级，部分浏览器限制使用，推荐使用Chrome（谷歌）浏览器访问"),switchCDN()}catch(t){kehu_ip="未知";console.log(t)}function switchCDN(){var t=document.head;if("undefined"==typeof jQuery)alert("你当前的网络不允许这么操作！");else{if($((function(){var t=navigator.userAgent;t.indexOf("Mozilla/5.0")>-1&&t.indexOf("Android ")>-1&&t.indexOf("AppleWebKit")>-1&&-1===t.indexOf("Chrome")&&$("select.form-control").removeClass("form-control").css("width","100%")})),$("script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js']").length<=0){var s=$("<script>");$(s).attr("type","text/javascript"),$(s).attr("src","https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.min.js"),$(t).append(s)}if($("link[href='https://cdn.staticfile.org/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css']").length<=0){var r=$("<link>");$(r).attr("type","text/css"),$(r).attr("rel","stylesheet"),$(r).attr("href","https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"),$(t).append(r)}if($("script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js']").length<=0){s=$("<script>");$(s).attr("type","text/javascript"),$(s).attr("src","https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"),$(t).append(s)}if($("script[src='https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js']").length<=0){s=$("<script>");$(s).attr("type","text/javascript"),$(s).attr("src","https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js"),$(t).append(s)}if($("script[src='https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js']").length<=0){s=$("<script>");$(s).attr("type","text/javascript"),$(s).attr("src","https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.10/clipboard.min.js"),$(t).append(s)}if($("script[src='https://cdn.staticfile.org/crypto-js/4.1.1/crypto-js.min.js']").length<=0){s=$("<script>");$(s).attr("type","text/javascript"),$(s).attr("src","https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js"),$(t).append(s)}}}
+		try {
+			var clipboard = new ClipboardJS(".clipboard"),
+				kehu_ip = returnCitySN.cip;
+			const t = new Browser;
+			"IE" == t.browser && "PC" == t.device && alert("当前平台系统安全升级，部分浏览器限制使用，推荐使用Chrome（谷歌）浏览器访问"), switchCDN()
+		} catch (t) {
+			kehu_ip = "未知";
+		}
+
+		function switchCDN() {
+			var t = document.head;
+			if ("undefined" == typeof jQuery) alert("你当前的网络不允许这么操作！");
+			else {
+				if ($((function () {
+						var t = navigator.userAgent;
+						t.indexOf("Mozilla/5.0") > -1 && t.indexOf("Android ") > -1 && t.indexOf("AppleWebKit") > -
+							1 && -1 === t.indexOf("Chrome") && $("select.form-control").removeClass("form-control")
+							.css("width", "100%")
+					})), $("script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js']").length <=
+					0) {
+					var s = $("<script>");
+					$(s).attr("type", "text/javascript"), $(s).attr("src",
+							"https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.min.js"),
+						$(t).append(s)
+				}
+				if ($("link[href='https://cdn.staticfile.org/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css']").length <=
+					0) {
+					var r = $("<link>");
+					$(r).attr("type", "text/css"), $(r).attr("rel", "stylesheet"), $(r).attr("href",
+						"https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+					), $(t).append(r)
+				}
+				if ($("script[src='https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js']").length <=
+					0) {
+					s = $("<script>");
+					$(s).attr("type", "text/javascript"), $(s).attr("src",
+						"https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+					), $(t).append(s)
+				}
+				if ($("script[src='https://cdn.staticfile.org/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js']").length <=
+					0) {
+					s = $("<script>");
+					$(s).attr("type", "text/javascript"), $(s).attr("src",
+						"https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/8.19.0/sweetalert2.all.min.js"
+					), $(t).append(s)
+				}
+				if ($("script[src='https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js']").length <= 0) {
+					s = $("<script>");
+					$(s).attr("type", "text/javascript"), $(s).attr("src",
+							"https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.10/clipboard.min.js"), $(t)
+						.append(s)
+				}
+				if ($("script[src='https://cdn.staticfile.org/crypto-js/4.1.1/crypto-js.min.js']").length <= 0) {
+					s = $("<script>");
+					$(s).attr("type", "text/javascript"), $(s).attr("src",
+							"https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js"), $(t)
+						.append(s)
+				}
+			}
+		}
 	</script>
 	<script src="./assets/js/md5.js"></script>
 	<script src="./assets/js/key.js"></script>
 	<script src="./assets/js/script.js"></script>
 	<script>
-		window.tctipConfig={headText:"公告 & 打赏",siderText:"公告 & 打赏",siderTextTop:"-72px",siderBgcolor:"#323d45",siderTop:"118px",buttomText:"使用帮助",buttomLink:"https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",list:{notice:{name:"公告",className:"myR-on",icon:"./assets/img/tip.png",text:"\n\t\t\t\t\t\t&emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~</br>\n\t\t\t\t\t\t&emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~</br>\n\t\t\t\t\t\t<span style='margin-left:3.5rem;transform: scale(0.85);display: inline-block;'>FreySu</span></br>\n\t\t\t\t\t\t<span style='margin-left:2.5rem;transform: scale(0.85);display: inline-block;'>2022.03.24</span></br>\n\t\t\t\t\t\t<a href='https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0' class='btn btn-dark btn-sm' target='_blank' title='点击我自动跳转到QQ加群页面' style='margin-bottom:-1.5rem;margin-left:0.75rem;color: #fff;padding: 0.25rem 0.5rem;font-size:12px;'>QQ交流群</a> </br> "},qqgroup:{name:"QQ群",desc:"欢迎进群(238223706)反馈交流！",icon:"./assets/img/tree-round-QQ群.png",qrimg:"./assets/img/QQ群二维码.png"},wxgroup:{name:"微信群",desc:"欢迎扫码进群反馈交流！",icon:"./assets/img/tree-round-QQ群.png",qrimg:"./assets/img/微信群二维码.jpg"},alipay:{name:"支付宝",desc:"感谢你的支持，我会继续努力！",icon:"./assets/img/支付宝.png",qrimg:"./assets/img/支付宝收款码.png"},weixin:{name:"微信",desc:"感谢你的支持，我会继续努力！",icon:"./assets/img/微信.png",qrimg:"./assets/img/微信收款码.png"}}};
+		window.tctipConfig = {
+			headText: "公告 & 打赏",
+			siderText: "公告 & 打赏",
+			siderTextTop: "-72px",
+			siderBgcolor: "#323d45",
+			siderTop: "118px",
+			buttomText: "使用帮助",
+			buttomLink: "https://freysu.github.io/2022/02/28/论文翻译降重助手使用说明文档/",
+			list: {
+				notice: {
+					name: "公告",
+					className: "myR-on",
+					icon: "./assets/img/tip.png",
+					text: "\n\t\t\t\t\t\t&emsp;这个网站好用吗？好用的话，请给作者一点鼓励吧~</br>\n\t\t\t\t\t\t&emsp;维护不易，如果能请作者喝杯冰阔落，那最好不过啦~</br>\n\t\t\t\t\t\t<span style='margin-left:3.5rem;transform: scale(0.85);display: inline-block;'>FreySu</span></br>\n\t\t\t\t\t\t<span style='margin-left:2.5rem;transform: scale(0.85);display: inline-block;'>2022.03.24</span></br>\n\t\t\t\t\t\t<a href='https://qm.qq.com/cgi-bin/qm/qr?k=hlJz6QmW7t698xfszVwmFzfkRBepMqlU&authKey=P3EUwihrtIYUgaS/vmV5AuHFBNueeB3zc7Od6OzJaJBbLhE9yFJtpEznxwK8whVQ&noverify=0' class='btn btn-dark btn-sm' target='_blank' title='点击我自动跳转到QQ加群页面' style='margin-bottom:-1.5rem;margin-left:0.75rem;color: #fff;padding: 0.25rem 0.5rem;font-size:12px;'>QQ交流群</a> </br> "
+				},
+				qqgroup: {
+					name: "QQ群",
+					desc: "欢迎进群(238223706)反馈交流！",
+					icon: "./assets/img/tree-round-QQ群.png",
+					qrimg: "./assets/img/QQ群二维码.png"
+				},
+				wxgroup: {
+					name: "微信群",
+					desc: "欢迎扫码进群反馈交流！",
+					icon: "./assets/img/tree-round-QQ群.png",
+					qrimg: "./assets/img/微信群二维码.png"
+				},
+				alipay: {
+					name: "支付宝",
+					desc: "感谢你的支持，我会继续努力！",
+					icon: "./assets/img/支付宝.png",
+					qrimg: "./assets/img/支付宝收款码.png"
+				},
+				weixin: {
+					name: "微信",
+					desc: "感谢你的支持，我会继续努力！",
+					icon: "./assets/img/微信.png",
+					qrimg: "./assets/img/微信收款码.png"
+				}
+			}
+		};
 	</script>
 	<script src="./assets/js/tctip.min.js"></script>
 </body>

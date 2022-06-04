@@ -3,11 +3,12 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module',
+    ecmaVersion: 8
   },
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es6: true
   },
   extends: ['eslint:recommended'],
   // add your custom rules here
@@ -19,9 +20,9 @@ module.exports = {
         singleline: 10,
         multiline: {
           max: 1,
-          allowFirstLine: false,
-        },
-      },
+          allowFirstLine: false
+        }
+      }
     ],
     'vue/singleline-html-element-content-newline': 'off',
     'vue/multiline-html-element-content-newline': 'off',
@@ -32,30 +33,30 @@ module.exports = {
       2,
       {
         before: true,
-        after: true,
-      },
+        after: true
+      }
     ],
     'block-spacing': [2, 'always'],
     'brace-style': [
       2,
       '1tbs',
       {
-        allowSingleLine: true,
-      },
+        allowSingleLine: true
+      }
     ],
     camelcase: [
       0,
       {
-        properties: 'always',
-      },
+        properties: 'always'
+      }
     ],
     'comma-dangle': [2, 'never'],
     'comma-spacing': [
       2,
       {
         before: false,
-        after: true,
-      },
+        after: true
+      }
     ],
     'comma-style': [2, 'last'],
     'constructor-super': 2,
@@ -66,45 +67,45 @@ module.exports = {
       'error',
       'always',
       {
-        null: 'ignore',
-      },
+        null: 'ignore'
+      }
     ],
     'generator-star-spacing': [
       2,
       {
         before: true,
-        after: true,
-      },
+        after: true
+      }
     ],
     'handle-callback-err': [2, '^(err|error)$'],
     indent: [
       2,
       2,
       {
-        SwitchCase: 1,
-      },
+        SwitchCase: 1
+      }
     ],
     'jsx-quotes': [2, 'prefer-single'],
     'key-spacing': [
       2,
       {
         beforeColon: false,
-        afterColon: true,
-      },
+        afterColon: true
+      }
     ],
     'keyword-spacing': [
       2,
       {
         before: true,
-        after: true,
-      },
+        after: true
+      }
     ],
     'new-cap': [
       2,
       {
         newIsCap: true,
-        capIsNew: false,
-      },
+        capIsNew: false
+      }
     ],
     'no-alert': 0, // 禁止使用alert confirm prompt
     'new-parens': 2,
@@ -141,8 +142,8 @@ module.exports = {
       2,
       {
         allowLoop: false,
-        allowSwitch: false,
-      },
+        allowSwitch: false
+      }
     ], // 禁止标签声明
     'no-lone-blocks': 2, // 禁止不必要的嵌套块
     'no-mixed-spaces-and-tabs': 2, // 禁止混用tab和空格
@@ -151,8 +152,8 @@ module.exports = {
     'no-multiple-empty-lines': [
       2,
       {
-        max: 1,
-      },
+        max: 1
+      }
     ], // 空行最多不能超过2行
     'no-native-reassign': 2, // 不能重写native对象
     'no-negated-in-lhs': 2, // in 操作符的左边不能有!
@@ -184,8 +185,8 @@ module.exports = {
     'no-unneeded-ternary': [
       2,
       {
-        defaultAssignment: false,
-      },
+        defaultAssignment: false
+      }
     ], // 禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, // 不能有无法执行的代码
     'no-unsafe-finally': 2,
@@ -193,8 +194,8 @@ module.exports = {
       2,
       {
         vars: 'all',
-        args: 'none',
-      },
+        args: 'none'
+      }
     ], // 不能有声明后未被使用的变量或参数
     'no-useless-call': 2, // 禁止不必要的call和apply
     'no-useless-computed-key': 2,
@@ -205,8 +206,8 @@ module.exports = {
     'one-var': [
       2,
       {
-        initialized: 'never',
-      },
+        initialized: 'never'
+      }
     ], // 连续声明
     'operator-linebreak': [
       2,
@@ -214,9 +215,9 @@ module.exports = {
       {
         overrides: {
           '?': 'before',
-          ':': 'before',
-        },
-      },
+          ':': 'before'
+        }
+      }
     ], // 换行时运算符在行尾还是行首
     'padded-blocks': [2, 'never'], // 块语句内行首行尾是否要空行
     quotes: [
@@ -224,16 +225,16 @@ module.exports = {
       'single',
       {
         avoidEscape: true,
-        allowTemplateLiterals: true,
-      },
+        allowTemplateLiterals: true
+      }
     ], // 引号类型 `` "" ''
     semi: [2, 'never'], // 语句强制分号结尾
     'semi-spacing': [
       2,
       {
         before: false,
-        after: true,
-      },
+        after: true
+      }
     ], // 分号前后空格
     'space-before-blocks': [2, 'always'], // 不以新行开始的块{前面要不要有空格
     'space-before-function-paren': [2, 'never'], // 函数定义时括号前面要不要有空格
@@ -243,8 +244,8 @@ module.exports = {
       2,
       {
         words: true,
-        nonwords: false,
-      },
+        nonwords: false
+      }
     ], // 一元运算符的前/后要不要加空格
     'spaced-comment': [
       2,
@@ -257,9 +258,9 @@ module.exports = {
           'eslint-disable',
           '*package',
           '!',
-          ',',
-        ],
-      },
+          ','
+        ]
+      }
     ], // 注释风格要不要有空格什么的
     'template-curly-spacing': [2, 'never'],
     'use-isnan': 2, // 禁止比较时使用NaN，只能用isNaN()
@@ -273,9 +274,9 @@ module.exports = {
       2,
       'always',
       {
-        objectsInObjects: false,
-      },
+        objectsInObjects: false
+      }
     ], // 大括号内是否允许不必要的空格
-    'array-bracket-spacing': [2, 'never'],
-  },
+    'array-bracket-spacing': [2, 'never']
+  }
 }

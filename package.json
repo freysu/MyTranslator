@@ -21,5 +21,6 @@
     "homepage": "https://github.com/freysu/MyTranslator#readme",
     "devDependencies": {
         "eslint": "^8.13.0"
-    }
+    },
+    "dependencies": {}
 }

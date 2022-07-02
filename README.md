@@ -12,6 +12,14 @@
         </a>
     </div>
     <div>
+        <a href="https://wakatime.com/badge/user/0f30e30e-f3f5-49fc-98da-0aa8c0aa6042/project/3611ed70-deee-4cc6-8fe7-f1571273d7c9">
+            <img src="https://wakatime.com/badge/user/0f30e30e-f3f5-49fc-98da-0aa8c0aa6042/project/3611ed70-deee-4cc6-8fe7-f1571273d7c9.svg" alt="wakatime">
+        </a>
+        <a href="https://wakatime.com/badge/user/0f30e30e-f3f5-49fc-98da-0aa8c0aa6042/project/5ceefc95-cd19-44ec-ab76-7a661b93ac0b">
+            <img src="https://wakatime.com/badge/user/0f30e30e-f3f5-49fc-98da-0aa8c0aa6042/project/5ceefc95-cd19-44ec-ab76-7a661b93ac0b.svg" alt="wakatime">
+        </a>
+    </div>
+    <div>
         <a href="https://github.com/freysu/MyTranslator">
             <img title="GitHub forks" src="https://img.shields.io/github/forks/freysu/MyTranslator.svg?style=social" />
         </a>
